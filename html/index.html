@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style/bootstrap-5.3.2-dist/css/bootstrap.css">
+    <script src="../style/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="mb-3 border-bottom">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 border-bottom">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;"/></a>
+            </li>
+        </ul>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg bg-light" id="headerNav">
+            <div class="container-fluid">
+                <!-- Responsive icons -->
+                <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
+                    <img src="../img/Logo2Cafe.png" height="60"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Barra -->
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-plus"/></svg>Registrarme</a>
+                    </li>
+
+                    <ul class="navbar-nav mx-auto fuente3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" aria-current="page" href="#">Novedades</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Colecciones</a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block mx-2">
+                            <form class="container-fluid">
+                                <div class="input-group">
+                                  <span class="input-group-text bg-white border nav-link" id=""><svg class="bi " width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#search-heart"/></svg></span>
+                                  <input type="text" class="form-control border-start-0 ps-0 text-center w-75 fuente3" placeholder="Buscar" aria-label="Search">
+                                </div>
+                            </form>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Rebajas</a>
+                        </li>
+                        <li class="nav-item dropdown mx-2">
+                            <a class="nav-link " href="#">Nosotros</a>
+                        </li>
+                    </ul>
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#box-arrow-right"/></svg>Iniciar Sesión</a>
+                    </li>
+                    
+                </div>
+          
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Promocionales -->
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light d-none d-lg-block">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 fw-normal fuente1">Sakura's Bookstore</h1>
+          <p class="lead fw-normal">Algo que habla sobre la navidad y que por eso la tienda esta en promocion en varios articulos.</p>
+          <a class="btn btn-outline-secondary" href="#">Canjea Cupon</a>
+        </div>
+        <img src="../img/Cover1.png" class="product-device shadow-sm d-none d-lg-block" alt="">
+        <img src="../img/Cover2.png" class="product-device product-device-2 shadow-sm d-none d-lg-block" alt="">
+      </div>
+
+    <!-- Contenido -->
+    <div class="container-fluid pb-3">
+        <div class="d-grid gap-3" style="grid-template-columns: 0.5fr 2fr;">
+
+            <!-- SIDEBAR 1-->
+            <div class="border rounded-3">
+                <div class="flex-shrink-0 p-3 bg-white rounded-3" >
+
+                    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#funnel-fill"/></svg>
+                        <span class="fs-5 fw-semibold fuente3">Filtrar</span>
+                    </a>
+                    
+                    <ul class="list-unstyled ps-0">
+                        
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">Genero</button>
+                            <div class="collapse show" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Romance</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Misterio</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Terror</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Fantasía</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Criminología</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Acción</span>
+                                        </label>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <span class="form-check-label">Terror Psicologico</span>
+                                        </label>
+                                    </form>
+                                </li>
+                            </ul>
+                            </div>
+                        </li>
+                        
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#price-collapse" aria-expanded="true">Precio</button>
+                            <div class="collapse show" id="price-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                <div class="filter-content">
+                                    <div class="form-group w-50">
+                                      <label>Min</label>
+                                      <input type="number" class="form-control" id="" placeholder="$0">
+                                    </div>
+                                    <div class="form-group w-50">
+                                      <label>Max</label>
+                                      <input type="number" class="form-control" placeholder="$1,0000">
+                                    </div>
+                                </div>
+                            </ul>
+                            </div>
+                        </li>
+                        
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">Autor</button>
+                            <div class="collapse show" id="dashboard-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Suzanne Collins</span>
+                                        </label>
+                                </li>
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Becca Fitzpatrick</span>
+                                        </label>
+                                </li>
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label">Miguel de Cervantes</span>
+                                        </label>
+                                </li>
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label">Charles Dickens</span>
+                                        </label>
+                                </li>
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label">Agatha Chistie</span>
+                                        </label>
+                                </li>
+                                <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label">Jane Austen</span>
+                                        </label>
+                                </li>
+                            </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">Editorial</button>
+                            <div class="collapse" id="orders-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                <form>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Editorial Acantilado</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Editorial Aguilar</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Editorial Akal</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Editorial Edisal Escalón</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Pluton Editorial</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                            <span class="form-check-label ">Planeta de libros</span>
+                                        </label>
+                                    </li>
+                                </form>
+
+
+                            </ul>
+                            </div>
+                        </li>
+
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#years-collapse" aria-expanded="true">Año</button>
+                            <div class="collapse" id="years-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2018</span>
+                                            </label>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2019</span>
+                                            </label>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2020</span>
+                                            </label>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2021</span>
+                                            </label>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2022</span>
+                                            </label>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <span class="form-check-label">2023</span>
+                                            </label>
+                                        </form>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="border-top my-3"></li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">Cuenta</button>
+                            <div class="collapse" id="account-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4  small fuente3">
+                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Perfil</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Cupones</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Historial de compras</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Cerrar Sesión</a></li>
+                            </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SIDEBAR 2-->
+            <div class="rounded-3">
+
+                <div class="row border-bottom mb-2 ms-3 fuente3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="mr-md-auto">5 Items</span>
+                        <select class="form-select w-25" aria-label="Default select example">
+                            <option selected>Antiguos</option>
+                            <option value="1">Destacados</option>
+                            <option value="2">Mas vendidos</option>
+                            <option value="3">Mas baratos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4  g-5">
+
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card border-0 fuente3">
+                            <img src="../img/libro.jpg" alt="" class="rounded-top-md align-self-center" width="200px" height="290">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-around align-items-center mb-2">
+                                    <span class="badge bg-success">-30%</span>
+                                    <div>
+                                        <svg class="bi me-2 text-danger" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
+                                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                                    </div>
+                                    
+                                </div>
+                                <h6 class="mb-1 text-center">
+                                    <span class="text-decoration-line-through text-danger">$25.99</span>
+                                    <span class="fw-bold">$18.20</span>
+                                    <a href="../course-single.html" class="nav-link">
+                                        Los Juegos del Hambre
+                                    </a>
+                                </h6>
+                            </div>
+
+                            <!-- Card Footer -->
+                            <!-- <div class="card-footer">
+                                <div class="row align-items-center g-0">
+                                    <div class="col">
+                                        <h5 class="mb-0">$39.00</h5>
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <a href="#" class="text-inherit">
+                                            <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart"/></svg>Get Enrolled
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="lh-1 mt-3">
+                                    <span>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+
+                                    </span>
+                                    <span class="text-warning">4.5</span>
+                                    <span class="fs-6 text-muted">(9,300)</span>
+                                </div>
+
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card border-0 fuente3">
+                            <img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="200px" height="290">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-around align-items-center mb-2">
+                                    <span class="badge bg-success"></span>
+                                    <div>
+                                        <svg class="bi me-2 text-danger" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart-fill"/></svg>
+                                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                                    </div>
+                                    
+                                </div>
+                                <h6 class="mb-1 text-center">
+                                    <span class="text-decoration-line-through text-danger"></span>
+                                    <span class="fw-bold">$21.00</span>
+                                    <a href="../course-single.html" class="nav-link">
+                                        Hush Hush
+                                    </a>
+                                </h6>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card border-0 fuente3">
+                            <img src="../img/libro.jpg" alt="" class="rounded-top-md align-self-center" width="200px" height="290">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-around align-items-center mb-2">
+                                    <span class="badge bg-success">-90%</span>
+                                    <div>
+                                        <svg class="bi me-2 text-danger" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart-fill"/></svg>
+                                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                                    </div>
+                                    
+                                </div>
+                                <h6 class="mb-1 text-center">
+                                    <span class="text-decoration-line-through text-danger">$100.00</span>
+                                    <span class="fw-bold">$10.00</span>
+                                    <a href="../course-single.html" class="nav-link">
+                                        Otro libro
+                                    </a>
+                                </h6>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card border-0 fuente3">
+                            <img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="200px" height="290">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-around align-items-center mb-2">
+                                    <span class="badge bg-success"></span>
+                                    <div>
+                                        <svg class="bi me-2 text-danger" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
+                                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                                    </div>
+                                    
+                                </div>
+                                <h6 class="mb-1 text-center">
+                                    <span class="text-decoration-line-through text-danger"></span>
+                                    <span class="fw-bold">$18.20</span>
+                                    <a href="../course-single.html" class="nav-link">
+                                        Hush Hush
+                                    </a>
+                                </h6>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card border-0 fuente3">
+                            <img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="200px" height="290">
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-around align-items-center mb-2">
+                                    <span class="badge bg-success"></span>
+                                    <div>
+                                        <svg class="bi me-2 text-danger" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
+                                        <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                                    </div>
+                                    
+                                </div>
+                                <h6 class="mb-1 text-center">
+                                    <span class="text-decoration-line-through text-danger"></span>
+                                    <span class="fw-bold">$21.00</span>
+                                    <a href="../course-single.html" class="nav-link">
+                                        Hush Hush
+                                    </a>
+                                </h6>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">&copy; 2023 Sakura's Bookstore</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="../img/Logo2.png" alt="">
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Nosotros</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Boostrap</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Repositorio</a></li>
+          </ul>
+        </footer>
+      </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+@font-face {
+    font-family: fuente1;
+    src: url("../fuentes/TAN-PEARL.ttf");
+}
+
+@font-face {
+    font-family: fuente2;
+    src: url("../fuentes/howells.ttf");
+}
+
+@font-face {
+    font-family: fuente3;
+    src: url("../fuentes/glacial-indifference.ttf");
+}
+
+.fuente1
+{
+    font-family: fuente1;
+}
+
+.fuente2
+{
+    font-family: fuente2;
+    font-weight: lighter;
+    letter-spacing: 5px;
+}
+
+.fuente3
+{
+    font-family: fuente3;
+    letter-spacing: 2px;
+}
+
+
+  .btn-toggle::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+  }
+
+
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+  /*   border-radius: 21px; */
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+  /*   border-radius: 5px; */
+  }
+  
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+  
