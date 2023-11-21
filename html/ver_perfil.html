@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Perfil</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="text-center fuente3">Perfil de Usuario</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" value="nombre_base">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                            <input type="text" class="form-control" id="apellido" value="apellido_base">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edad" class="form-label">Edad:</label>
+                            <input type="text" class="form-control" id="edad" value="100">
+                        </div>
+                        <div class="mb-3">
+                            <label for="genero" class="form-label">Género:</label>
+                            <select class="form-select" id="genero">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Fotografía:</label>
+                            <img src="foto.jpg" class="img-fluid" alt="Foto de perfil">
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo:</label>
+                            <input type="email" class="form-control" id="correo" value="usuario@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrasenia" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="contrasenia" value="1234">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pais" class="form-label">País:</label>
+                            <input type="text" class="form-control" id="pais" value="pais_base">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
