@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VER PERFIL</title>
+    <title>PERFIL DE USUARIO</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
-<body>
+<body class="bg-secondary">
 
-    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg mb-4 col-md-6 mx-auto" method="post">
+    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg mb-3 col-md-6 mx-auto mt-2" method="post">
 
-        <h1 class="fuente3 text-center">Perfil del Usuario</h1>
+        <h1 class="fuente3 text-center text-primary">Perfil del Usuario</h1>
 
         <div class="mb-3">
-            <label for="foto" class="form-label fuente3">Fotografía:</label>
+            <label for="foto" class="form-label fuente3 text-danger">Fotografía:</label>
             <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
         </div>
 
         <div class="mb-3">
-            <label for="nombre" class="form-label fuente3">Nombre completo:</label>
+            <label for="nombre" class="form-label fuente3 text-danger">Nombre completo:</label>
             <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
         </div>
 
         <div class="mb-3">
-            <label for="edad" class="form-label fuente3">Edad:</label>
+            <label for="edad" class="form-label fuente3 text-danger">Edad:</label>
             <input type="text" class="form-control fuente3" id="edad" value="100">
         </div>
 
         <div class="mb-3">
-            <label for="genero" class="form-label fuente3">Género:</label>
+            <label for="genero" class="form-label fuente3 text-danger">Género:</label>
             <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
         </div>
 
         <div class="mb-3">
-            <label for="correo" class="form-label fuente3">Correo electronico:</label>
+            <label for="correo" class="form-label fuente3 text-danger">Correo electronico:</label>
             <div class="input-group">
                 <span class="input-group-text" id="inputGroupPrepend2">@</span>
                 <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="contrasenia" class="form-label fuente3">Contraseña:</label>
+            <label for="contrasenia" class="form-label fuente3 text-danger">Contraseña:</label>
             <div class="input-group">
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
                 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -53,11 +53,11 @@
         </div>
 
         <div class="mb-3">
-            <label for="pais" class="form-label fuente3">País:</label>
+            <label for="pais" class="form-label fuente3 text-danger">País:</label>
             <input type="text" class="form-control fuente3" id="pais" value="pais_base">
         </div>
 
-        <div class="text-center mb-3">
+        <div class="text-center mb-1">
             <button type="button" id="btn_modificar" class="btn btn-outline-dark fuente3" onclick="mostrarAlerta()">Modificar</button>
             <button type="button" class="btn btn-outline-dark fuente3" href="#">Volver</button>
         </div>
