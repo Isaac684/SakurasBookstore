@@ -78,10 +78,6 @@
   background-color: #599A9D;
 }
 
-.dropend>button:focus~.dropdown-menu {
-  display:block;
-}
-
 .round-black-btn {
   
 	  border-radius: 25px;
@@ -274,6 +270,25 @@ a.list-group-item, .list-group-item-action {
   padding-right: 0;
 }
 
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+.show {display:block;} 
 
 
 

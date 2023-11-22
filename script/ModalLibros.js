@@ -52,3 +52,20 @@ function mostrarInformacionLibro(event) {
         `,
     });
 }
+
+function mostrarAlertaInicioSesion(event) {
+    event.preventDefault();
+
+    Swal.fire({
+        icon: "error",
+        iconColor: "#ED5584",
+        title: "Oops...",
+        footer: '<p class="">¿No tienes cuenta? <a href="../html/registro.html">Registrate aqui. </a></p>',
+        html: 
+        `
+        <p class="text-center">Inicia sesión para tener acceso a todas las opciones.</p>
+        `
+      });
+
+}
+

@@ -6,7 +6,7 @@
     <title>Sakura's Bookstore</title>
     <link rel="icon" href="../img/Logo1.svg">
     <!-- Enlaces diseño-->
-    <script src="../script/loadContenNoLogin.js" defer></script>
+    <script src="../script/loadContenLogin.js" defer></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../script/ModoOscuro.js"></script>
@@ -40,8 +40,9 @@
 
                     <p class="d-flex align-items-center pb-3 mb-3 border-bottom">
                         <svg class="bi me-2" width="30" height="24" fill="CurrentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#funnel-fill"/></svg>
-                        <span class="fs-5 fw-semibold fuente3">Filtrar</span>
+                        <span class="fs-5 fw-semibold fuente3">Filtros</span>
                     </p>
+                    <button class="btn btn-danger">Filtrar</button>
                     
                     <ul class="list-unstyled ps-0">
                         
@@ -294,11 +295,11 @@
                             </button>
                             <div class="collapse" id="account-collapse">
                             <ul class="list-unstyled fw-normal pb-1 px-4  small fuente3">
-                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Perfil</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Lista de deseos</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
+                                <li><a href="../html/ver_perfil.html" class="link-underline-opacity-0 nav-link rounded">Perfil</a></li>
+                                <li><a href="" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
+                                <li><a href="../html/historial_compras.html" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
+                                <li><a href="../html/ListaDeseos.html" class="link-underline-opacity-0 nav-link rounded">Lista de deseos</a></li>
+                                <li><a href="../html/index.html" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
                             </ul>
                             </div>
                         </li>
@@ -308,7 +309,7 @@
             </div>
 
             <!-- SIDEBAR 2-->
-            <div class="rounded-3">
+            <div class="rounded-3" id="Comprar">
 
                 <div class="row border-bottom mb-2 ms-3 fuente3">
                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -372,35 +373,6 @@
                                     </a>
                                 </h6>
                             </div>
-
-                            <!-- Card Footer -->
-                            <!-- <div class="card-footer">
-                                <div class="row align-items-center g-0">
-                                    <div class="col">
-                                        <h5 class="mb-0">$39.00</h5>
-                                    </div>
-                                    
-                                    <div class="col-auto">
-                                        <a href="#" class="text-inherit">
-                                            <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart"/></svg>Get Enrolled
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="lh-1 mt-3">
-                                    <span>
-                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
-                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
-                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
-                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
-                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
-
-                                    </span>
-                                    <span class="text-warning">4.5</span>
-                                    <span class="fs-6 text-muted">(9,300)</span>
-                                </div>
-
-                            </div> -->
 
                         </div>
                     </div>
@@ -520,3 +492,33 @@
     <div id="footer-container"></div>
 </body>
 </html>
+
+
+                            <!-- Card Footer -->
+                            <!-- <div class="card-footer">
+                                <div class="row align-items-center g-0">
+                                    <div class="col">
+                                        <h5 class="mb-0">$39.00</h5>
+                                    </div>
+                                    
+                                    <div class="col-auto">
+                                        <a href="#" class="text-inherit">
+                                            <svg class="bi me-2" width="30" height="24"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart"/></svg>Get Enrolled
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="lh-1 mt-3">
+                                    <span>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+                                        <svg class="bi text-warning" width="30" height="24" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#star-fill"/></svg>
+
+                                    </span>
+                                    <span class="text-warning">4.5</span>
+                                    <span class="fs-6 text-muted">(9,300)</span>
+                                </div>
+
+                            </div> -->
