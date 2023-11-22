@@ -16,7 +16,14 @@ const temaOscuro = () =>
     if(document.getElementById("headerColor").classList.contains('bg-warning'))
     {
         document.getElementById("headerColor").classList.remove('bg-warning');
-        document.getElementById("headerColor").classList.toggle('bg-primary');
+        document.getElementById("headerColor").classList.toggle('bg-info');
+    }
+
+    /* Buscador */
+    if(document.getElementById("buscador").classList.contains('bg-white'))
+    {
+        document.getElementById("buscador").classList.remove('bg-white');
+        document.getElementById("buscador").classList.toggle('bg-dark');
     }
 
     /* Footer */
@@ -41,20 +48,27 @@ const temaClaro = () =>
     }
 
     /* Logo de header */
-     document.querySelector("#logoHeader").setAttribute("src", "../img/LogoCafe.svg");
+    document.querySelector("#logoHeader").setAttribute("src", "../img/LogoCafe.svg");
 
      /* Header */
-     if(document.getElementById("headerColor").classList.contains('bg-dark'))
+     if(document.getElementById("headerColor").classList.contains('bg-info'))
      {
-         document.getElementById("headerColor").classList.remove('bg-dark');
-         document.getElementById("headerColor").classList.toggle('bg-primary');
+         document.getElementById("headerColor").classList.remove('bg-info');
+         document.getElementById("headerColor").classList.toggle('bg-warning');
      }
 
-    /* Footer */
-    if(document.getElementById("footerColor").classList.contains('bg-dark'))
+    /* Buscador */
+    if(document.getElementById("buscador").classList.contains('bg-dark'))
     {
-        document.getElementById("footerColor").classList.remove('bg-dark');
-        document.getElementById("footerColor").classList.toggle('bg-primary');
+        document.getElementById("buscador").classList.remove('bg-dark');
+        document.getElementById("buscador").classList.toggle('bg-white');
+    }
+
+    /* Footer */
+    if(document.getElementById("footerColor").classList.contains('bg-primary'))
+    {
+        document.getElementById("footerColor").classList.remove('bg-primary');
+        document.getElementById("footerColor").classList.toggle('bg-warning');
     }
 
     document.querySelector("#dl-icon").setAttribute("xlink:href", "../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill");
