@@ -3,10 +3,13 @@ const temaOscuro = () =>
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
 
     /* Imagen de promocion por navidad */
-    if(document.getElementById("imagen").classList.contains('imagenContenida'))
+    if(document.getElementById("imagen")!==null)
     {
-        document.getElementById("imagen").classList.remove('imagenContenida');
-        document.getElementById("imagen").classList.toggle('imagenContenida2');
+        if(document.getElementById("imagen").classList.contains('imagenContenida'))
+        {
+            document.getElementById("imagen").classList.remove('imagenContenida');
+            document.getElementById("imagen").classList.toggle('imagenContenida2');
+        }
     }
 
     /* Logos de header */
@@ -21,10 +24,13 @@ const temaOscuro = () =>
     }
 
     /* Buscador */
-    if(document.getElementById("buscador").classList.contains('bg-white'))
+    if(document.getElementById("buscador")!==null)
     {
-        document.getElementById("buscador").classList.remove('bg-white');
-        document.getElementById("buscador").classList.toggle('bg-dark');
+        if(document.getElementById("buscador").classList.contains('bg-white'))
+        {
+            document.getElementById("buscador").classList.remove('bg-white');
+            document.getElementById("buscador").classList.toggle('bg-dark');
+        }
     }
 
     /* Footer */
@@ -42,10 +48,13 @@ const temaClaro = () =>
     document.querySelector("body").setAttribute("data-bs-theme", "light");
 
     /* Imagen de promocion por navidad */
-    if (document.getElementById("imagen").classList.contains('imagenContenida2'))
+    if(document.getElementById("imagen")!==null)
     {
-        document.getElementById("imagen").classList.remove('imagenContenida2');
-        document.getElementById("imagen").classList.toggle('imagenContenida');
+        if (document.getElementById("imagen").classList.contains('imagenContenida2'))
+        {
+            document.getElementById("imagen").classList.remove('imagenContenida2');
+            document.getElementById("imagen").classList.toggle('imagenContenida');
+        }
     }
 
     /* Logo de header */
@@ -60,10 +69,13 @@ const temaClaro = () =>
      }
 
     /* Buscador */
-    if(document.getElementById("buscador").classList.contains('bg-dark'))
+    if(document.getElementById("buscador")!==null)
     {
-        document.getElementById("buscador").classList.remove('bg-dark');
-        document.getElementById("buscador").classList.toggle('bg-white');
+        if(document.getElementById("buscador").classList.contains('bg-dark'))
+        {
+            document.getElementById("buscador").classList.remove('bg-dark');
+            document.getElementById("buscador").classList.toggle('bg-white');
+        }
     }
 
     /* Footer */
