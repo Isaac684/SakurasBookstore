@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <!-- Responsive icons -->
                 <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
-                    <img src="../img/Logo2Cafe.png" height="60"/>
+                    <img src="../img/Logo2Cafe.png" height="60" id="logoHeaderResponsive"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -97,9 +97,11 @@
                     <ul class="list-unstyled ps-0">
                         
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">Genero</button>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Genero
+                            </button>
                             <div class="collapse show" id="home-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
                                 <li>
                                     <form>
                                         <label class="form-check">
@@ -161,9 +163,11 @@
                         </li>
                         
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#price-collapse" aria-expanded="true">Precio</button>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#price-collapse" aria-expanded="true">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Precio
+                            </button>
                             <div class="collapse show" id="price-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                            <ul class="list-unstyled fw-normal pb-1 px-4 small fuente3">
                                 <div class="filter-content">
                                     <div class="form-group w-50">
                                       <label>Min</label>
@@ -179,9 +183,11 @@
                         </li>
                         
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">Autor</button>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Autor
+                            </button>
                             <div class="collapse show" id="dashboard-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
                                 <li>
                                         <label class="form-check">
                                             <input class="form-check-input" type="radio" name="exampleRadio" value="">
@@ -223,9 +229,11 @@
                         </li>
 
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">Editorial</button>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Editorial
+                            </button>
                             <div class="collapse" id="orders-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
                                 <form>
                                     <li>
                                         <label class="form-check">
@@ -271,9 +279,11 @@
                         </li>
 
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#years-collapse" aria-expanded="true">Año</button>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#years-collapse" aria-expanded="true">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Año
+                            </button>
                             <div class="collapse" id="years-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
                                     <li>
                                         <form>
                                             <label class="form-check">
@@ -330,13 +340,15 @@
 
                         <li class="border-top my-3"></li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">Cuenta</button>
-                            <div class="collapse" id="account-collapse">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 px-4  small fuente3">
-                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Perfil</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Cupones</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Historial de compras</a></li>
-                                <li><a href="#" class="link-underline-opacity-0 link-dark rounded">Cerrar Sesión</a></li>
+                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Cuenta
+                            </button>
+                            <div class="collapse show" id="account-collapse">
+                            <ul class="list-unstyled fw-normal pb-1 px-4  small fuente3">
+                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Perfil</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
+                                <li><a href="#" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
                             </ul>
                             </div>
                         </li>

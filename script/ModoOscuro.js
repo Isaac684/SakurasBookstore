@@ -9,8 +9,9 @@ const temaOscuro = () =>
         document.getElementById("imagen").classList.toggle('imagenContenida2');
     }
 
-     /* Logo de header */
+    /* Logos de header */
     document.querySelector("#logoHeader").setAttribute("src", "../img/LogoBlanco.svg");
+    document.querySelector("#logoHeaderResponsive").setAttribute("src", "../img/Logo2Blanco.png");
 
     /*Header */
     if(document.getElementById("headerColor").classList.contains('bg-warning'))
@@ -49,6 +50,7 @@ const temaClaro = () =>
 
     /* Logo de header */
     document.querySelector("#logoHeader").setAttribute("src", "../img/LogoCafe.svg");
+    document.querySelector("#logoHeaderResponsive").setAttribute("src", "../img/Logo2Cafe.png");
 
      /* Header */
      if(document.getElementById("headerColor").classList.contains('bg-info'))
@@ -79,3 +81,4 @@ const cambiarTema = () =>
     document.querySelector("body").getAttribute("data-bs-theme")=== "light"?
     temaOscuro() : temaClaro();
 }
+
