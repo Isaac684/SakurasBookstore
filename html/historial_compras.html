@@ -5,34 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Compras - Sakura's Bookstore</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
-    <div class="container mt-5 fuente3">
+    <div class="container mt-5 fuente3 rounded shadow-lg">
+
         <h1>Historial de Compras</h1>
+
         <table class="table table-responsive align-middle">
+
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Total</th>
                 </tr>
             </thead>
+
             <tbody>
                 <tr>
                     <td>2023-01-01</td>
-                    <td>Libro 1</td>
-                    <td>$15.00</td>
+                    <td>123</td>
+                    <td>10</td>
+                    <td>$20.00</td>
+                    <td>$200.000</td>
                 </tr>
                 <tr>
-                    <td>2023-02-01</td>
-                    <td>Libro 2</td>
-                    <td>$20.00</td>
+                    <td>2023-01-01</td>
+                    <td>456</td>
+                    <td>10</td>
+                    <td>$10.00</td>
+                    <td>$100.000</td>
                 </tr>
             </tbody>
+
         </table>
+
     </div>
 
 </body>
