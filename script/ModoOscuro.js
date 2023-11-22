@@ -30,7 +30,7 @@ const temaOscuro = () =>
     if(document.getElementById("footerColor").classList.contains('bg-warning'))
     {
         document.getElementById("footerColor").classList.remove('bg-warning');
-        document.getElementById("footerColor").classList.toggle('bg-primary');
+        document.getElementById("footerColor").classList.toggle('bg-info');
     }
     
     document.querySelector("#dl-icon").setAttribute("xlink:href", "../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#brightness-high-fill");
@@ -65,9 +65,9 @@ const temaClaro = () =>
     }
 
     /* Footer */
-    if(document.getElementById("footerColor").classList.contains('bg-primary'))
+    if(document.getElementById("footerColor").classList.contains('bg-info'))
     {
-        document.getElementById("footerColor").classList.remove('bg-primary');
+        document.getElementById("footerColor").classList.remove('bg-info');
         document.getElementById("footerColor").classList.toggle('bg-warning');
     }
 
