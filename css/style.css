@@ -43,6 +43,19 @@
 }
 
 
+.imagenContenida{
+  background-image: url("../img/fondo.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.imagenContenida2{
+  background-image: url("../img/fondo2.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+
 .product-device {
   position: absolute;
   right: 10%;
