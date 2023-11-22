@@ -6,74 +6,74 @@
     <title>VER PERFIL</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
+    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg mb-4 col-md-6 mx-auto" method="post">
 
-                    <div class="card-header bg-primary text-white">
-                        <h2 class="text-center text-white fuente3">Perfil de Usuario</h2>
-                    </div>
+        <h1 class="fuente3 text-center">Perfil del Usuario</h1>
 
-                    <div class="card-body">
+        <div class="mb-3">
+            <label for="foto" class="form-label fuente3">Fotografía:</label>
+            <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
+        </div>
 
-                        <div class="mb-3">
-                            <label for="foto" class="form-label fuente3">Fotografía:</label>
-                            <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
-                        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label fuente3">Nombre completo:</label>
+            <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
+        </div>
 
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label fuente3">Nombre completo:</label>
-                            <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
-                        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label fuente3">Edad:</label>
+            <input type="text" class="form-control fuente3" id="edad" value="100">
+        </div>
 
-                        <div class="mb-3">
-                            <label for="edad" class="form-label fuente3">Edad:</label>
-                            <input type="text" class="form-control fuente3" id="edad" value="100">
-                        </div>
+        <div class="mb-3">
+            <label for="genero" class="form-label fuente3">Género:</label>
+            <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
+        </div>
 
-                        <div class="mb-3">
-                            <label for="genero" class="form-label fuente3">Género:</label>
-                            <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="correo" class="form-label fuente3">Correo electronico:</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="contrasenia" class="form-label fuente3">Contraseña:</label>
-                            <div class="input-group">
-                                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-                                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                                <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                                <input data-toggle="password" class="form-control" type="password" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="pais" class="form-label fuente3">País:</label>
-                            <input type="text" class="form-control fuente3" id="pais" value="pais_base">
-                        </div>
-
-                    </div>
-
-                    <div class="mx-auto mb-3">
-                        <button class="btn btn-outline-dark fuente3" href="#">Modificar</button>
-                        <button class="btn btn-outline-dark fuente3" href="#">Volver</button>
-                    </div>
-
-                </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label fuente3">Correo electronico:</label>
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2">
             </div>
         </div>
-    </div>
+
+        <div class="mb-3">
+            <label for="contrasenia" class="form-label fuente3">Contraseña:</label>
+            <div class="input-group">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+                <input data-toggle="password" class="form-control" type="password">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="pais" class="form-label fuente3">País:</label>
+            <input type="text" class="form-control fuente3" id="pais" value="pais_base">
+        </div>
+
+        <div class="text-center mb-3">
+            <button type="button" id="btn_modificar" class="btn btn-outline-dark fuente3" onclick="mostrarAlerta()">Modificar</button>
+            <button type="button" class="btn btn-outline-dark fuente3" href="#">Volver</button>
+        </div>
+
+    </form>
+
+    <script>
+         function mostrarAlerta() {
+            Swal.fire({
+                title: '¡Título de la alerta!',
+                text: 'Have a nice day!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    </script>
     
 </body>
 </html>
