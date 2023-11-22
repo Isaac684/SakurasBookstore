@@ -77,6 +77,16 @@
   background-color: #e5e5e5;
 }
 
+.bg-nuevo
+{
+  background-color: #599A9D;
+}
+
+.dropend>button:focus~.dropdown-menu {
+  display:block;
+}
+
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors

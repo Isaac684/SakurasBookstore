@@ -17,7 +17,7 @@ const temaOscuro = () =>
     if(document.getElementById("headerColor").classList.contains('bg-warning'))
     {
         document.getElementById("headerColor").classList.remove('bg-warning');
-        document.getElementById("headerColor").classList.toggle('bg-info');
+        document.getElementById("headerColor").classList.toggle('bg-nuevo');
     }
 
     /* Buscador */
@@ -31,7 +31,7 @@ const temaOscuro = () =>
     if(document.getElementById("footerColor").classList.contains('bg-warning'))
     {
         document.getElementById("footerColor").classList.remove('bg-warning');
-        document.getElementById("footerColor").classList.toggle('bg-info');
+        document.getElementById("footerColor").classList.toggle('bg-nuevo');
     }
     
     document.querySelector("#dl-icon").setAttribute("xlink:href", "../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#brightness-high-fill");
@@ -53,9 +53,9 @@ const temaClaro = () =>
     document.querySelector("#logoHeaderResponsive").setAttribute("src", "../img/Logo2Cafe.png");
 
      /* Header */
-     if(document.getElementById("headerColor").classList.contains('bg-info'))
+     if(document.getElementById("headerColor").classList.contains('bg-nuevo'))
      {
-         document.getElementById("headerColor").classList.remove('bg-info');
+         document.getElementById("headerColor").classList.remove('bg-nuevo');
          document.getElementById("headerColor").classList.toggle('bg-warning');
      }
 
@@ -67,9 +67,9 @@ const temaClaro = () =>
     }
 
     /* Footer */
-    if(document.getElementById("footerColor").classList.contains('bg-info'))
+    if(document.getElementById("footerColor").classList.contains('bg-nuevo'))
     {
-        document.getElementById("footerColor").classList.remove('bg-info');
+        document.getElementById("footerColor").classList.remove('bg-nuevo');
         document.getElementById("footerColor").classList.toggle('bg-warning');
     }
 
@@ -80,5 +80,10 @@ const cambiarTema = () =>
 {
     document.querySelector("body").getAttribute("data-bs-theme")=== "light"?
     temaOscuro() : temaClaro();
+}
+
+const modalModoOscuro = () => 
+{
+
 }
 

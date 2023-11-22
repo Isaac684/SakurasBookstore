@@ -8,8 +8,11 @@
     <!-- Enlaces diseño-->
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../script/ModoOscuro.js"></script>
+
+    
 </head>
-<body data-bs-theme="light">
+<body>
 
     <!-- Header -->
     <header class="mb-3 border-bottom">
@@ -64,6 +67,10 @@
                     <li class="navbar-nav">
                         <a class="nav-link fuente3" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#box-arrow-right"/></svg>Iniciar Sesión</a>
                     </li>
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg onclick="modalModoOscuro()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
+                    </li>
                     
                 </div>
           
@@ -78,7 +85,7 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
           <h1 class="display-4 fw-normal fuente1">Sakura's Bookstore</h1>
           <p class="lead fw-normal">En esta navidad regala sabiduria, muchos libros con descuentos fabulosos. ¿Y tú? ¿Ya tienes el regalo de navidad perfecto?.</p>
-          <a class="btn btn-light" href="#">Canjea Cupon</a>
+          <a class="btn btn-danger" href="#">Canjear Cupon</a>
         </div>
         <img src="../img/Cover1.png" class="product-device shadow-sm d-none d-lg-block" alt="">
         <img src="../img/Cover2.png" class="product-device product-device-2 shadow-sm d-none d-lg-block" alt="">
@@ -174,11 +181,11 @@
                                 <div class="filter-content">
                                     <div class="form-group w-50">
                                       <label>Min</label>
-                                      <input type="number" class="form-control" id="" placeholder="$0">
+                                      <input type="number" class="form-control" id="" placeholder="$0" pattern="^[0-9]+" min="0">
                                     </div>
                                     <div class="form-group w-50">
                                       <label>Max</label>
-                                      <input type="number" class="form-control" placeholder="$1,0000">
+                                      <input type="number" class="form-control" placeholder="$1,0000" pattern="^[0-9]+" min="0">
                                     </div>
                                 </div>
                             </ul>
