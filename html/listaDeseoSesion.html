@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de deseos - Sakura's Bookstore</title>
+    <title>Sakura's Bookstore</title>
     <link rel="icon" href="../img/Logo1.svg">
     <!-- Enlaces diseño-->
+    <script src="../script/loadContenLogin.js" defer></script>
+    <script src="../script/ModoOscuro.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../script/ModoOscuro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../script/obtener_lista_deseos.js" defer></script>
 </head>
 <body data-bs-theme="light">
 
@@ -39,32 +40,32 @@
                 <!-- Barra -->
                 <div class=" collapse navbar-collapse" id="navbarNavDropdown">
 
-                    <div class="dropend navbar-nav">
-                        <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown" style="color: var(--bs-navbar-color)">
+                        <button onclick="myFunction()" class="dropbtn btn dropdown-toggle nav-link">
                             <svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-lines-fill"/></svg>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start">
-                          <a class="dropdown-item" href="#">Perfil</a>
-                          <a class="dropdown-item" href="#">Cupones</a>
-                          <a class="dropdown-item" href="#">Historial de compras</a>
-                          <a class="dropdown-item" href="#">Lista de deseos</a>
-                          <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        <div id="myDropdown" class="dropdown-content bg-light">
+                            <a class="text-dark" href="../html/ver_perfil.html">Perfil</a>
+                            <a class="text-dark" href="#">Cupones</a>
+                            <a class="text-dark" href="../html/historial_compras.html">Historial de compras</a>
+                            <a class="text-dark" href="../html/listaDeseoSesion.html">Lista de deseos</a>
+                            <a class="text-dark" href="../html/index.html">Cerrar Sesión</a>
                         </div>
-                    </div>
+                      </div> 
 
                     <ul class="navbar-nav mx-auto fuente3">
                         <li class="nav-item mx-2">
-                            <a class="nav-link" aria-current="page" href="#">Novedades</a>
+                            <a class="nav-link" aria-current="page" href="../html/indexSession.html">Productos</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">Colecciones</a>
+                            <a class="nav-link" href="#">Populares</a>
                         </li>
 
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">Rebajas</a>
+                            <a class="nav-link" href="#">Cupones</a>
                         </li>
                         <li class="nav-item dropdown mx-2">
-                            <a class="nav-link " href="#">Nosotros</a>
+                            <a class="nav-link " href="../html/Nosotros.html">Nosotros</a>
                         </li>
                     </ul>
 
@@ -125,10 +126,10 @@
                     </div>
                 </aside>
                 <nav class="list-group">
-                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#house-door"/></svg>Inicio</a>
+                <a class="list-group-item" href="../html/indexSession.html"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#house-door"/></svg>Inicio</a>
                 <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#tags"/></svg>Cupones</a>
-                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#clock-history"/></svg>Historial de compras</a>
-                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-gear"/></svg>Perfil</a>
+                <a class="list-group-item" href="../html/historial_compras.html"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#clock-history"/></svg>Historial de compras</a>
+                <a class="list-group-item" href="../html/ver_perfil.html"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-gear"/></svg>Perfil</a>
 
                 </nav>
 
@@ -139,25 +140,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-warning" id="footerColor">
-        <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
-                <p class="col-md-4 mb-0 text-muted">&copy; 2023 Sakura's Bookstore</p>
-            
-                <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                  <img src="../img/Logo2.png" alt="">
-                </a>
-            
-                <ul class="nav col-md-4 justify-content-end">
-                  <li class="nav-item"><a href="#Inicio" class="nav-link px-2 text-muted">Inicio</a></li>
-                  <li class="nav-item"><a href="./nosotros.html" class="nav-link px-2 text-muted">Nosotros</a></li>
-                  <li class="nav-item"><a href="https://getbootstrap.com/" class="nav-link px-2 text-muted">Boostrap</a></li>
-                  <li class="nav-item"><a href="./PreguntasFrecuentes" class="nav-link px-2 text-muted">FAQs</a></li>
-                  <li class="nav-item"><a href="https://github.com/Isaac684/SakurasBookstore.git" class="nav-link px-2 text-muted">Repositorio</a></li>
-                </ul>
-              </footer>
-        </div>
-      </div>
+    <div id="footer-container"></div>
 
 </body>
 </html>
