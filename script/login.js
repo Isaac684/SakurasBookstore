@@ -49,12 +49,32 @@ btn.addEventListener('click', async function (e) {
                 // Almacena los detalles del usuario en localStorage
                 localStorage.setItem('userInfo', JSON.stringify(usuarioEncontrado));
 
-                window.location.href = "../html/indexSession.html";
+                //window.location.href = "../html/indexSession.html";
+                 // Alerta Sweet para inicio de sesión exitoso
+                 Swal.fire({
+                    icon: 'success',
+                    title: 'Inicio de sesión exitoso',
+                    text: 'Bienvenido!',
+                }).then(() => {
+                    window.location.href = "../html/indexSession.html";
+                });
             } else {
-                console.error('Usuario no encontrado.');
+                //console.error('Usuario no encontrado.');
+                // Alerta Sweet para usuario no encontrado
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuario no encontrado',
+                    text: 'Verifica tus credenciales.',
+                });
             }
         } else {
-            console.error('Credenciales incorrectas.');
+            //console.error('Credenciales incorrectas.');
+            // Alerta Sweet para credenciales incorrectas
+            Swal.fire({
+                icon: 'error',
+                title: 'Credenciales incorrectas',
+                text: 'Verifica tu nombre de usuario y contraseña.',
+            });
         }
     } catch (error) {
         console.error('Error en la solicitud de inicio de sesión:', error);
