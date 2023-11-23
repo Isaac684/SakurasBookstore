@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <script src="../script/loadContenNoLogin.js" defer></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../script/ModoOscuro.js"></script>
+    <script src="../script/ModalLibros.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-bs-theme="light">
+
+    <!-- Header -->
+    <header class="mb-3 bg-warning" id="headerColor">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 " id="Inicio">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;" id="logoHeader"/></a>
+            </li>
+        </ul>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Responsive icons -->
+                <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
+                    <img src="../img/Logo2Cafe.png" height="60" id="logoHeaderResponsive"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Barra -->
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg onclick="cambiarTema()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
+                    </li>
+                    
+                </div>
+          
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="p-5 m-5 py-md-4 py-xl-8">
+        <h3 class="text-center mb-4 pb-2 text-primary fw-bold">FAQs</h3>
+        <p class="text-center mb-5">
+        Encuentra las respuesta de las preguntas mas frecuentes aquí.
+        </p>
+    
+        <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i>
+                ¿Cómo realizo una compra?
+            </h6>
+            <p>
+            <strong>¡Es fácil!</strong> Solo navega por nuestro sitio, elige los libros que te encantaría tener y agrégales al carrito de compras. Luego, sigue los sencillos pasos de pago para completar tu compra de manera segura.
+            </p>
+        </div>
+    
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="fas fa-pen-alt text-primary pe-2"></i>¿Cuáles son las opciones de pago disponibles?</h6>
+            <p>
+                Aceptamos diversas formas de pago, incluyendo tarjetas de crédito, débito y otros métodos seguros de transacción electrónica.
+            </p>
+        </div>
+    
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="fas fa-user text-primary pe-2"></i>¿Puedo cancelar o modificar mi pedido después de realizar la compra?
+            </h6>
+            <p>
+                Lamentablemente, solo tienes 5 minutos para cancelar una vez que se ha confirmado la compra. Te recomendamos revisar cuidadosamente tu pedido antes de finalizar la compra.
+            </p>
+        </div>
+    
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="fas fa-rocket text-primary pe-2"></i>¿Ofrecen envíos internacionales?
+            </h6>
+            <p>
+                Sí, realizamos envíos a nivel internacional. Las tarifas de envío y los tiempos de entrega pueden variar según la ubicación. Puedes obtener más detalles durante el proceso de compra.
+            </p>
+        </div>
+    
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i>¿Cómo puedo ponerme en contacto con el servicio al cliente de LibrosMágicos?
+            </h6>
+            <p>Estamos aquí para ayudarte. Puedes comunicarte con nuestro equipo de servicio al cliente a través de nuestro formulario de contacto en línea o enviándonos un correo electrónico a <strong><u>SakuraBookstore@gmail.com</u>.</strong> ¡Estaremos encantados de asistirte!
+            </p>
+        </div>
+    
+        <div class="col-md-6 col-lg-4 mb-4">
+            <h6 class="mb-3 text-primary"><i class="fas fa-book-open text-primary pe-2"></i>¿Qué medidas toman para proteger la privacidad de mis datos personales?</h6>
+            <p>
+                Tomamos muy en serio la privacidad de nuestros clientes. Consulta nuestra política de privacidad para obtener información detallada sobre cómo manejamos y protegemos tus datos personales.
+            </p>
+        </div>
+        </div>
+
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+</body>
+</html>
