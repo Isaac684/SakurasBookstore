@@ -8,58 +8,62 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
-<body class="bg-secondary">
+<body class="bg-warning">
 
-    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg mb-3 col-md-6 mx-auto mt-2" method="post">
+    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg col-md-6 mx-auto mt-5" method="post"  style="background-image: url('../img/fondo.png'); background-size: cover; background-position: center;">
 
-        <h1 class="fuente3 text-center text-primary">Perfil del Usuario</h1>
+        <h1 class="fuente3 text-center text-success">Perfil del Usuario</h1>
+        
+        <div class="row justify-content-center">
 
-        <div class="mb-3">
-            <label for="foto" class="form-label fuente3 text-danger">Fotografía:</label>
-            <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
-        </div>
-
-        <div class="mb-3">
-            <label for="nombre" class="form-label fuente3 text-danger">Nombre completo:</label>
-            <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
-        </div>
-
-        <div class="mb-3">
-            <label for="edad" class="form-label fuente3 text-danger">Edad:</label>
-            <input type="text" class="form-control fuente3" id="edad" value="100">
-        </div>
-
-        <div class="mb-3">
-            <label for="genero" class="form-label fuente3 text-danger">Género:</label>
-            <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
-        </div>
-
-        <div class="mb-3">
-            <label for="correo" class="form-label fuente3 text-danger">Correo electronico:</label>
-            <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2">
+            <div class="mb-3 text-center">
+                <label for="foto" class="form-label fuente3 text-danger">Fotografía:</label>
+                <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
             </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="contrasenia" class="form-label fuente3 text-danger">Contraseña:</label>
-            <div class="input-group">
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                <input data-toggle="password" class="form-control" type="password">
+    
+            <div class="mb-3 col-md-6">
+                <label for="nombre" class="form-label fuente3 text-danger">Nombre completo:</label>
+                <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
             </div>
-        </div>
+    
+            <div class="mb-3 col-md-6">
+                <label for="edad" class="form-label fuente3 text-danger">Edad:</label>
+                <input type="text" class="form-control fuente3" id="edad" value="100">
+            </div>
+    
+            <div class="mb-3 col-md-6">
+                <label for="genero" class="form-label fuente3 text-danger">Género:</label>
+                <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
+            </div>
+    
+            <div class="mb-3 col-md-6">
+                <label for="correo" class="form-label fuente3 text-danger">Correo electronico:</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2">
+                </div>
+            </div>
+    
+            <div class="mb-3 col-md-6">
+                <label for="contrasenia" class="form-label fuente3 text-danger">Contraseña:</label>
+                <div class="input-group">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+                    <input data-toggle="password" class="form-control" type="password">
+                </div>
+            </div>
+    
+            <div class="mb-3 col-md-6">
+                <label for="pais" class="form-label fuente3 text-danger">País:</label>
+                <input type="text" class="form-control fuente3" id="pais" value="pais_base">
+            </div>
+    
+            <div class="text-center mb-1">
+                <button type="button" id="btn_modificar" class="btn btn-outline-dark fuente3" onclick="mostrarAlerta()">Modificar</button>
+                <button type="button" class="btn btn-outline-dark fuente3" href="#">Volver</button>
+            </div>
 
-        <div class="mb-3">
-            <label for="pais" class="form-label fuente3 text-danger">País:</label>
-            <input type="text" class="form-control fuente3" id="pais" value="pais_base">
-        </div>
-
-        <div class="text-center mb-1">
-            <button type="button" id="btn_modificar" class="btn btn-outline-dark fuente3" onclick="mostrarAlerta()">Modificar</button>
-            <button type="button" class="btn btn-outline-dark fuente3" href="#">Volver</button>
         </div>
 
     </form>
