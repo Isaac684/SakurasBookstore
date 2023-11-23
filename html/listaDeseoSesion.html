@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de deseos - Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../script/ModoOscuro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script/obtener_lista_deseos.js" defer></script>
+</head>
+<body data-bs-theme="light">
+
+    <!-- Header -->
+    <header class="mb-3 bg-warning" id="headerColor">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 " id="Inicio">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;" id="logoHeader"/></a>
+            </li>
+        </ul>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container-fluid">
+                <!-- Responsive icons -->
+                <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
+                    <img src="../img/Logo2Cafe.png" height="60" id="logoHeaderResponsive"/>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Barra -->
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <div class="dropend navbar-nav">
+                        <button class="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-lines-fill"/></svg>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start">
+                          <a class="dropdown-item" href="#">Perfil</a>
+                          <a class="dropdown-item" href="#">Cupones</a>
+                          <a class="dropdown-item" href="#">Historial de compras</a>
+                          <a class="dropdown-item" href="#">Lista de deseos</a>
+                          <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        </div>
+                    </div>
+
+                    <ul class="navbar-nav mx-auto fuente3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" aria-current="page" href="#">Novedades</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Colecciones</a>
+                        </li>
+
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Rebajas</a>
+                        </li>
+                        <li class="nav-item dropdown mx-2">
+                            <a class="nav-link " href="#">Nosotros</a>
+                        </li>
+                    </ul>
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg onclick="cambiarTema()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
+                    </li>
+                    
+                </div>
+          
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- Contenido -->
+    <div class="pb-3 ms-4 me-4">
+
+        <div class="row" >
+
+            <!-- SIDEBAR 1 -->
+            <div class="col-xxl-9 col-12 pe-lg-5 ps-lg-5 ps-md-4 pe-md-4 ps-3 pe-3">
+
+                <div  class="text-center pt-5 border-top"><svg class="bi" width="42" height="42" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#suit-heart"/></svg></div>
+                <div class="fuente3 mt-3 text-center fs-1 fw-bolder text-uppercase">My wishlist</div>
+                
+                <table class="table table-responsive align-middle">
+                    <thead>
+                        <tr>
+                            <th class="col"></th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Carrito</th>
+                            <th scope="col">Acciones</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="wishlist-table-body">
+                        <!-- Aquí se insertarán las filas de la lista de deseos -->
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- SIDEBAR 2 -->
+            <div class="col-xxl-3 pt-5 d-none d-xxl-block pe-0 ps-0">
+                <aside class="user-info-wrapper">
+                    <div class="user-cover" style="background-image: url(../img/Logo.svg);">
+                        <div class="info-label" data-toggle="tooltip" title="" data-original-title="You currently have 290 Reward Points to spend"><i class="icon-medal"></i>User</div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User"></div>
+                        <div class="user-data">
+                            <h4>Potroclo Vasquez</h4><span>+503 7447 5775</span>
+                        </div>
+                    </div>
+                </aside>
+                <nav class="list-group">
+                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#house-door"/></svg>Inicio</a>
+                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#tags"/></svg>Cupones</a>
+                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#clock-history"/></svg>Historial de compras</a>
+                <a class="list-group-item" href="#"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-gear"/></svg>Perfil</a>
+
+                </nav>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-warning" id="footerColor">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <p class="col-md-4 mb-0 text-muted">&copy; 2023 Sakura's Bookstore</p>
+            
+                <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                  <img src="../img/Logo2.png" alt="">
+                </a>
+            
+                <ul class="nav col-md-4 justify-content-end">
+                  <li class="nav-item"><a href="#Inicio" class="nav-link px-2 text-muted">Inicio</a></li>
+                  <li class="nav-item"><a href="./nosotros.html" class="nav-link px-2 text-muted">Nosotros</a></li>
+                  <li class="nav-item"><a href="https://getbootstrap.com/" class="nav-link px-2 text-muted">Boostrap</a></li>
+                  <li class="nav-item"><a href="./PreguntasFrecuentes" class="nav-link px-2 text-muted">FAQs</a></li>
+                  <li class="nav-item"><a href="https://github.com/Isaac684/SakurasBookstore.git" class="nav-link px-2 text-muted">Repositorio</a></li>
+                </ul>
+              </footer>
+        </div>
+      </div>
+
+</body>
+</html>
