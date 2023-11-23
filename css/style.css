@@ -290,6 +290,15 @@ a.list-group-item, .list-group-item-action {
 }
 .show {display:block;} 
 
+.rotate-text {
+  transform: rotate(-90deg);
+  transform-origin:bottom center;
+  white-space: nowrap;
+}
+
+
+
+
 
 
 
