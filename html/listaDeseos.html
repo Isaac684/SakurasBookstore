@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../script/ModoOscuro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script/lista_deseos.js" defer></script>
 </head>
 <body data-bs-theme="light">
 
@@ -102,30 +104,47 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
-                        <td>Hush Hush</td>
-                        <td>$21.00</td>
-                        <td><span class="badge bg-danger">In Stock</span></td>
-                        <td><button class="round-black-btn btn-dark">Añadir al carrito</button></td>
-                        <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
-                      </tr>
-                      <tr>
-                        <td><img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
-                        <td>Hush Hush</td>
-                        <td>$21.00</td>
-                        <td><span class="badge bg-danger">In Stock</span></td>
-                        <td><button class="round-black-btn">Añadir al carrito</button></td>
-                        <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
-                      </tr>
-                      <tr>
-                        <td><img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
-                        <td>Hush Hush</td>
-                        <td>$21.00</td>
-                        <td><span class="badge bg-danger">In Stock</span></td>
-                        <td><button class="round-black-btn">Añadir al carrito</button></td>
-                        <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
-                      </tr>
+                        <tr>
+                            <td><img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
+                            <td><span class="titulo">Hush Hush</span></td>
+                            <td><span class="precio">$21.00</span></td>
+                            <td><span class="badge bg-danger">In Stock</span></td>
+                            <td><button class="round-black-btn btn-dark">Añadir al carrito</button></td>
+                            <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
+                            <td>
+                                <button class="btn-add-to-wishlist btn btn-info">
+                                    Añadir a la lista de deseos
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="../img/libro.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
+                            <td><span class="titulo">Libro2</span></td>
+                            <td><span class="precio">$22.00</span></td>
+                            <td><span class="badge bg-danger">In Stock</span></td>
+                            <td><button class="round-black-btn btn-dark">Añadir al carrito</button></td>
+                            <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
+                            <td>
+                                <button class="btn-add-to-wishlist btn btn-info">
+                                    Añadir a la lista de deseos
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="../img/libro2.jpg" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
+                            <td><span class="titulo">Libro3</span></td>
+                            <td><span class="precio">$23.00</span></td>
+                            <td><span class="badge bg-danger">In Stock</span></td>
+                            <td><button class="round-black-btn btn-dark">Añadir al carrito</button></td>
+                            <th><svg class="bi" width="22" height="22" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg></th>
+                            <td>
+                                <button class="btn-add-to-wishlist btn btn-info">
+                                    Añadir a la lista de deseos
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                   </table>
 
