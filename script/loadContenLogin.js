@@ -13,3 +13,22 @@ function includeContent(url, targetElement) {
 window.onload = includeContent('../html/footer.html', document.getElementById('footer-container'));
 // Llamar a la función para incluir el encabezado cuando la página cargue
 window.onload = includeContent('../html/headerLogin.html', document.getElementById('header-container'));
+
+
+/* Para el dropdown */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  } 
