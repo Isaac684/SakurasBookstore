@@ -10,7 +10,7 @@ function includeContent(url, targetElement) {
 }
 
 // Llamar a la función para incluir el footer cuando la página cargue
-window.onload = includeContent('../html/footer.html', document.getElementById('footer-container'));
+window.onload = includeContent('../html/footerLogin.html', document.getElementById('footer-container'));
 // Llamar a la función para incluir el encabezado cuando la página cargue
 window.onload = includeContent('../html/headerLogin.html', document.getElementById('header-container'));
 
