@@ -86,7 +86,7 @@
             const generoInput = document.getElementById('genero');
             const paisInput = document.getElementById('pais');
             const emailInput = document.getElementById('email');
-        
+            const contraseniaInput = document.getElementById('password');
  
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
@@ -96,8 +96,8 @@
                 edadInput.value = userInfo.age;
                 generoInput.value = userInfo.gender;
                 paisInput.value= userInfo.country;
-                emailInput.value=userInfo.email;
-              
+                emailInput.value = userInfo.email;
+                contraseniaInput.value = userInfo.password;
             } else {
                 console.error('No se encontraron detalles del usuario.');
             }
