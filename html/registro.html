@@ -7,135 +7,103 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <form class="row g-3 fuente3 m-5 p-3 border border-info rounded-3" method="post">
-
-        <div class="form-outline mb-4">
-            <label for="validationDefault01" class="form-label">Nombre completo</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="Ej: Gabriel García Márquez" required>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="validationDefault02" class="form-label">Edad</label>
-            <input type="number" class="form-control" id="validationDefault02" value="18" max="106" min="12" pattern="^[0-9]+" required>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="genero" class="form-label">Género:</label>
-            <select class="form-select" required aria-label="select example" id="genero">
-              <option selected disabled value="">Seleccione su género</option>
-              <option value="Masculino">Masculino</option>
-              <option value="Femenino">Femenino</option>
-            </select>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="foto" class="form-label">Foto de perfil:</label>
-            <input  accept="image/png,image/jpeg" type="file" class="form-control" aria-label="file example" required>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="validationDefaultUsername" class="form-label">Correo electrónico</label>
-            <div class="input-group">
-                <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
-                    placeholder="Ej: correo503@gmail.com" required>
-            </div>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="validationDefaultUsername" class="form-label">Contraseña</label>
-            <div class="input-group">
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                <input data-toggle="password" class="form-control" type="password" required>
-            </div>
-        </div>
-        
-        <div class="form-outline mb-4">
-            <label for="validationDefaultUsername" class="form-label">Nombre de usuario</label>
-            <div class="input-group">
-                <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
-                placeholder="Ej: GarciaMarquez321" required>
-            </div>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="validationDefault04" class="form-label">Pais</label>
-            <select class="form-select" id="validationDefault04" required>
-                <option selected disabled value="">Elige...</option>
-                <option>...</option>
-            </select>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="exampleFormControlTextarea1" class="form-label">Direccion principal</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        </div>
-
-        <div class="form-outline mb-4">
-            <label for="exampleFormControlTextarea1" class="form-label">Direcciones de envio</label>
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-        
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Separe con una ',' cada direccion. Ej: Direccion 1, Direccion 2" required></textarea>
-        </div>
-
-        <div class="form-outline mb-4">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2">
-                <label class="form-check-label" for="invalidCheck2">
-                    Acepta los términos y condiciones
-                </label>
-            </div>
-        </div>
-
-        <div class="form-outline mb-4">
-            <button class="btn btn-primary" type="submit">Enviar formulario</button>
-        </div>
-
-    </form>
-</body>
 <body class="bg-secondary">
     <section class="vh-100">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-12 py-5">
-                    <div class="card pt-5 pb-5" style="border-radius: 1rem;">
+                    <div class="card pt-5 pb-4" style="border-radius: 1rem;">
                         <div class="container-fluid h-custom fuente3">
                             <div class="row d-flex justify-content-center align-items-center h-100">
                                 <div class="col-7 col-lg-6 col-xl-5">
-                                    <img src="../img/Login.png" class="img-fluid" alt="Sample image">
+                                    <img src="../img/sigunp.png" class="img-fluid" alt="Sample image">
                                 </div>
                                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                                    <form>
-                                        <h1 class="fuente1 text-center text-lg-start fw-bold mb-4">Registro de usuarios</h1>
-                
-                                        <!-- Email input -->
-                                        <div class="form-outline mb-4">
-                                            <input type="text" class="form-control form-control-lg" id="validationDefault01" placeholder="Ej: Gabriel García Márquez" required>
+                                    <form class="row" method="post">
+                                        <h2 class="fuente1 text-center text-lg-start fw-bold mb-3">Registro</h2>
+
+                                        <div class="col-12">
                                             <label for="validationDefault01" class="form-label">Nombre completo</label>
+                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Ej: Gabriel García Márquez" required>
                                         </div>
-                
-                                        <!-- Password input -->
-                                        <div class="form-outline mb-3">
-                                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Introducir la contraseña">
-                                            <label class="form-label" for="form3Example4">Contraseña</label>
+                                
+                                        <div class="col-4">
+                                            <label for="validationDefault02" class="form-label">Edad</label>
+                                            <input type="number" class="form-control" id="validationDefault02" placeholder="Ej: 18" min="1" pattern="^[0-9]+" required>
                                         </div>
-                
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <!-- Checkbox -->
-                                            <div class="form-check mb-0">
-                                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3">
-                                                <label class="form-check-label" for="form2Example3">Acuérdate de mí</label>
+                                
+                                        <div class="col-8">
+                                            <label for="genero" class="form-label">Género:</label>
+                                            <select class="form-select" required aria-label="select example" id="genero">
+                                              <option selected disabled value="">Seleccione su género</option>
+                                              <option value="Masculino">Masculino</option>
+                                              <option value="Femenino">Femenino</option>
+                                            </select>
+                                        </div>
+                                
+                                        <div class="col-12">
+                                            <label for="foto" class="form-label">Foto de perfil:</label>
+                                            <input  accept="image/png,image/jpeg" type="file" class="form-control" aria-label="file example" required>
+                                        </div>
+                                
+                                        <div class="col-12">
+                                            <label for="validationDefaultUsername" class="form-label">Correo electronico</label>
+                                                <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
+                                                   placeholder="Ej: marquezgarcia23@gmail.com"  required>
+
+                                        </div>
+                                
+                                        <div class="col-12">
+                                            <label for="validationDefaultUsername" class="form-label">Contraseña</label>
+                                            <div class="input-group">
+                                                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+                                                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                                                <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+                                                <input data-toggle="password" class="form-control" type="password" required>
                                             </div>
-                                            <a href="#!" class="text-body">¿Has olvidado tu contraseña?</a>
                                         </div>
-                
-                                        <div class="text-center text-lg-start mt-4 pt-2">
-                                            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarse</button>
-                                            <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="#!" class="link-danger">Iniciar sesión</a></p>
+                                
+                                        <div class="col-6">
+                                            <label for="validationDefaultUsername" class="form-label">Nombre de usuario</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
+                                                placeholder="Ej: gabriel2345" required>
+                                            </div>
                                         </div>
-                
+                                
+                                        <div class="col-6 mt-lg-0 mt-xl-4 mt-xxl-0">
+                                            <label for="validationDefault04" class="form-label mt-xl-0 mt mt-lg-0">Pais</label>
+                                            <select class="form-select" id="validationDefault04" required>
+                                                <option selected disabled value="">Elija su pais</option>
+                                                <option>El Salvador</option>
+                                            </select>
+                                        </div>
+                                
+                                        <div class="col-12">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Direccion principal</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                        </div>
+                                
+                                        <div class="col-12">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Direcciones de envio</label>
+                                            <label for="exampleFormControlTextarea1" class="form-label"></label>
+                                
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Separe con una ',' cada direccion. Ej: Direccion 1, Direccion 2" required></textarea>
+                                        </div>
+                                
+                                        <!-- <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="colocarPrincipal" required>
+                                                <label class="form-check-label" for="invalidCheck2">
+                                                    Acepta los términos y condiciones
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                
+                                        <div class="col-12 mt-3">
+                                            <button class="btn btn-primary" type="submit">Enviar formulario</button>
+                                        </div>
+                                
                                     </form>
                                 </div>
                             </div>
