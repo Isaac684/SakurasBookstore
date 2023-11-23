@@ -33,14 +33,3 @@ function removeFromWishlist(title) {
     // Recargar la página para reflejar los cambios en la interfaz de usuario
     location.reload();
 }
-
-var urls = [
-    {text: "heart", url: "../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"},
-    {text: "heart fill", url: "../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart-fill"}
-  ];
-
-function href()
-{
-      var data = urls.reverse()[0]; // el dice 0 pasa al indice 1 y viceversa.
-      document.getElementById('nose').href= data.url;
-  }
