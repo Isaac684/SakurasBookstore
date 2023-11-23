@@ -252,25 +252,6 @@ a.list-group-item, .list-group-item-action {
   border: 1px solid rgba(0,0,0,0.125);
 }
 
-.swal2-content
-{
-  text-align: start;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-  line-height: 1.5;
-}
-
-.swal2-popup
-{
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -296,8 +277,23 @@ a.list-group-item, .list-group-item-action {
   white-space: nowrap;
 }
 
+.swal2-content
+{
+  text-align: start;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1.5;
+}
 
-
+.swal2-popup
+{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
 
 
 

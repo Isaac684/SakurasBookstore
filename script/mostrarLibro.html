@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/prueba.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+    <script src="../script/modalCupon.js"></script>
+    <script src="../script/ModalLibros.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+  <button class="btn btn-danger" onclick="mostrarCupon(event)">PRUEBA</button>
+
+
+  <button class="btn btn-danger" onclick="mostrarCuponNavidad(event)">PRUEBA 2</button>
+
+  <button class="btn btn-danger" onclick="mostrarInformacionLibro(event)">PRUEBA 3</button>
+
     <div class="col">
         <div class="card border-0 fuente3">
             <a href=""><img id="imagen" src="../img/libro2.jpg" style="cursor: pointer;" alt="" onclick="mostrarInformacionLibro(event)"
@@ -37,34 +48,6 @@
 
         </div>
     </div>
-
-
-
-            <article class="card2 fl-left">
-              <section class="date">
-                <time datetime="23th feb">
-                  <span>23</span><span>feb</span>
-                </time>
-              </section>
-              <section class="card-cont">
-                <small>dj khaled</small>
-                <h3>corner obsest program</h3>
-                <div class="even-date">
-                 <i class="fa fa-calendar"></i>
-                 <time>
-                   <span>wednesday 28 december 2014</span>
-                   <span>08:55pm to 12:00 am</span>
-                 </time>
-                </div>
-                <div class="even-info">
-                  <i class="fa fa-map-marker"></i>
-                  <p>
-                    nexen square for people australia, sydney
-                  </p>
-                </div>
-                <a href="#">tickets</a>
-              </section>
-            </article>
 
 </body>
 </html>
