@@ -34,7 +34,6 @@ function mostrarAlerta() {
                         }
                     ]
                 }
-              console.log(element.id)
                  fetch('http://127.0.0.1:8000/api/Busqueda',{
                     method: 'POST',
                     headers: {
@@ -51,7 +50,6 @@ function mostrarAlerta() {
                         
                         tr.innerHTML = `
                                 <td>` + DateFormat(element.created_at) + `</td>
-                                <td>` + element.id + `</td>
                                 <td>` + data_[0].name + `</td>
                                 <td>` + element.units + `</td>
                                 <td>$` + element.unit_price + `</td>
@@ -88,7 +86,6 @@ function mostrarAlerta() {
                       }else{
                         tr.innerHTML = `
                                 <td>` + DateFormat(element.created_at) + `</td>
-                                <td>` + element.id + `</td>
                                 <td>` + data_[0].name + `</td>
                                 <td>` + element.units + `</td>
                                 <td>$` + element.unit_price + `</td>
@@ -100,7 +97,6 @@ function mostrarAlerta() {
                     }else{
                       tr.innerHTML = `
                               <td>` + DateFormat(element.created_at) + `</td>
-                              <td>` + element.id + `</td>
                               <td>` + data_[0].name + `</td>
                               <td>` + element.units + `</td>
                               <td>$` + element.unit_price + `</td>
