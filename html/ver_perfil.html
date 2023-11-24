@@ -6,6 +6,7 @@
     <title>Perfil de Usuario - Sakura's Bookstore</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../script/profile.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body class="bg-warning">
@@ -18,22 +19,22 @@
 
             <div class="mb-3 text-center">
                 <label for="foto" class="form-label fuente3 text-danger">Fotografía:</label>
-                <img src="foto.jpg" class="img-fluid fuente3" alt="Foto de perfil">
+                <img src="" class="img-fluid fuente3" alt="Foto de perfil">
             </div>
     
             <div class="mb-3 col-md-6">
                 <label for="nombre" class="form-label fuente3 text-danger">Nombre completo:</label>
-                <input type="text" class="form-control fuente3" id="nombre" value="nombre_completo_base">
+                <input type="text" class="form-control fuente3" id="nombre" value="">
             </div>
     
             <div class="mb-3 col-md-6">
                 <label for="edad" class="form-label fuente3 text-danger">Edad:</label>
-                <input type="text" class="form-control fuente3" id="edad" value="100">
+                <input type="text" class="form-control fuente3" id="edad" value="">
             </div>
     
             <div class="mb-3 col-md-6">
                 <label for="genero" class="form-label fuente3 text-danger">Género:</label>
-                <input type="text" class="form-control fuente3" id="genero" value="ejemplo_genero">
+                <input type="text" class="form-control fuente3" id="genero" value="">
             </div>
     
             <div class="mb-3 col-md-6">
@@ -56,7 +57,7 @@
     
             <div class="mb-3 col-md-6">
                 <label for="pais" class="form-label fuente3 text-danger">País:</label>
-                <input type="text" class="form-control fuente3" id="pais" value="pais_base">
+                <input type="text" class="form-control fuente3" id="pais" value="">
             </div>
     
             <div class="text-center mb-1">
@@ -68,41 +69,6 @@
 
     </form>
 
-    <script>
-         function mostrarAlerta() {
-            Swal.fire({
-                title: '¡Título de la alerta!',
-                text: 'Have a nice day!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-
-        }
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const nombreInput = document.getElementById('nombre');
-            const edadInput = document.getElementById('edad');
-            const generoInput = document.getElementById('genero');
-            const paisInput = document.getElementById('pais');
-            const emailInput = document.getElementById('email');
-            const contraseniaInput = document.getElementById('password');
- 
-            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
-            if (userInfo) {
-        
-                nombreInput.value = userInfo.name;
-                edadInput.value = userInfo.age;
-                generoInput.value = userInfo.gender;
-                paisInput.value= userInfo.country;
-                emailInput.value = userInfo.email;
-                contraseniaInput.value = userInfo.password;
-            } else {
-                console.error('No se encontraron detalles del usuario.');
-            }
-        });
-    </script>
     
 </body>
 </html>

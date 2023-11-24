@@ -1,7 +1,5 @@
-function addProduct() {
-    document.getElementById('bookForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
-  
+async function addProduct() {
+  event.preventDefault();
         const formData = new FormData();
         formData.append('code', document.getElementById('code').value);
         formData.append('name', document.getElementById('name').value);
@@ -44,7 +42,9 @@ function addProduct() {
         .catch(error => {
           console.error('Error:', error);
           // Manejo de errores
-        });
-      });
+        })
+        .finally(function (){
 
-}
+        });
+
+      }
