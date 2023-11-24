@@ -7,6 +7,11 @@ function mostrarAlerta() {
    });
 
 }
+
+function index() {
+  window.location.href = '../html/indexSession.html';
+}
+
 async function dataShow(){
 
 
@@ -16,6 +21,8 @@ async function dataShow(){
    const paisInput = document.getElementById('pais');
    const emailInput = document.getElementById('email');
    const contraseniaInput = document.getElementById('password');
+   const direccionInput = document.getElementById('direccion');
+   const direccionEnvioInput = document.getElementById('direccion_envio');
 
    await fetch('http://127.0.0.1:8000/api/user/' + JSON.parse(localStorage.getItem('userInfo')), {
           headers:{
@@ -29,13 +36,14 @@ async function dataShow(){
           return response.json();
         })
         .then(data => {
-
-                nombreInput.value = data.name;
-                edadInput.value = data.age;
-                generoInput.value = data.gender;
-                paisInput.value= data.country;
-                emailInput.value = data.email;
-                contraseniaInput.value = data.password;
+          nombreInput.value = data.name;
+          edadInput.value = data.age;
+          generoInput.value = data.gender;
+          paisInput.value= data.country;
+          emailInput.value = data.email;
+          contraseniaInput.value = data.password;
+          direccionInput.value = data.address;
+          direccionEnvioInput.value = data.send_address;
         })
         .catch(error => {
           console.error('Error:', error);

@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (result.isConfirmed) {
                 try {
                     // Enviar la solicitud de eliminación solo si el usuario confirma
-                    const response = await fetch(`http://127.0.0.1:8000/api/Usuario/${id}`, {
+                    const response = await fetch(`http://127.0.0.1:8000/api/user/${id}`, {
                         method: 'DELETE',
                         headers: {
                             'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     }
 
                     // Actualizar la lista de productos después de la eliminación
-                    const updatedUsuarios = originalProductos.filter(usuario => usuario.id !== id);
+                    const updatedUsuarios = originalUsuarios.filter(usuario => usuario.id !== id);
                     originalUsuarios = updatedUsuarios;
 
                     // Volver a mostrar la tabla actualizada
