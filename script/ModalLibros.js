@@ -1,17 +1,18 @@
 
 
-function mostrarInformacionLibro(event) {
+function mostrarInformacionLibro(event, data) {
     event.preventDefault();
 
     const libro = {
-        titulo: 'Los Juegos del Hambre',
-        precioOriginal: 25.99,
-        descripcion: 'Cuando August Se Entera De Que Su Mejor Amigo Jack Muestra Signos De Enfermedad Mental, Hará Cualquier Cosa Para Ayudarlo. En Las Alucinaciones De Jack, El Rey De Mimbre Gobierna Un Mundo Alternativo. Mientras Su Amigo Los Guía En Una Búsqueda Para Cumplir Una Oscura Profecía En Este Mundo Paralelo, August Comienza A Cuestionar Qué Es Real ',
-        imagen: '../img/libro.jpg',
-        code: '978-98-7747-386-5',
-        year:'2023',
-        editorial:'Editorial Pollitos locos',
-        autor: 'Potroclo Gomez'
+        titulo: data.name,
+        precioOriginal: data.price,
+        descripcion: data.description,
+        imagen: data.image,
+        code: data.code,
+        year: data.year.toString(),
+        editorial: data.editorial,
+        genero: data.category,
+        autor: data.author
     };
 
     
