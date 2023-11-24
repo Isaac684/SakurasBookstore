@@ -47,7 +47,7 @@ btn.addEventListener('click', async function (e) {
 
             if (usuarioEncontrado) {
                 // Almacena los detalles del usuario en localStorage
-                localStorage.setItem('userInfo', JSON.stringify(usuarioEncontrado));
+                localStorage.setItem('userInfo', JSON.stringify(usuarioEncontrado.id));
 
                 //window.location.href = "../html/indexSession.html";
                  // Alerta Sweet para inicio de sesión exitoso
