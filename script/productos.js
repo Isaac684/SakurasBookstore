@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', async function () {
     const searchInput = document.getElementById('searchInput1');
     const tableBody = document.getElementById('bodyProductos');
@@ -51,8 +49,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 btnEliminar.innerHTML = '<svg class="bi" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg>';
                 btnEliminar.addEventListener('click', () => eliminarProducto(producto.id));
                 
-                cellAcciones.appendChild(btnEliminar);
                 cellAcciones.appendChild(btnEditar);
+                cellAcciones.appendChild(btnEliminar);
             });
         }
 
@@ -128,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
         
         // Función para mostrar el modal de edición con SweetAlert
-        function mostrarModalEditar(producto) {
+        async function mostrarModalEditar(producto) {
             swal.fire({
                 showCloseButton: true,
                 focusConfirm: false,
@@ -137,51 +135,55 @@ document.addEventListener('DOMContentLoaded', async function () {
                 position:'center',
                 html: 
                 `
-                <div class="fuente3 rounded-3 d-flex flex-column">
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="nombre" class="swal2-label">Nombre</label>
-                            <input id="nombre" class="swal2-input" value="${producto.name}" required>
+                <div class="fuente3 rounded-3 p-4 bg-light">
+                    <h2 class="text-center mb-4">Editar el Producto</h2>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="nombre" class="form-label fs-6">Nombre:</label>
+                            <input id="nombre" class="form-control rounded-3" value="${producto.name}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="editorial" class="swal2-label">Descripcion</label>
-                            <input id="editorial" class="swal2-input" value="${producto.description}" required>
+                        <div class="col-md-4">
+                            <label for="descripcion" class="form-label fs-6">Descripción:</label>
+                            <input id="descripcion" class="form-control rounded-3" value="${producto.description}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Editorial</label>
-                            <input id="autor" class="swal2-input" value="${producto.editorial}" required>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Anio</label>
-                            <input id="autor" class="swal2-input" value="${producto.year}" required>
-                        </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Autor</label>
-                            <input id="autor" class="swal2-input" value="${producto.author}" required>
-                        </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Precio</label>
-                            <input id="autor" class="swal2-input" value="${producto.price}" required>
+                        <div class="col-md-4">
+                            <label for="editorial" class="form-label fs-6">Editorial:</label>
+                            <input id="edito" class="form-control rounded-3" value="${producto.editorial}" required>
                         </div>
                     </div>
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Stock</label>
-                            <input id="autor" class="swal2-input" value="${producto.stock}" required>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="anio" class="form-label fs-6">Año:</label>
+                            <input id="anio" class="form-control rounded-3" value="${producto.year}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Precio de venta</label>
-                            <input id="autor" class="swal2-input" value="${producto.sell_price}" required>
+                        <div class="col-md-4">
+                            <label for="aut" class="form-label fs-6">Autor:</label>
+                            <input id="aut" class="form-control rounded-3" value="${producto.author}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Genero</label>
-                            <input id="autor" class="swal2-input" value="${producto.category}" required>
+                        <div class="col-md-4">
+                            <label for="pric" class="form-label fs-6">Precio:</label>
+                            <input id="pric" class="form-control rounded-3" value="${producto.price}" required>
                         </div>
                     </div>
-                    <!-- Puedes continuar agregando más bloques de tres columnas según sea necesario -->
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="produc" class="form-label fs-6">Stock:</label>
+                            <input id="produc" class="form-control rounded-3" value="${producto.stock}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sell" class="form-label fs-6">Precio de Venta:</label>
+                            <input id="sell" class="form-control rounded-3" value="${producto.sell_price}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cate" class="form-label fs-6">Género:</label>
+                            <input id="cate" class="form-control rounded-3" value="${producto.category}" required>
+                        </div>
+                    </div>
                 </div>
+
                 `,
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -189,10 +191,84 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
+                customClass: {
+                    confirmButton: 'fuente3',  // Aplicar fuente3 al botón Confirmar
+                    cancelButton: 'fuente3'   // Aplicar fuente3 al botón Cancelar
+                },
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    // Obtener referencias a los elementos HTML dentro del modal
+                    const nombreInput = document.getElementById('nombre');
+                    const descripcionInput = document.getElementById('descripcion');
+                    const editorialInput = document.getElementById('edito');
+                    const anioInput = document.getElementById('anio');
+                    const autorInput = document.getElementById('aut');
+                    const priceInput = document.getElementById('pric');
+                    const productoInput = document.getElementById('produc');
+                    const sellPriceInput = document.getElementById('sell');
+                    const categoryInput = document.getElementById('cate');
+                    console.log(editorialInput.value);
+                    // Crear un objeto con los datos actualizados del producto
+                    const datosActualizados = {
+                        name: nombreInput.value,
+                        description: descripcionInput.value,
+                        editorial: editorialInput.value,
+                        year: anioInput.value,
+                        author: autorInput.value,
+                        price: priceInput.value,
+                        stock: productoInput.value,
+                        sell_price: sellPriceInput.value,
+                        category: categoryInput.value,
+                        id_provider: "1"
+
+                    };
+        
+                    // Hacer una solicitud de actualización a la API
+                    await fetch('http://127.0.0.1:8000/api/ActualizarProductos/'+producto.id, {
+                        method: 'PUT', // O el método HTTP que la API requiera
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+                        },
+                        body: JSON.stringify(datosActualizados),
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                          throw new Error('Hubo un problema al enviar los datos.');
+                        }
+                        
+                        return response.json();
+                    })
+                    .then(data => {
+                      
+                        console.log('Producto actualizado con éxito:', data);
+                        swal.fire({
+                            title: '¡Éxito!',
+                            text: 'Producto actualizado correctamente',
+                            icon: 'success',
+                            customClass: {
+                                content: 'text-center',  // Centro del texto del mensaje
+                            },
+                        });                    
+                    })
+                    .catch(error => {
+                       
+                        console.error('Error al actualizar el producto:', error);
+                        swal.fire('¡Error!', 'Hubo un error al actualizar el producto', 'error');
+                    });
+                }
             });
-        }      
+        }
+
+
+
+
+
+
+           
 
     } catch (error) {
         console.error('Error en la solicitud de obtener productos:', error);
     }
 });
+

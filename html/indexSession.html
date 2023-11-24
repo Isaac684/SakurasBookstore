@@ -11,8 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../script/ModoOscuro.js"></script>
     <script src="../script/Modales.js" ></script>
-    <script src="../script/ModalLibros.js"></script>
-    <script src="../script/lista_deseos.js" defer></script>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-bs-theme="light">
@@ -40,227 +39,264 @@
             <div class="border rounded-3">
                 <div class="flex-shrink-0 p-3 rounded-3" >
 
-                    <p class="d-flex align-items-center pb-3 mb-3 border-bottom">
-                        <svg class="bi me-2" width="30" height="24" fill="CurrentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#funnel-fill"/></svg>
-                        <span class="fs-5 fw-semibold fuente3">Filtros</span>
-                    </p>
-                    <button class="btn btn-info">Filtrar</button>
-                    
-                    <ul class="list-unstyled ps-0">
 
-                        <!-- Filtrar por genero-->
-                        <li class="mb-1">
-                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Genero
-                            </button>
-                            <div class="collapse show" id="home-collapse">
-                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Romance</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Misterio</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Terror</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio"value="">
-                                        <span class="form-check-label">Fantasía</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Ficción</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Acción</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                        <span class="form-check-label">Terror Psicologico</span>
-                                    </label>
-                                </li>
-                            </ul>
-                            </div>
-                        </li>
+                        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                            <svg class="bi me-2" width="30" height="24" fill="CurrentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#funnel-fill"/></svg>
+                            <span class="fs-5 fw-semibold fuente3">Filtros</span>
+                        </a>
+
+                        <button class="btn btn-info">Filtrar</button>
                         
-                        <!-- Filtrar por precio-->
-                        <li class="mb-1">
-                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#price-collapse" aria-expanded="true">
-                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Precio
-                            </button>
-                            <div class="collapse show" id="price-collapse">
-                            <ul class="list-unstyled fw-normal pb-1 px-4 small fuente3">
-                                <div class="filter-content">
-                                    <div class="form-group w-50">
-                                        <label>Min</label>
-                                        <input type="number" class="form-control" id="" placeholder="$0" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
-                                    </div>
-                                    <div class="form-group w-50">
-                                        <label>Max</label>
-                                        <input type="number" class="form-control" placeholder="$1,0000" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
-                                    </div>
+                        <ul class="list-unstyled ps-0">
+    
+                            <!-- Filtrar por genero-->
+                            <li class="mb-1">
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Genero
+                                </button>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                        
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Romance</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Misterio</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Terror</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio"value="">
+                                                <span class="form-check-label">Fantasía</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Ficción</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Acción</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Terror Psicologico</span>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+
                                 </div>
-                            </ul>
-                            </div>
-                        </li>
-                        
-                        <!-- Filtrar por autor-->
-                        <li class="mb-1">
-                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
-                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Autor
-                            </button>
-                            <div class="collapse show" id="dashboard-collapse">
-                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Suzanne Collins</span>
-                                        </label>
-                                </li>
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Becca Fitzpatrick</span>
-                                        </label>
-                                </li>
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label">Miguel de Cervantes</span>
-                                        </label>
-                                </li>
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label">Charles Dickens</span>
-                                        </label>
-                                </li>
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label">Agatha Chistie</span>
-                                        </label>
-                                </li>
-                                <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label">Jane Austen</span>
-                                        </label>
-                                </li>
-                            </ul>
-                            </div>
-                        </li>
+                            </li>
+                            
+                            <!-- Filtrar por precio-->
+                            <li class="mb-1">
 
-                        <!-- Filtrar por editorial-->
-                        <li class="mb-1">
-                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
-                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Editorial
-                            </button>
-                            <div class="collapse" id="orders-collapse">
-                            <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
-                                <form>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Editorial Acantilado</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Editorial Aguilar</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Editorial Akal</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Editorial Edisal Escalón</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Pluton Editorial</span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadio" value="">
-                                            <span class="form-check-label ">Planeta de libros</span>
-                                        </label>
-                                    </li>
-                                </form>
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#price-collapse" aria-expanded="true">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Precio
+                                </button>
 
-
-                            </ul>
-                            </div>
-                        </li>
-
-                        <!-- Filtrar por año -->
-                        <li class="mb-1">
-                            <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#years-collapse" aria-expanded="true">
-                                <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Año
-                            </button>
-                            <div class="collapse" id="years-collapse">
-                                <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
-                                    <div class="filter-content">
-                                        <div class="form-group w-50">
-                                            <label>Min</label>
-                                            <input type="number" class="form-control" id="" placeholder="1998" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                <div class="collapse show" id="price-collapse">
+                                    <ul class="list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                        <div class="filter-content">
+                                            <div class="form-group w-50">
+                                                <label>Min</label>
+                                                <input type="number" class="form-control" id="" placeholder="$0" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                            </div>
+                                            <div class="form-group w-50">
+                                                <label>Max</label>
+                                                <input type="number" class="form-control" placeholder="$1,0000" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                            </div>
                                         </div>
-                                        <div class="form-group w-50">
-                                            <label>Max</label>
-                                            <input type="number" class="form-control" placeholder="2023" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                    </ul>
+                                </div>
+
+                            </li>
+                            
+                            <!-- Filtrar por autor-->
+                            <li class="mb-1">
+
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Autor
+                                </button>
+                                
+                                <div class="collapse show" id="dashboard-collapse">
+                                    <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Suzanne Collins</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Becca Fitzpatrick</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Miguel de Cervantes</span>
+                                            </label>
+                                        </li>
+                                        
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Charles Dickens</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Agatha Chistie</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label">Jane Austen</span>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </li>
+    
+                            <!-- Filtrar por editorial-->
+                            <li class="mb-1">
+                                
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Editorial
+                                </button>
+
+                                <div class="collapse" id="orders-collapse">
+                                    <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Editorial Acantilado</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Editorial Aguilar</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Editorial Akal</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Editorial Edisal Escalón</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Pluton Editorial</span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadio" value="">
+                                                <span class="form-check-label ">Planeta de libros</span>
+                                            </label>
+                                        </li>    
+
+                                    </ul>
+
+                                </div>
+
+                            </li>
+    
+                            <!-- Filtrar por año -->
+                            <li class="mb-1">
+                                
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#years-collapse" aria-expanded="true">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Año
+                                </button>
+
+                                <div class="collapse" id="years-collapse">
+                                    <ul class=" list-unstyled fw-normal pb-1 px-4 small fuente3">
+                                        <div class="filter-content">
+                                            <div class="form-group w-50">
+                                                <label>Min</label>
+                                                <input type="number" class="form-control" id="" placeholder="1998" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                            </div>
+                                            <div class="form-group w-50">
+                                                <label>Max</label>
+                                                <input type="number" class="form-control" placeholder="2023" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                                            </div>
                                         </div>
-                                    </div>
-                                </ul>
-                            </div>
-                        </li>
-                        
+                                    </ul>
+                                </div>
 
+                            </li>
+                            
+                            <li class="border-top my-3"></li>
+                            <li class="mb-1">
 
+                                <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                                    <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Cuenta
+                                </button>
 
-                        <li class="border-top my-3"></li>
-                        <li class="mb-1">
-                        <button class="btn align-items-center rounded collapsed fuente3" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                        <svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#caret-down-fill"/></svg>Cuenta
-                        </button>
-                        <div class="collapse" id="account-collapse">
-                        <ul class="list-unstyled fw-normal pb-1 px-4  small fuente3">
-                        <li><a href="../html/ver_perfil.html" class="link-underline-opacity-0 nav-link rounded">Perfil</a></li>
-                        <li><a href="../html/listaCupones.html" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
-                        <li><a href="../html/historial_compras.html" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
-                        <li><a href="../html/listaDeseoSesion.html" class="link-underline-opacity-0 nav-link rounded">Lista de deseos</a></li>
-                        <li><a href="../html/index.html" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
+                                <div class="collapse" id="account-collapse">
+                                    <ul class="list-unstyled fw-normal pb-1 px-4  small fuente3">
+                                        <li><a href="../html/ver_perfil.html" class="link-underline-opacity-0 nav-link rounded">Perfil</a></li>
+                                        <li><a href="../html/listaCupones.html" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
+                                        <li><a href="../html/historialCompras.html" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
+                                        <li><a href="../html/listaDeseoSesion.html" class="link-underline-opacity-0 nav-link rounded">Lista de deseos</a></li>
+                                        <li><a href="../html/index.html" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+    
                         </ul>
-                        </div>
-                        </li>
 
-                    </ul>
+                    
                 </div>
             </div>
 
@@ -272,9 +308,9 @@
                         <span class="mr-md-auto d-none d-sm-block totalLibros">0 Libros</span>
                         <div class="d-flex">
                             <div class="me-1">
-                                <button title="My wishlist" class="btn btn-info fuente3" href="../html/listaDeseos.html">
+                                <a title="My wishlist" class="btn btn-info fuente3" href="../html/listaDeseoSesion.html">
                                     <svg class="bi" width="20" height="20" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#bag-heart-fill" id="dl-icon"/></svg> Wishlist
-                                </button>
+                                </a>
                             </div>
                             <div class="ms-1">
                                 <button title="Ver carrito" class="btn btn-info fuente3" href="../html/carrito.html">
@@ -288,6 +324,8 @@
 
                 <div id="MostrarLibros">
                     <script src="../script/cargarLibros.js" defer></script>
+                    <script src="../script/lista_deseos.js" defer></script>
+                    <script src="../script/lista_deseos_user.js" defer></script>
                 </div>
 
             </div>
