@@ -91,6 +91,22 @@ function mostrarCuponNavidad(event) {
   });
 }
 
+function mostrarAlertaInicioSesion(event) {
+  event.preventDefault();
+
+  Swal.fire({
+      icon: "error",
+      iconColor: "#ED5584",
+      title: "Oops...",
+      footer: '<p class="">¿No tienes cuenta? <a href="../html/registro.html">Registrate aqui. </a></p>',
+      html: 
+      `
+      <p class="text-center">Inicia sesión para tener acceso a todas las opciones.</p>
+      `
+    });
+
+}
+
 function mostrarInformacionLibro(event, data) {
   event.preventDefault();
 
@@ -98,7 +114,7 @@ function mostrarInformacionLibro(event, data) {
       titulo: data.name,
       precioOriginal: data.price,
       descripcion: data.description,
-      imagen: "http://127.0.0.1:8000/api/files/" + data.image,
+      imagen: data.image,
       code: data.code,
       year: data.year.toString(),
       editorial: data.editorial,
@@ -143,20 +159,4 @@ function mostrarInformacionLibro(event, data) {
   </div>
       `,
   });
-}
-
-function mostrarAlertaInicioSesion(event) {
-  event.preventDefault();
-
-  Swal.fire({
-      icon: "error",
-      iconColor: "#ED5584",
-      title: "Oops...",
-      footer: '<p class="">¿No tienes cuenta? <a href="../html/registro.html">Registrate aqui. </a></p>',
-      html: 
-      `
-      <p class="text-center">Inicia sesión para tener acceso a todas las opciones.</p>
-      `
-    });
-
 }
