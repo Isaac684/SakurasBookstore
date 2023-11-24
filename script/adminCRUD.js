@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 async function addProduct() {
   event.preventDefault();
+=======
+function addProduct() {
+    document.getElementById('bookForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+  
+>>>>>>> 516cfb0246a2ea49ef890e45c83f8f4dbe5779db
         const formData = new FormData();
         formData.append('code', document.getElementById('code').value);
         formData.append('name', document.getElementById('name').value);
