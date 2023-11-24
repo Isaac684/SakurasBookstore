@@ -23,17 +23,17 @@ function listarLibros(index = 0) {
                 nuevoLibro.style.display = ''; // Mostrar el nuevo libro
 
                 // Actualizar contenido con la información del libro actual
-                nuevoLibro.querySelector('#imagen').setAttribute('src', "http://127.0.0.1:8000/api/files/" + data[index].image);
+                nuevoLibro.querySelector('#imagen').setAttribute('src', data[index].image);
                 nuevoLibro.querySelector('#imagen').onclick = function(event) {
                     mostrarInformacionLibro(event, data[index]);
                 };
                 nuevoLibro.querySelector('.precio').textContent = "$" + data[index].sell_price;
                 nuevoLibro.querySelector('.nombre').textContent = data[index].name;
                 nuevoLibro.querySelector('.favorito').onclick = function(event) {
-                    addToWishlist(data[index].name, data[index].sell_price, "http://127.0.0.1:8000/api/files/" + data[index].image, data[index].stock);
+                    addToWishlist(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
                 };
                 nuevoLibro.querySelector('.carrito').onclick = function(event) {
-                    agregarCarrito(data[index].name, data[index].sell_price, "http://127.0.0.1:8000/api/files/" + data[index].image, data[index].stock);
+                    agregarCarrito(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
                 };
                 // Agregar el nuevo libro al contenedor de libros
                 contenedorLibros.appendChild(nuevoLibro);

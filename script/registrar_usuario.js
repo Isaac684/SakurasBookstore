@@ -70,8 +70,17 @@ submitButton.addEventListener('click', async function(e){
             }).then(async function(data) {
                 console.log("en teoria se mandaron los datos");
                 if(data.res == true){
-                    alert("registrado");
-                    window.location.href = 'http://127.0.0.1:5501/html/indexSession.html'
+                    Swal.fire({
+                        title: 'Registrado',
+                        text: 'Has sido registrado con exito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirige a la página deseada
+                            window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
+                        }
+                    });
                 }
 
             }).catch(function(err) {
