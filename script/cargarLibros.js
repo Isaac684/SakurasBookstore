@@ -7,6 +7,7 @@ function listarLibros(index = 0) {
             const contenedorLibros = document.getElementById('contenedor-libros');
             const libroSinDescuento = document.querySelector('.libroPNormal');
             const libroConDescuento = document.querySelector('.libroPDescuento');
+            const total = document.querySelector('.totalLibros');
 
             // Verificar si hay más elementos en el JSON
             if (index < data.length) {
@@ -29,13 +30,17 @@ function listarLibros(index = 0) {
                 nuevoLibro.querySelector('.precio').textContent = "$" + data[index].sell_price;
                 nuevoLibro.querySelector('.nombre').textContent = data[index].name;
                 nuevoLibro.querySelector('.favorito').onclick = function(event) {
-                    addToWishlist(data[index].name, "$" + data[index].sell_price, "http://127.0.0.1:8000/api/files/" + data[index].image, '../html/listaDeseos.html');
+                    addToWishlist(data[index].name, data[index].sell_price, "http://127.0.0.1:8000/api/files/" + data[index].image, data[index].stock);
+                };
+                nuevoLibro.querySelector('.carrito').onclick = function(event) {
+                    agregarCarrito(data[index].name, data[index].sell_price, "http://127.0.0.1:8000/api/files/" + data[index].image, data[index].stock);
                 };
                 // Agregar el nuevo libro al contenedor de libros
                 contenedorLibros.appendChild(nuevoLibro);
 
                 // Llamar recursivamente para el siguiente libro
                 listarLibros(index + 1);
+                total.textContent = data.length + " Libros";
             }
         })
         .catch(function (err) {

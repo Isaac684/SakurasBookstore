@@ -53,7 +53,7 @@
 // });
 
 
-function addToWishlist(title, price, imageUrl, redirectUrl) {
+function addToWishlist(title, price, imageUrl, stock) {
     // Recuperar lista de deseos actual de localStorage
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
@@ -69,7 +69,7 @@ function addToWishlist(title, price, imageUrl, redirectUrl) {
         });   
     } else {
         // Añadir el nuevo libro a la lista de deseos
-        wishlist.push({ title, price, imageUrl });
+        wishlist.push({ title, price, stock, imageUrl });
 
         // Guardar la lista de deseos actualizada en localStorage
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -81,8 +81,8 @@ function addToWishlist(title, price, imageUrl, redirectUrl) {
         });
 
         // Agregar un retraso de 1 segundo (1000 milisegundos) antes de redirigir
-        setTimeout(function() {
-            window.location.href = redirectUrl;
-        }, 2000);
+        // setTimeout(function() {
+        //     window.location.href = redirectUrl;
+        // }, 2000);
     }
 }
