@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var selectPaises = document.getElementById("paises");
 
     // Obtener la lista de países desde el enlace
-    fetch('https://sakuraapi.000webhostapp.com/api/paises')
+    fetch('http://127.0.0.1:8000/api/paises')
       .then(response => response.json())
       .then(data => {
         // Iterar sobre el arreglo de países y agregar opciones al select
