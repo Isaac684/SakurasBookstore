@@ -41,36 +41,34 @@ submitButton.addEventListener('click', async function(e){
     if (foto.files.length > 0) {
         const file = foto.files[0];
         const reader = new FileReader();reader.onload = function (e) {
-            const base64Image = e.target.result;const imgElement = document.createElement('img');
-            imgElement.src = base64Image;
-            const base64Value = base64Image;
                     
-            const jss = {
-                "username": usuario.value,
-                "email": correo.value,
-                "password": contrasena.value,
-                "name": nombre.value,
-                "age": edad.value,
-                "gender": gender,
-                "photo": base64Value, 
-                "country": paises.value,
-                "address": direccionPrincipal.value,
-                "send_address": direccionesEnvio.value,
-                "refer_code": "64ZTR2FNPQ"
-            };
+        const formData = new FormData();
+        formData.append('username', usuario.value);
+        formData.append('email', correo.value);
+        formData.append('password', contrasena.value);
+        formData.append('name', nombre.value);
+        formData.append('age', edad.value);
+        formData.append('gender', gender);
+        formData.append('file', file);
+        formData.append('country', paises.value);
+        formData.append('address', direccionPrincipal.value);
+        formData.append('send_address', direccionesEnvio.value);
+        formData.append('refer_code', '64ZTR2FNPQ'); 
+
             fetch('http://127.0.0.1:8000/api/Usuario', {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json; charset=utf-8"
+                    
                 },
-                body: JSON.stringify(jss)
+                body: formData,
             }).then(async function(response) {
                 if (!response.ok) {
                     return false;
                 }
+                
                 return response.json();
             }).then(async function(data) {
-
+                console.log("en teoria se mandaron los datos");
                 if(data.res == true){
                     alert("registrado");
                     window.location.href = 'http://127.0.0.1:5501/html/indexSession.html'
