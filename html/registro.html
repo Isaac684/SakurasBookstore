@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../script/paises.js"></script>
+    <script src="../script/registrar_usuario.js" defer></script>
 </head>
 <body class="bg-secondary">
     <section class="vh-100">
@@ -25,17 +26,17 @@
 
                                         <div class="col-12">
                                             <label for="validationDefault01" class="form-label">Nombre completo</label>
-                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Ej: Gabriel García Márquez" required>
+                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Ej: Gabriel García Márquez" nombre="" required>
                                         </div>
                                 
                                         <div class="col-4">
                                             <label for="validationDefault02" class="form-label">Edad</label>
-                                            <input type="number" class="form-control" id="validationDefault02" placeholder="Ej: 18" min="1" pattern="^[0-9]+" required>
+                                            <input type="number" class="form-control" id="validationDefault02" placeholder="Ej: 18" min="1" pattern="^[0-9]+" edad="" required>
                                         </div>
                                 
                                         <div class="col-8">
-                                            <label for="genero" class="form-label">Género:</label>
-                                            <select class="form-select" required aria-label="select example" id="genero">
+                                            <label for="genero" class="form-label" >Género:</label>
+                                            <select class="form-select" required aria-label="select example" id="genero" genero="">
                                               <option selected disabled value="">Seleccione su género</option>
                                               <option value="Masculino">Masculino</option>
                                               <option value="Femenino">Femenino</option>
@@ -44,13 +45,13 @@
                                 
                                         <div class="col-12">
                                             <label for="foto" class="form-label">Foto de perfil:</label>
-                                            <input  accept="image/png,image/jpeg" type="file" class="form-control" aria-label="file example" required>
+                                            <input  accept="image/png,image/jpeg" type="file" class="form-control" aria-label="file example" foto="" required>
                                         </div>
                                 
                                         <div class="col-12">
                                             <label for="validationDefaultUsername" class="form-label">Correo electronico</label>
                                                 <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
-                                                   placeholder="Ej: marquezgarcia23@gmail.com"  required>
+                                                   placeholder="Ej: marquezgarcia23@gmail.com" correo="" required>
 
                                         </div>
                                 
@@ -60,7 +61,7 @@
                                                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
                                                 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
                                                 <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                                                <input data-toggle="password" class="form-control" type="password" required>
+                                                <input data-toggle="password" class="form-control" type="password" contraseña="" required>
                                             </div>
                                         </div>
                                 
@@ -68,27 +69,27 @@
                                             <label for="validationDefaultUsername" class="form-label">Nombre de usuario</label>
                                             <div class="input-group">
                                                 <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2"
-                                                placeholder="Ej: gabriel2345" required>
+                                                placeholder="Ej: gabriel2345" usuario="" required>
                                             </div>
                                         </div>
                                 
                                         <div class="col-6 mt-lg-0 mt-xl-4 mt-xxl-0">
                                             <label for="validationDefault04" class="form-label mt-xl-0 mt mt-lg-0">Pais</label>
-                                            <select class="form-select" id="paises" required>
+                                            <select class="form-select" id="paises" pais="" required>
                                                 <option selected disabled value="">Elija su pais</option>
                                             </select>
                                         </div>
                                 
                                         <div class="col-12">
                                             <label for="exampleFormControlTextarea1" class="form-label">Direccion principal</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" d-principal required></textarea>
                                         </div>
                                 
                                         <div class="col-12">
                                             <label for="exampleFormControlTextarea1" class="form-label">Direcciones de envio</label>
                                             <label for="exampleFormControlTextarea1" class="form-label"></label>
                                 
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Separe con una ',' cada direccion. Ej: Direccion 1, Direccion 2" required></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Separe con una ',' cada direccion. Ej: Direccion 1, Direccion 2" d-envios required></textarea>
                                         </div>
                                 
                                         <!-- <div class="col-12">
@@ -101,7 +102,7 @@
                                         </div> -->
 
                                         <div class="text-center text-lg-start mt-4 pt-2">
-                                            <button type="submit" class="btn btn-primary btn-md" style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarse</button>
+                                            <a type="" class="btn btn-primary btn-md" style="padding-left: 2.5rem; padding-right: 2.5rem;" registro="">Registrarse</a>
                                             <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="../html/login.html" class="link-danger">Iniciar sesión</a></p>
                                             <p class="small fw-bold mt-2 pt-1 mb-0 text-center">O</p>
                                             <p class="small fw-bold mt-2 pt-1 mb-0">Continuar sin una cuenta <a href="../html/index.html" class="link-danger">Inicio</a></p>
