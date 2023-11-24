@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <script src="../script/loadContenLogin.js" defer></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../script/ModoOscuro.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+<body>
+
+    <!-- Header -->
+    <header class="mb-3 bg-warning" id="headerColor">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 " id="Inicio">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;" id="logoHeader"/></a>
+            </li>
+        </ul>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Responsive icons -->
+                <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
+                    <img src="../img/Logo2Cafe.png" height="60" id="logoHeaderResponsive"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Barra -->
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="#"><svg onclick="cambiarTema()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
+                    </li>
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" href="index.html"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#box-arrow-right" id="dl-icon"/></svg></a>
+                    </li>
+                    
+                </div>
+          
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block mb-5 pb-5 bg-light sidebar rounded-3">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../html/indexSession.html"><svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#house-door-fill"/></svg>Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#journal-arrow-up"/></svg>Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#people-fill"/></svg>Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><svg class="bi me-2" width="30" height="24" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#person-fill"/></svg>Perfil</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 rounded-3">
+
+<!--                 <h2>Section title</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Header</th>
+                        <th scope="col">Header</th>
+                        <th scope="col">Header</th>
+                        <th scope="col">Header</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1,001</td>
+                        <td>random</td>
+                        <td>data</td>
+                        <td>placeholder</td>
+                        <td>text</td>
+                        </tr>
+                        <tr>
+                        <td>1,002</td>
+                        <td>placeholder</td>
+                        <td>irrelevant</td>
+                        <td>visual</td>
+                        <td>layout</td>
+                        </tr>
+                        <tr>
+                        <td>1,003</td>
+                        <td>data</td>
+                        <td>rich</td>
+                        <td>dashboard</td>
+                        <td>tabular</td>
+                        </tr>
+                        <tr>
+                        <td>1,003</td>
+                        <td>information</td>
+                        <td>placeholder</td>
+                        <td>illustrative</td>
+                        <td>data</td>
+                        </tr>
+                        <tr>
+                        <td>1,004</td>
+                        <td>text</td>
+                        <td>random</td>
+                        <td>layout</td>
+                        <td>dashboard</td>
+                        </tr>
+                        <tr>
+                        <td>1,005</td>
+                        <td>dashboard</td>
+                        <td>irrelevant</td>
+                        <td>text</td>
+                        <td>placeholder</td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div> -->
+            
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+  </body>
+</html>

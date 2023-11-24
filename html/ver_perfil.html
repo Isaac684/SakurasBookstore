@@ -39,8 +39,8 @@
             <div class="mb-3 col-md-6">
                 <label for="correo" class="form-label fuente3 text-danger">Correo electronico:</label>
                 <div class="input-group">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                    <input type="email" class="form-control fuente3" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2">
+                    <span class="input-group-text" id="email2">@</span>
+                    <input type="email" class="form-control fuente3" id="email" aria-describedby="inputGroupPrepend2">
                 </div>
             </div>
     
@@ -50,7 +50,7 @@
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
                     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
                     <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                    <input data-toggle="password" class="form-control" type="password">
+                    <input data-toggle="password" id="password" class="form-control" type="password">
                 </div>
             </div>
     
@@ -76,7 +76,32 @@
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
+
         }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const nombreInput = document.getElementById('nombre');
+            const edadInput = document.getElementById('edad');
+            const generoInput = document.getElementById('genero');
+            const paisInput = document.getElementById('pais');
+            const emailInput = document.getElementById('email');
+            const contraseniaInput = document.getElementById('password');
+ 
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+            if (userInfo) {
+        
+                nombreInput.value = userInfo.name;
+                edadInput.value = userInfo.age;
+                generoInput.value = userInfo.gender;
+                paisInput.value= userInfo.country;
+                emailInput.value = userInfo.email;
+                contraseniaInput.value = userInfo.password;
+            } else {
+                console.error('No se encontraron detalles del usuario.');
+            }
+        });
     </script>
     
 </body>
