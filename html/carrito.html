@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de deseos - Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script/obtener_carrito_compras.js" defer></script>
+    <script src="../script/ModalLibros.js"></script>
+    <script src="../script/loadContenNoLogin.js" defer></script>
+</head>
+<body data-bs-theme="light">
+
+    <!-- Header -->
+    <header class="mb-3 bg-warning" id="headerColor">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 " id="Inicio">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;" id="logoHeader"/></a>
+            </li>
+        </ul>
+
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg">
+
+            <div class="container-fluid">
+                <!-- Responsive icons -->
+                <a class="navbar-brand d-block d-lg-none p-0 m-0" href="#">
+                    <img src="../img/Logo2Cafe.png" height="60" id="logoHeaderResponsive"/>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Barra -->
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+
+                    <ul class="navbar-nav mx-auto fuente3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" aria-current="page" href="../html/index.html">Productos</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Populares</a>
+                        </li>
+
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Cupones</a>
+                        </li>
+                        <li class="nav-item dropdown mx-2">
+                            <a class="nav-link " href="../html/Nosotros.html">Nosotros</a>
+                        </li>
+                    </ul>
+
+                    <li class="navbar-nav">
+                        <a class="nav-link fuente3" onclick="mostrarAlertaInicioSesion(event)" href="#"><svg onclick="cambiarTema()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
+                    </li>
+                    
+                </div>
+          
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- Contenido -->
+    <div class="pb-3 ms-4 me-4">
+        <div class="row" >
+
+            <!-- SIDEBAR 1 -->
+            <div class="pe-lg-5 ps-lg-5 ps-md-4 pe-md-4 ps-3 pe-3">
+
+                <div  class="text-center pt-5 border-top"><svg class="bi" width="42" height="42" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#suit-heart"/></svg></div>
+                <div class="fuente3 mt-3 text-center fs-1 fw-bolder text-uppercase">carrito de compras</div>
+                
+                <table class="table table-responsive align-middle">
+                    <thead>
+                        <tr>
+                            <th class="col"></th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Precio</th>
+
+                            <th scope="col">Acciones</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="wishlist-table-body">
+                        <!-- Aquí se insertarán las filas de la lista de deseos -->
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="footer-container">
+        
+    </div>
+
+</body>
+</html>
