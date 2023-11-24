@@ -7,7 +7,7 @@ function mostrarInformacionLibro(event, data) {
         titulo: data.name,
         precioOriginal: data.price,
         descripcion: data.description,
-        imagen: data.image,
+        imagen: "http://127.0.0.1:8000/api/files/" + data.image,
         code: data.code,
         year: data.year.toString(),
         editorial: data.editorial,
