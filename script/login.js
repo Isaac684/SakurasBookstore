@@ -48,6 +48,7 @@ btn.addEventListener('click', async function (e) {
             if (usuarioEncontrado) {
                 // Almacena los detalles del usuario en localStorage
                 localStorage.setItem('userInfo', JSON.stringify(usuarioEncontrado.id));
+                localStorage.setItem('photoUser', JSON.stringify(usuarioEncontrado.photo));
 
                 //window.location.href = "../html/indexSession.html";
                  // Alerta Sweet para inicio de sesión exitoso
