@@ -33,22 +33,21 @@ submitButton.addEventListener('click', async function(e){
     const direccionPrincipal = document.querySelector('[d-principal]');
     const direccionesEnvio = document.querySelector('[d-envios]');
 
-    let gender = false;
-    if(genero.value == 'Masculino'){
-        gender = true;
-    }
+    console.log(genero);
+
 
     if (foto.files.length > 0) {
         const file = foto.files[0];
         const reader = new FileReader();reader.onload = function (e) {
-                    
+       
         const formData = new FormData();
         formData.append('username', usuario.value);
         formData.append('email', correo.value);
         formData.append('password', contrasena.value);
         formData.append('name', nombre.value);
         formData.append('age', edad.value);
-        formData.append('gender', gender);
+        formData.append('gender', genero.value);
+        console.log(genero.value);
         formData.append('file', file);
         formData.append('country', paises.value);
         formData.append('address', direccionPrincipal.value);
@@ -67,7 +66,7 @@ submitButton.addEventListener('click', async function(e){
                 }
                 
                 return response.json();
-            }).then(async function(data) {
+            }).then(function(data) {
                 console.log("en teoria se mandaron los datos");
                 if(data.res == true){
                     Swal.fire({
@@ -78,7 +77,7 @@ submitButton.addEventListener('click', async function(e){
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Redirige a la página deseada
-                            window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
+          /*                   window.location.href = 'http://127.0.0.1:5501/html/indexSession.html'; */
                         }
                     });
                 }
