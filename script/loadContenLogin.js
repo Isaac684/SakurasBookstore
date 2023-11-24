@@ -14,6 +14,8 @@ window.onload = includeContent('../html/footerLogin.html', document.getElementBy
 // Llamar a la función para incluir el encabezado cuando la página cargue
 window.onload = includeContent('../html/headerLogin.html', document.getElementById('header-container'));
 
+//cargarLibros cuando no esta registrado
+window.onload = includeContent('../html/plantillaLibros.html', document.getElementById('MostrarLibros'));
 
 /* Para el dropdown */
 function myFunction() {
