@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cellValor.textContent =  "$ " + cupon.value;
                 cellCreado.textContent = obtenerFechaFormateada(cupon.create);
                 cellExpira.textContent = obtenerFechaFormateada(cupon.expire);
+                cellCreado.classList.add('ocultarLuego');
+                cellExpira.classList.add('ocultarLuego');
 
             }
 
@@ -61,6 +63,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cellPorcentaje.textContent = cupon.percent + " %";
                 cellCreado.textContent = obtenerFechaFormateada(cupon.create);
                 cellExpira.textContent = obtenerFechaFormateada(cupon.expire);
+                cellCreado.classList.add('ocultarLuego');
+                cellExpira.classList.add('ocultarLuego');
             }
 
 
