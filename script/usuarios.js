@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             const cellEdad = row.insertCell(2);
             const cellGenero = row.insertCell(3);
             const cellEmail = row.insertCell(4);
-            const cellPassword = row.insertCell(5);
+            const cellDireccion = row.insertCell(5);
             const cellPais = row.insertCell(6);
             const cellAcciones = row.insertCell(7);
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             cellEdad.textContent = usuario.age;
             cellGenero.textContent = usuario.gender;
             cellEmail.textContent = usuario.email;
-            cellPassword.textContent = usuario.password;
+            cellDireccion.textContent = usuario.address;
             cellPais.textContent = usuario.country;
 
             // Botones de acciones (editar y eliminar)
