@@ -58,16 +58,15 @@
 // });
 
 document.addEventListener('DOMContentLoaded', async function () {
-    const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput1');
     const tableBody = document.getElementById('bodyProductos');
     let originalProductos = [];
 
     try {
         const response = await fetch('http://127.0.0.1:8000/api/Productos', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8',
-            },
+            headers:{
+                'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+            }
         });
 
         if (!response.ok) {
