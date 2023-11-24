@@ -135,30 +135,30 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <div class="fuente3 rounded-3 d-flex flex-column">
                     <div class="d-flex flex-row">
                         <div class="col-4">
-                            <label for="nombre" class="swal2-label">Username</label>
-                            <input id="nombre" class="swal2-input" value="${usuario.username}" required>
+                            <label for="n" class="swal2-label">Username</label>
+                            <input id="user" class="swal2-input" value="${usuario.username}" required>
                         </div>
                         <div class="col-4">
                             <label for="editorial" class="swal2-label">Email</label>
-                            <input id="editorial" class="swal2-input" value="${usuario.email}" required>
+                            <input id="mail" class="swal2-input" value="${usuario.email}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Name</label>
-                            <input id="autor" class="swal2-input" value="${usuario.name}" required>
+                            <input id="nm" class="swal2-input" value="${usuario.name}" required>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Pais</label>
-                            <input id="autor" class="swal2-input" value="${usuario.country}" required>
+                            <input id="cy" class="swal2-input" value="${usuario.country}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Direccion</label>
-                            <input id="autor" class="swal2-input" value="${usuario.address}" required>
+                            <input id="adr" class="swal2-input" value="${usuario.address}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Direccion de envio</label>
-                            <input id="autor" class="swal2-input" value="${usuario.send_address}" required>
+                            <input id="adrr" class="swal2-input" value="${usuario.send_address}" required>
                         </div>
                     </div>
                 </div>
@@ -169,6 +169,54 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
+
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    // Obtener referencias a los elementos HTML dentro del modal
+                    const user = document.getElementById('user');
+                    const email = document.getElementById('mail');
+                    const nombre = document.getElementById('nm');
+                    const country = document.getElementById('cy');
+                    const adre = document.getElementById('adr');
+                    const adress = document.getElementById('adrr');
+                   
+                    console.log(user.value);
+                
+                    // Crear un objeto con los datos actualizados del producto
+                    const datosActualizados2 = {
+                       username: user.value,
+                        email: email.value,
+                        name: nombre.value,
+                        country: country.value,
+                        address: adre.value,
+                        send_address: adress.value,
+                       
+
+                    };
+        
+                    // Hacer una solicitud de actualización a la API
+                    await fetch('http://127.0.0.1:8000/api/ActualizarAdmin/'+usuario.id, {
+                        method: 'PUT', // O el método HTTP que la API requiera
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+                        },
+                        body: JSON.stringify(datosActualizados2),
+                    })
+                    .then(data => {
+                      
+                        console.log('Producto actualizado con éxito:', data);
+                        swal.fire('¡Éxito!', 'Producto actualizado correctamente', 'success');
+                    })
+                    .catch(error => {
+                       
+                        console.error('Error al actualizar el producto:', error);
+                        swal.fire('¡Error!', 'Hubo un error al actualizar el producto', 'error');
+                    });
+                }
+        
+
+
             });
         }      
 
