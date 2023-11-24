@@ -1,5 +1,22 @@
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el elemento select
+    var selectPaises = document.getElementById("paises");
 
+    // Obtener la lista de países desde el enlace
+    fetch('http://127.0.0.1:8000/api/paises')
+      .then(response => response.json())
+      .then(data => {
+        // Iterar sobre el arreglo de países y agregar opciones al select
+        data.forEach(function(pais) {
+          var opcion = document.createElement("option");
+          opcion.value = pais.nombre;
+          opcion.text = pais.nombre;
+          selectPaises.add(opcion);
+        });
+      })
+      .catch(error => console.error('Error al obtener la lista de países:', error));
+  });
 
 const submitButton = document.querySelector('[registro]');
 submitButton.addEventListener('click', async function(e){
@@ -26,7 +43,7 @@ submitButton.addEventListener('click', async function(e){
         const reader = new FileReader();reader.onload = function (e) {
             const base64Image = e.target.result;const imgElement = document.createElement('img');
             imgElement.src = base64Image;
-            document.body.appendChild(imgElement);const base64Value = base64Image;
+            const base64Value = base64Image;
                     
             const jss = {
                 "username": usuario.value,
