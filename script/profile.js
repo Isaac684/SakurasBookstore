@@ -41,6 +41,24 @@ async function dataShow(){
           console.error('Error:', error);
           // Manejo de errores
         });
-
+  await fetch(JSON.parse(localStorage.getItem('photoUser')),{
+      headers:{
+        'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+  }).then(response => {
+    if(!response.ok){
+      throw new Error('Hubo un problema al enviar los datos.');
+    }
+    return response.blob();
+  }).then(blob => {
+      const imageURL = URL.createObjectURL(blob);
+      console.log(imageURL);
+      const imgUser = document.getElementById('photo');
+      imgUser.src = imageURL;
+  })
+  .catch(error => {
+  console.error('Error:', error);
+  // Manejo de errores
+  });
 }
 dataShow();
