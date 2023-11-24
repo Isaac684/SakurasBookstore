@@ -10,7 +10,6 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../script/obtener_lista_deseos.js" defer></script>
-    <script src="../script/ModalLibros.js"></script>
     <script src="../script/loadContenNoLogin.js" defer></script>
 </head>
 <body data-bs-theme="light">
@@ -49,7 +48,7 @@
                         </li>
 
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#">Cupones</a>
+                            <a class="nav-link" onclick="mostrarAlertaInicioSesion(event)">Cupones</a>
                         </li>
                         <li class="nav-item dropdown mx-2">
                             <a class="nav-link " href="../html/Nosotros.html">Nosotros</a>
