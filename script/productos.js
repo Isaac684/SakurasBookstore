@@ -1,54 +1,4 @@
-// Declarar la función eliminarProducto fuera del bloque DOMContentLoaded
-async function eliminarProducto(id) {
-    const result = await Swal.fire({
-        title: '¿Estás seguro?',
-        text: '¡No podrás revertir esto!',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Sí, eliminarlo',
-        showLoaderOnConfirm: true,
-        customClass: {
-            content: 'text-center'
-        }
-    });
 
-    if (result.isConfirmed) {
-        try {
-            // Enviar la solicitud de eliminación solo si el usuario confirma
-            const response = await fetch(`http://127.0.0.1:8000/api/Productos/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-                },
-            });
-
-            if (!response.ok) {
-                console.error('Error al eliminar el producto:', error.message);
-                return;
-            }
-
-            // Actualizar la lista de productos después de la eliminación
-            const updatedProductos = originalProductos.filter(producto => producto.id !== id);
-            originalProductos = updatedProductos;
-
-            // Volver a mostrar la tabla actualizada
-            filtrarTabla();
-
-            // Mostrar mensaje de éxito con SweetAlert
-            Swal.fire(
-                '¡Eliminado!',
-                'El producto ha sido eliminado.',
-                'success'
-            );
-
-            console.log('Producto eliminado exitosamente!');
-        } catch (error) {
-            console.error('Error al eliminar el producto:', error);
-        }
-    }
-}
 
 document.addEventListener('DOMContentLoaded', async function () {
     const searchInput = document.getElementById('searchInput1');
@@ -122,6 +72,61 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Mostrar todos los productos inicialmente
         agregarFilas(originalProductos);
 
+        // Declarar la función eliminarProducto fuera del bloque DOMContentLoaded
+        async function eliminarProducto(id) {
+            const result = await Swal.fire({
+                title: '¿Estás seguro?',
+                text: '¡No podrás revertir esto!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminarlo',
+                showLoaderOnConfirm: true,
+                customClass: {
+                    content: 'text-center'
+                }
+            });
+
+            if (result.isConfirmed) {
+                try {
+                    // Enviar la solicitud de eliminación solo si el usuario confirma
+                    const response = await fetch(`http://127.0.0.1:8000/api/Productos/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+                        },
+                    });
+
+                    if (!response.ok) {
+                        console.error('Error al eliminar el producto:', error.message);
+                        return;
+                    }
+
+                    // Actualizar la lista de productos después de la eliminación
+                    const updatedProductos = originalProductos.filter(producto => producto.id !== id);
+                    originalProductos = updatedProductos;
+
+                    // Volver a mostrar la tabla actualizada
+                    filtrarTabla();
+
+                    // Mostrar mensaje de éxito con SweetAlert
+                    Swal.fire({
+                        title: 'Eliminado',
+                        text: 'El producto ha sido eliminado',
+                        icon: 'success',
+                        customClass: {
+                            content: 'text-center'
+                        }
+                    });
+
+                    console.log('Producto eliminado exitosamente!');
+                } catch (error) {
+                    console.error('Error al eliminar el producto:', error);
+                }
+            }
+        }
+        
         // Función para mostrar el modal de edición con SweetAlert
         function mostrarModalEditar(producto) {
             swal.fire({
