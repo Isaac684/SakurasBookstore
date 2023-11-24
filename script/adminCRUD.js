@@ -1,7 +1,5 @@
-function addProduct() {
-    document.getElementById('bookForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-  
+async function addProduct() {
+  event.preventDefault();
         const formData = new FormData();
         formData.append('code', document.getElementById('code').value);
         formData.append('name', document.getElementById('name').value);
@@ -17,10 +15,10 @@ function addProduct() {
         formData.append('rating', 4);
         formData.append('file', document.getElementById('file').files[0]);
   
-        fetch('http://127.0.0.1:8000/api/RegistroProductos', {
+        await fetch('http://127.0.0.1:8000/api/RegistroProductos', {
           method: 'POST',
           headers:{
-            'Authorization' : 'Bearer 8|i7uDLsJ2hiD1v5PnCJlFISKfXLWGQl1wP99wmVSjb8a67921'
+            'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
           },
           body: formData,
         })
@@ -44,7 +42,9 @@ function addProduct() {
         .catch(error => {
           console.error('Error:', error);
           // Manejo de errores
-        });
-      });
+        })
+        .finally(function (){
 
-}
+        });
+
+      }
