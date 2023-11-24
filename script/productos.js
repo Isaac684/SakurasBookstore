@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', async function () {
     const searchInput = document.getElementById('searchInput1');
     const tableBody = document.getElementById('bodyProductos');
@@ -51,8 +49,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 btnEliminar.innerHTML = '<svg class="bi" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg>';
                 btnEliminar.addEventListener('click', () => eliminarProducto(producto.id));
                 
-                cellAcciones.appendChild(btnEliminar);
                 cellAcciones.appendChild(btnEditar);
+                cellAcciones.appendChild(btnEliminar);
             });
         }
 

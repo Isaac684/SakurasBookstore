@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const btnEditar = document.createElement('button');
                 btnEditar.className = 'btn btn-outline-secondary btn-sm mx-1';
                 btnEditar.innerHTML = '<svg class="bi" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#pencil"/></svg>';
-                //btnEditar.addEventListener('click', () => editarUsuario(usuario));
+                btnEditar.addEventListener('click', () => mostrarModalEditar(usuario));
 
                 const btnEliminar = document.createElement('button');
                 btnEliminar.className = 'btn btn-outline-secondary btn-sm mx-1';
                 btnEliminar.innerHTML = '<svg class="bi" width="18" height="18" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#trash"/></svg>';
-                //btnEliminar.addEventListener('click', () => eliminarUsuario(usuario.id));
+                btnEliminar.addEventListener('click', () => eliminarUsuario(usuario.id));
 
                 cellAcciones.appendChild(btnEditar);
                 cellAcciones.appendChild(btnEliminar);
@@ -66,6 +66,111 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Mostrar todos los usuarios inicialmente
         agregarFilas(originalUsuarios);
+
+        // Declarar la función eliminarProducto fuera del bloque DOMContentLoaded
+        async function eliminarUsuario(id) {
+            const result = await Swal.fire({
+                title: '¿Estás seguro?',
+                text: '¡No podrás revertir esto!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminarlo',
+                showLoaderOnConfirm: true,
+                customClass: {
+                    content: 'text-center'
+                }
+            });
+
+            if (result.isConfirmed) {
+                try {
+                    // Enviar la solicitud de eliminación solo si el usuario confirma
+                    const response = await fetch(`http://127.0.0.1:8000/api/Usuario/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+                        },
+                    });
+
+                    if (!response.ok) {
+                        console.error('Error al eliminar el usuario:', error.message);
+                        return;
+                    }
+
+                    // Actualizar la lista de productos después de la eliminación
+                    const updatedUsuarios = originalProductos.filter(usuario => usuario.id !== id);
+                    originalUsuarios = updatedUsuarios;
+
+                    // Volver a mostrar la tabla actualizada
+                    filtrarTabla();
+
+                    // Mostrar mensaje de éxito con SweetAlert
+                    Swal.fire({
+                        title: 'Eliminado',
+                        text: 'El usuario ha sido eliminado',
+                        icon: 'success',
+                        customClass: {
+                            content: 'text-center'
+                        }
+                    });
+
+                    console.log('Usuario eliminado exitosamente!');
+                } catch (error) {
+                    console.error('Error al eliminar el usuario:', error);
+                }
+            }
+        }
+        
+        // Función para mostrar el modal de edición con SweetAlert
+        function mostrarModalEditar(usuario) {
+            swal.fire({
+                showCloseButton: true,
+                focusConfirm: false,
+                heightAuto:false,
+                width:'60%',
+                position:'center',
+                html: 
+                `
+                <div class="fuente3 rounded-3 d-flex flex-column">
+                    <div class="d-flex flex-row">
+                        <div class="col-4">
+                            <label for="nombre" class="swal2-label">Username</label>
+                            <input id="nombre" class="swal2-input" value="${usuario.username}" required>
+                        </div>
+                        <div class="col-4">
+                            <label for="editorial" class="swal2-label">Email</label>
+                            <input id="editorial" class="swal2-input" value="${usuario.email}" required>
+                        </div>
+                        <div class="col-4">
+                            <label for="autor" class="swal2-label">Name</label>
+                            <input id="autor" class="swal2-input" value="${usuario.name}" required>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="col-4">
+                            <label for="autor" class="swal2-label">Pais</label>
+                            <input id="autor" class="swal2-input" value="${usuario.country}" required>
+                        </div>
+                        <div class="col-4">
+                            <label for="autor" class="swal2-label">Direccion</label>
+                            <input id="autor" class="swal2-input" value="${usuario.address}" required>
+                        </div>
+                        <div class="col-4">
+                            <label for="autor" class="swal2-label">Direccion de envio</label>
+                            <input id="autor" class="swal2-input" value="${usuario.send_address}" required>
+                        </div>
+                    </div>
+                </div>
+                `,
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Modificar',
+                showLoaderOnConfirm: true,
+            });
+        }      
 
     } catch (error) {
         console.error('Error en la solicitud de obtener usuarios:', error);
