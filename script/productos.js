@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
         
         // Función para mostrar el modal de edición con SweetAlert
-        function mostrarModalEditar(producto) {
+        async function mostrarModalEditar(producto) {
             swal.fire({
                 showCloseButton: true,
                 focusConfirm: false,
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Editorial</label>
-                            <input id="editorial" class="swal2-input" value="${producto.editorial}" required>
+                            <input id="edito" class="swal2-input" value="${producto.editorial}" required>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
@@ -157,25 +157,25 @@ document.addEventListener('DOMContentLoaded', async function () {
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Autor</label>
-                            <input id="autor" class="swal2-input" value="${producto.author}" required>
+                            <input id="aut" class="swal2-input" value="${producto.author}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Precio</label>
-                            <input id="price" class="swal2-input" value="${producto.price}" required>
+                            <input id="pric" class="swal2-input" value="${producto.price}" required>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Stock</label>
-                            <input id="producto" class="swal2-input" value="${producto.stock}" required>
+                            <input id="produc" class="swal2-input" value="${producto.stock}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Precio de venta</label>
-                            <input id="sellPrice" class="swal2-input" value="${producto.sell_price}" required>
+                            <input id="sell" class="swal2-input" value="${producto.sell_price}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Genero</label>
-                            <input id="category" class="swal2-input" value="${producto.category}" required>
+                            <input id="cate" class="swal2-input" value="${producto.category}" required>
                         </div>
                     </div>
                     
@@ -188,19 +188,19 @@ document.addEventListener('DOMContentLoaded', async function () {
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
   
-            }).then((result) => {
+            }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Obtener referencias a los elementos HTML dentro del modal
                     const nombreInput = document.getElementById('nombre');
                     const descripcionInput = document.getElementById('descripcion');
-                    const editorialInput = document.getElementById('editorial');
+                    const editorialInput = document.getElementById('edito');
                     const anioInput = document.getElementById('anio');
-                    const autorInput = document.getElementById('autor');
-                    const priceInput = document.getElementById('price');
-                    const productoInput = document.getElementById('producto');
-                    const sellPriceInput = document.getElementById('sellPrice');
-                    const categoryInput = document.getElementById('category');
-        
+                    const autorInput = document.getElementById('aut');
+                    const priceInput = document.getElementById('pric');
+                    const productoInput = document.getElementById('produc');
+                    const sellPriceInput = document.getElementById('sell');
+                    const categoryInput = document.getElementById('cate');
+                    console.log(editorialInput.value);
                     // Crear un objeto con los datos actualizados del producto
                     const datosActualizados = {
                         name: nombreInput.value,
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     };
         
                     // Hacer una solicitud de actualización a la API
-                    fetch('http://127.0.0.1:8000/api/ActualizarProductos/'+producto.id, {
+                    await fetch('http://127.0.0.1:8000/api/ActualizarProductos/'+producto.id, {
                         method: 'PUT', // O el método HTTP que la API requiera
                         headers: {
                             'Content-Type': 'application/json',
@@ -225,7 +225,13 @@ document.addEventListener('DOMContentLoaded', async function () {
                         },
                         body: JSON.stringify(datosActualizados),
                     })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                          throw new Error('Hubo un problema al enviar los datos.');
+                        }
+                        
+                        return response.json();
+                    })
                     .then(data => {
                       
                         console.log('Producto actualizado con éxito:', data);
@@ -251,3 +257,4 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.error('Error en la solicitud de obtener productos:', error);
     }
 });
+
