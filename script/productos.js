@@ -145,17 +145,17 @@ document.addEventListener('DOMContentLoaded', async function () {
                         </div>
                         <div class="col-4">
                             <label for="editorial" class="swal2-label">Descripcion</label>
-                            <input id="editorial" class="swal2-input" value="${producto.description}" required>
+                            <input id="descripcion" class="swal2-input" value="${producto.description}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Editorial</label>
-                            <input id="autor" class="swal2-input" value="${producto.editorial}" required>
+                            <input id="editorial" class="swal2-input" value="${producto.editorial}" required>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Anio</label>
-                            <input id="autor" class="swal2-input" value="${producto.year}" required>
+                            <input id="anio" class="swal2-input" value="${producto.year}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Autor</label>
@@ -163,24 +163,24 @@ document.addEventListener('DOMContentLoaded', async function () {
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Precio</label>
-                            <input id="autor" class="swal2-input" value="${producto.price}" required>
+                            <input id="price" class="swal2-input" value="${producto.price}" required>
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Stock</label>
-                            <input id="autor" class="swal2-input" value="${producto.stock}" required>
+                            <input id="producto" class="swal2-input" value="${producto.stock}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Precio de venta</label>
-                            <input id="autor" class="swal2-input" value="${producto.sell_price}" required>
+                            <input id="sellPrice" class="swal2-input" value="${producto.sell_price}" required>
                         </div>
                         <div class="col-4">
                             <label for="autor" class="swal2-label">Genero</label>
-                            <input id="autor" class="swal2-input" value="${producto.category}" required>
+                            <input id="category" class="swal2-input" value="${producto.category}" required>
                         </div>
                     </div>
-                    <!-- Puedes continuar agregando más bloques de tres columnas según sea necesario -->
+                    
                 </div>
                 `,
                 showCancelButton: true,
@@ -189,8 +189,65 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
+  
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Obtener referencias a los elementos HTML dentro del modal
+                    const nombreInput = document.getElementById('nombre');
+                    const descripcionInput = document.getElementById('descripcion');
+                    const editorialInput = document.getElementById('editorial');
+                    const anioInput = document.getElementById('anio');
+                    const autorInput = document.getElementById('autor');
+                    const priceInput = document.getElementById('price');
+                    const productoInput = document.getElementById('producto');
+                    const sellPriceInput = document.getElementById('sellPrice');
+                    const categoryInput = document.getElementById('category');
+        
+                    // Crear un objeto con los datos actualizados del producto
+                    const datosActualizados = {
+                        name: nombreInput.value,
+                        description: descripcionInput.value,
+                        editorial: editorialInput.value,
+                        year: anioInput.value,
+                        author: autorInput.value,
+                        price: priceInput.value,
+                        stock: productoInput.value,
+                        sell_price: sellPriceInput.value,
+                        category: categoryInput.value,
+                        id_provider: "1"
+
+                    };
+        
+                    // Hacer una solicitud de actualización a la API
+                    fetch('http://127.0.0.1:8000/api/ActualizarProductos/'+producto.id, {
+                        method: 'PUT', // O el método HTTP que la API requiera
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+                        },
+                        body: JSON.stringify(datosActualizados),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      
+                        console.log('Producto actualizado con éxito:', data);
+                        swal.fire('¡Éxito!', 'Producto actualizado correctamente', 'success');
+                    })
+                    .catch(error => {
+                       
+                        console.error('Error al actualizar el producto:', error);
+                        swal.fire('¡Error!', 'Hubo un error al actualizar el producto', 'error');
+                    });
+                }
             });
-        }      
+        }
+
+
+
+
+
+
+           
 
     } catch (error) {
         console.error('Error en la solicitud de obtener productos:', error);
