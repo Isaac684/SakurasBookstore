@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             cellCategoria.textContent = producto.category;
 
             const img = document.createElement('img');
-            img.src = producto.image;
-            img.style.width = '50px';
+            img.src = 'http://127.0.0.1:8000/api/files/' + producto.image; 
+            img.style.width = '50px'; 
             cellImagen.appendChild(img);
 
             cellPrecio.textContent = '$' + producto.price;
