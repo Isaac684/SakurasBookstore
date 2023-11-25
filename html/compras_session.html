@@ -6,7 +6,6 @@
     <title>Compras - Sakura's Bookstore</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../script/listaCupones.js"></script>
-<script src="../script/obtener_carrito_compras.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
@@ -342,51 +341,102 @@
 
 
 
-function cargarDatosCarrito() {
+async function cargarDatosCarrito() {
         // Obtén la referencia a la lista
         var cuponesList = $("#cupones-list");
         var itemsCarrito = $("#itemsCarrito");
+        console.log(itemsCarrito);
 
-        // Obtén los datos del Local Storage
-        var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        var total = 0;
-        var contadorProductos = 0;
-
-        // Recorre cada elemento en el carrito
-        carrito.forEach(function (item) {
-            var titulo = item.title;
-            var precio = parseFloat(item.price); // Convierte el precio a número
-            var imageUrl = item.imageUrl;
-
-            total += precio; // Suma el precio al total
+        await fetch('http://127.0.0.1:8000/api/Show/' + JSON.parse(localStorage.getItem('userInfo')), {
+        headers:{
+          'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Hubo un problema al enviar los datos.');
+        }
+        return response.json();
+      })
+      .then(data =>{
+        // Iterar sobre los libros en la lista de deseos y agregarlos a la tabla
+        let pago = 0.0;
+        let contadorProductos = 0;
+        data.forEach(function(bookss) {
+            pago += parseFloat(bookss.Total);
             contadorProductos++;
+            verLista(bookss.id_product,bookss.Cantidad, bookss.Total);
+            // Actualiza el contador de productos
+            console.log(contadorProductos);
+        });
+            // Agrega el elemento del total al final de la lista
+            var totalElement = $("<li id='totalCampo' class='list-group-item d-flex justify-content-between'>" +
+                "<span class='fw-bold'>Total (USD)</span>" +
+                "<strong id='totalNumero'>" + pago + "</strong>" +
+            "</li>");        
+        itemsCarrito.text(contadorProductos);
+        cuponesList.append(totalElement);
+    })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
 
-            // Puedes ajustar esto para mostrar algo en lugar de la descripción
-            var descripcion = "Breve descripción";
-
-            // Crea un nuevo elemento de la lista utilizando la plantilla
-            var listItem = $("<li class='list-group-item d-flex justify-content-between lh-sm'>" +
+function verLista(id_product,cantidad,total){
+    var cuponesList = $("#cupones-list");
+    fetch('http://127.0.0.1:8000/api/Productos')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].id == id_product){
+                    var listItem = $("<li class='list-group-item d-flex justify-content-between lh-sm'>" +
                 "<div>" +
-                "<img src='" + imageUrl + "' alt='Imagen del producto' style='max-width: 50px; max-height: 50px;'>" +
-                "<small class='fw-bold ms-1'>" + titulo + "</small>" +
+                "<img src='" + data[i].image+ "' alt='Imagen del producto' style='max-width: 50px; max-height: 50px;'>" +
+                "<small class='fw-bold ms-1'>" + data[i].name + "</small>" +
                 "</div>" +
-                "<span class='fw-bold'>" + precio.toFixed(2) + "</span>" +
+                "<span class='fw-bold'>" + total + "</span>" +
                 "</li>");
 
-            // Agrega el elemento a la lista
-            cuponesList.append(listItem);
+                cuponesList.append(listItem);
+                }
+            }
+
+        })
+        .catch(function (err) {
+            console.log(err);
         });
 
-        // Agrega el elemento del total al final de la lista
-        var totalElement = $("<li id='totalCampo' class='list-group-item d-flex justify-content-between'>" +
-            "<span class='fw-bold'>Total (USD)</span>" +
-            "<strong id='totalNumero'>" + total.toFixed(2) + "</strong>" +
-            "</li>");
 
-        cuponesList.append(totalElement);
+    }
+    async function cargarInfoUser(){
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const address = document.getElementById('address');
+        const country = document.getElementById('paises');
+        await fetch('http://127.0.0.1:8000/api/user/' + JSON.parse(localStorage.getItem('userInfo')), {
+        headers:{
+          'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Hubo un problema al enviar los datos.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        name.value = data.name;
+        country.value= data.country;
+        email.value = data.email;
+        address.value = data.send_address;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Manejo de errores
+      });
 
-        // Actualiza el contador de productos
-        itemsCarrito.text(contadorProductos);
     }
 
     // Llama a la función cuando el documento esté listo
@@ -395,6 +445,7 @@ function cargarDatosCarrito() {
         $(".table").hide();
 
         // Llama a la función para cargar los datos del carrito
+        cargarInfoUser();
         cargarDatosCarrito();
 
         // Muestra la lista después de cargar los elementos
