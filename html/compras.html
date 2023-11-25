@@ -9,7 +9,6 @@
     <script src="../script/loadContenNoLogin.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../script/obtener_carrito_compras.js"></script>
-    <script src="../script/listaCupones.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
@@ -139,7 +138,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary text-white mb-4 mt-4" type="submit"><svg class="bi" width="22" height="22" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart-check-fill"/></svg> Continuar con el pago</button>
+                <button class="btn btn-primary text-white mb-4 mt-4" id="btnPagar"><svg class="bi" width="22" height="22" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart-check-fill"/></svg> Continuar con el pago</button>
             </form>
 
         </div>
@@ -307,6 +306,45 @@ function cargarDatosCarrito() {
         // Actualiza el contador de productos
         itemsCarrito.text(contadorProductos);
     }
+    document.getElementById('btnPagar').addEventListener('click', async function (e) {
+        
+        e.preventDefault();
+
+        var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        carrito.forEach(function (item) {
+            guardarEnLocalStorage(item.title, item.cantidad, item.price);
+        });
+        localStorage.removeItem('carrito');
+        Swal.fire({
+                icon: 'success',
+                title: '¡Pago realizado con exito!',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `
+                <a class="nav-link" aria-current="page" href="../html/historialCompras.html">OK</a>
+                `,
+              });
+    });
+
+
+    function guardarEnLocalStorage(titulo, cantidad, precio) {
+  // Obtener los datos almacenados actualmente en localStorage, si los hay
+  let datosLocalStorage = JSON.parse(localStorage.getItem('Historial')) || [];
+  // Crear un objeto con los datos proporcionados
+  let nuevoProducto = {
+    titulo: titulo,
+    cantidad: cantidad,
+    precio: precio
+  };
+
+  // Agregar el nuevo producto al arreglo
+  datosLocalStorage.push(nuevoProducto);
+
+  // Guardar los datos actualizados en localStorage
+  localStorage.setItem('Historial', JSON.stringify(datosLocalStorage));
+}
 
     // Llama a la función cuando el documento esté listo
     $(document).ready(function () {
