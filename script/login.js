@@ -51,19 +51,35 @@ btn.addEventListener('click', async function (e) {
                 localStorage.setItem('photoUser', JSON.stringify(usuarioEncontrado.photo));
 
                 if (user.value === 'admin') {
-                    // Redirecciona a la página de admin solo si las credenciales son para el usuario 'admin'
-                    window.location.href = "../html/indexAdmin.html";
+                    Swal.fire({
+                        title: 'Inicio de sesion',
+                        text: 'Has iniciado sesion con exito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
+                        }
+                    });
                 } else {
-                    // Redirecciona a la página de sesión normal si no es un usuario 'admin'
-                    window.location.href = "../html/indexSession.html";
+                    Swal.fire({
+                        title: 'Inicio de sesion',
+                        text: 'Has iniciado sesion con exito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
+                        }
+                    });
                 }
-                 Swal.fire({
-                    icon: 'success',
-                    title: 'Inicio de sesión exitoso',
-                    text: 'Bienvenido!',
-                }).then(() => {
+                //  Swal.fire({
+                //     icon: 'success',
+                //     title: 'Inicio de sesión exitoso',
+                //     text: 'Bienvenido!',
+                // }).then(() => {
                     
-                });
+                // });
             } else {
                 //console.error('Usuario no encontrado.');
                 // Alerta Sweet para usuario no encontrado
