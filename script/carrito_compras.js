@@ -12,6 +12,13 @@ function agregarCarrito(title, price, imageUrl, stock, cantidad) {
             title: 'Producto duplicado!',
             html: `<div style="text-align: center;">"${title}" ya esta en tu carrito.</div>`,
         });   
+    }else if (cantidad > stock) {
+        // Mostrar alerta de que ingreso mas stock del disponible
+        Swal.fire({
+            icon: 'warning',
+            title: 'La cantidad ingresada es mayor al stock!',
+            html: `<div style="text-align: center;">"${title}" tiene solamene ${stock} libros en stock.</div>`,
+        });   
     } else {
         // Añadir el nuevo libro a la lista de deseos
         wishlist.push({ title, price, stock, imageUrl, cantidad });

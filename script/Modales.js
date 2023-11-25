@@ -171,12 +171,12 @@ function mostrarAlertaInicioSesion(event) {
 
 function mostrarInformacionLibro(event, data) {
   event.preventDefault();
-
+  const cantidad = document.querySelector('#cantidadPrueba')?.value ?? 1;
   let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
   if(idUser == ""){
     console.log('2');
     deseos = `onclick="addToWishlist('${data.name}', '${data.sell_price}', '${data.image}', '${data.stock}')"`;
-    carrito = `onclick="agregarCarrito('${data.name}', '${data.sell_price}', '${data.image}', '${data.stock}')"`;
+    carrito = `onclick="agregarCarrito('${data.name}', '${data.sell_price}', '${data.image}', '${data.stock}', '${cantidad}')"`;
   }else{
     console.log('1');
     deseos = `onclick="addToWishlistUser('${data.id}')"`;
@@ -221,7 +221,6 @@ function mostrarInformacionLibro(event, data) {
               <p class="mb-1 fs-6">Precio:</p>
               <p class="mb-1 fs-1">$${libro.precioOriginal}</p>
               <div>
-                  <input type="number" id="cantidadPrueba" class="form-control w-25 mb-1" value="1" pattern="[1-9]+" min="1">
                   <svg style="cursor: pointer;" class="bi me-2 text-danger btn-add-to-wishlist favorito" ${deseos} width="30" height="24" fill="CurrentColor"><use href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
                   <svg style="cursor: pointer;" class="bi me-2 carrito" width="30" height="24" ${carrito}><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
               </div>
