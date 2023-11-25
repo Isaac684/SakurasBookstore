@@ -1,4 +1,5 @@
 async function listarLibros(index = 0) {
+
     fetch('http://127.0.0.1:8000/api/Productos')
         .then(function (response) {
             return response.json();
@@ -63,3 +64,5 @@ async function listarLibros(index = 0) {
 
 // Llamar a la función para comenzar el proceso
 listarLibros();
+
+
