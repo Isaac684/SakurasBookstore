@@ -59,37 +59,75 @@ function mostrarCuponNavidad(event) {
   };
 
 
-  swal.fire({
-      showCloseButton: true,
-      showCancelButton: false,
-      showConfirmButton: false,
-      focusConfirm: false,
-      heightAuto:false,
-      width:'65%',
-      position:'top',
-      background: '#9D5C59',
-
-      html: 
-      `
+  Swal.fire({
+    showCloseButton: true,
+    showCancelButton: false,
+    showConfirmButton: false,
+    focusConfirm: false,
+    heightAuto: false,
+    width: '65%',
+    position: 'top',
+    background: '#9D5C59',
+    html:
+        `
         <div class="fuente3 p-1 pt-0 pb-0">
-          <div class="row">
-
-            <div class="col-lg-6 col-xl-4 text-center" style="border-right-style:dashed; border-right-color: white;">
-                <img src="${cupon.imagen}" alt="${cupon.titulo}" style="width: 100%; max-height: 300px;">
+            <div class="row">
+                <div class="col-lg-6 col-xl-4 text-center" style="border-right-style:dashed; border-right-color: white;">
+                    <img src="${cupon.imagen}" alt="${cupon.titulo}" style="width: 100%; max-height: 300px;">
+                </div>
+                <div class="col-lg-6 col-xl-8 text-white ps-4 text-center">
+                    <h1 class="fuente1 text-center">${cupon.titulo}</h1>
+                    <p class="text-white lh-0 mb-0 pb-0" style="font-size: 5rem;">${cupon.porcentaje} <small class="fs-6">off </small>  </p>
+                    <p class="fs-4">${cupon.descripcion}</p>
+                    <button class="btn btn-danger" id="btnRecibir">Recibir</button>
+                </div>
             </div>
+        </div>
+        `,
+});
 
-            <div class="col-lg-6 col-xl-8 text-white ps-4 text-center">
-                <h1 class="fuente1 text-center">${cupon.titulo}</h1>
-                <p class="text-white lh-0 mb-0 pb-0" style="font-size: 5rem;">${cupon.porcentaje} <small class="fs-6">off </small>  </p>
-                <p class="fs-4">${cupon.descripcion}</p>
-                <button class="btn btn-danger">Recibir</button>
-            </div>
+document.getElementById('btnRecibir').addEventListener('click', async function () {
+  const fecha = new Date();
+  const dia = String(fecha.getDate()).padStart(2, '0');
+  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // El mes comienza en 0
+  const año = fecha.getFullYear();
 
-          </div>
-       </div>
-      `,
-  });
-}
+const fechaFormateada = `${dia}/${mes}/${año}`;
+  const datosActualizados = {
+    percent: 50,
+    value: 0,
+    create: fechaFormateada,
+    expire: '30/11/2023',
+    id_user: JSON.parse(localStorage.getItem('userInfo'))
+  };
+  try {
+    // Hacer una solicitud de actualización a la API
+    const response = await fetch('http://127.0.0.1:8000/api/Cupones', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      body: JSON.stringify(datosActualizados),
+    });
+
+    if (!response.ok) {
+      throw new Error('Hubo un problema al enviar los datos.');
+    }
+
+    // Si la solicitud fue exitosa, mostrar un modal de éxito
+    Swal.fire({
+      title: 'Cupon Obtenido!',
+      text: 'Se te a agregado un cupon nuevo!',
+      icon: 'success',
+      customClass: {
+        content: 'text-center'
+      }
+    });
+
+  } catch (error) {
+  }
+});
 
 function mostrarAlertaInicioSesion(event) {
   event.preventDefault();
@@ -178,5 +216,5 @@ function mostrarInformacionLibro(event, data) {
       `,
   });
 
-
+}
 }
