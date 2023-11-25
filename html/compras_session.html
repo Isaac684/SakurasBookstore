@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compras - Sakura's Bookstore</title>
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <script src="../script/loadContenLogin.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../script/listaCupones.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../script/ModoOscuro.js"></script>
 
 </head>
 <body>
 
-    <div class="row g-3 rounded shadow-lg mt-3 d-flex justify-content-center fuente3">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <div class="row rounded d-flex justify-content-center fuente3">
 
         <div class="col-md-5 col-lg-4 order-md-last">
 
@@ -61,6 +68,7 @@
             </div>
 
         </div>
+        
         <div class="col-md-7 col-lg-5 fuente3">
 
             <h4 class="mb-3">Compra de productos</h4>
@@ -159,6 +167,10 @@
         </div>
 
     </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
     <script src="../script/paises.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
