@@ -66,7 +66,7 @@ async function addToShoppingCar(id_product,precio){
                 showCancelButton: true,
                 focusConfirm: false,
                 confirmButtonText: `
-                <a class="nav-link" aria-current="page" href="../html/carrito_user.html">Ir al carrito</a>
+                <a class="nav-link" aria-current="page" href="../html/carritoUser.html">Ir al carrito</a>
                 `,
                 cancelButtonText: `
                   Seguir comprando
@@ -112,7 +112,7 @@ async function updateShoppingCar(id,cantidad,total,precio){
                 showCancelButton: true,
                 focusConfirm: false,
                 confirmButtonText: `
-                <a class="nav-link" aria-current="page" href="../html/carrito_user.html">Ir al carrito</a>
+                <a class="nav-link" aria-current="page" href="../html/carritoUser.html">Ir al carrito</a>
                 `,
                 cancelButtonText: `
                   Seguir comprando
