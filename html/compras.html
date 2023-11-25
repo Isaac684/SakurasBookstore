@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compras - Sakura's Bookstore</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../script/listaCupones.js"></script>
+    <script src="../script/obtener_carrito_compras.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 <body>
@@ -16,128 +17,21 @@
 
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Tu carro</span>
-                <span class="badge bg-primary rounded-pill">3</span>
+                <span class="badge bg-primary rounded-pill" id="itemsCarrito">0</span>
             </h4>
 
-            <ul class="list-group mb-3">
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Nombre del producto</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Segundo producto</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Tercer elemento</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Código promocional</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">-$5</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-
-            </ul>
-  <style>
-    .table td.ocultarLuego {
-        display: none;}
-  </style>
+            <ul id="cupones-list" class="list-group mb-3"></ul>
+            <style>
+                .table td.ocultarLuego {
+                    display: none;}
+            </style>
             <div class="card p-2 fuente3" >
-                <table class="table border fuente3 ">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col" class="col-4">Función</th>
-                        <th scope="col" class="col-2">Valor</th>
-                        <th scope="col" class="col-3 d-none">Creado</th>
-                        <th scope="col" class="col-3 d-none">Expira</th>
-                        <th scope="col" class="col-3">Expira</th>
-                      </tr>
-                    </thead>
-        
-                    <tbody id="bodyCupones2"class="table-group-divider">
-                      <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
-                    </tbody>
-                    
-                </table>
-                <table class="table fuente3 border">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col" class="col-4">Función</th>
-                        <th scope="col" class="col-2">Porcentaje</th>
-                        <th scope="col" class="col-3 d-none">Creado</th>
-                        <th scope="col" class="col-3 d-none">Acciones</th>
-                      </tr>
-                    </thead>
-        
-                    <tbody id="bodyCupones" class="table-group-divider">
-                      <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button class="btn btn-secondary">Aplicar</button>
-                        <a href="../html/listaCupones.html"><button class="btn btn-secondary">Ver</button></a>
-                    </td>
-
-                    </tbody>
-                </table>
-                <div class="input-group">
-                    <h2>Cupones</h2>
-                    <table class="table fuente3 border">
-                            
-                        <thead>
-                          <tr class="table-primary">
-                                <th scope="col" class="col-4">Porcentaje</th>
-                                <th scope="col" class="col-3">Acciones</th>
-                          </tr>
-                        </thead>
-                        <tbody id="bodyCupones" class="table-group-divider">
-                            <tr>
-                                <td>25 %</td>
-                                <td>
-                                    <button class="btn btn-secondary">Aplicar</button>
-                                    <a href="../html/listaCupones.html"><button class="btn btn-secondary">Ver</button></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table fuente3 border">
-                            
-                        <thead>
-                          <tr class="table-primary">
-                            <th scope="col" class="col-4">Agregar</th>
-                            <th scope="col" class="col-2">Porcentaje</th>
-                          </tr>
-                        </thead>
-            
-                        <tbody id="bodyCupones" class="table-group-divider"><tr><td>Reducción calculada total %</td><td>25 %</td></tr></tbody>
-                    </table>
-                </div>
+                <h2>Mis cupones</h2>
+                
+                <h5 class="card text-danger p-2 text-center fst-italic">Los cupones son para usuarios registrados, crea una cuenta para acceder a ellos!</h5>
             </div>
 
         </div>
-
         <div class="col-md-7 col-lg-5 fuente3">
 
             <h4 class="mb-3">Compra de productos</h4>
@@ -349,6 +243,64 @@
         var formularioContainer = document.getElementById("formularioContainer");
         formularioContainer.innerHTML = formularioHTML;
     }
+function cargarDatosCarrito() {
+        // Obtén la referencia a la lista
+        var cuponesList = $("#cupones-list");
+        var itemsCarrito = $("#itemsCarrito");
+
+        // Obtén los datos del Local Storage
+        var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        var total = 0;
+        var contadorProductos = 0;
+
+        // Recorre cada elemento en el carrito
+        carrito.forEach(function (item) {
+            var titulo = item.title;
+            var precio = parseFloat(item.price); // Convierte el precio a número
+            var imageUrl = item.imageUrl;
+
+            total += precio; // Suma el precio al total
+            contadorProductos++;
+
+            // Puedes ajustar esto para mostrar algo en lugar de la descripción
+            var descripcion = "Breve descripción";
+
+            // Crea un nuevo elemento de la lista utilizando la plantilla
+            var listItem = $("<li class='list-group-item d-flex justify-content-between lh-sm'>" +
+                "<div>" +
+                "<img src='" + imageUrl + "' alt='Imagen del producto' style='max-width: 50px; max-height: 50px;'>" +
+                "<small class='fw-bold ms-1'>" + titulo + "</small>" +
+                "</div>" +
+                "<span class='fw-bold'>" + precio.toFixed(2) + "</span>" +
+                "</li>");
+
+            // Agrega el elemento a la lista
+            cuponesList.append(listItem);
+        });
+
+        // Agrega el elemento del total al final de la lista
+        var totalElement = $("<li class='list-group-item d-flex justify-content-between'>" +
+            "<span>Total (USD)</span>" +
+            "<strong>" + total.toFixed(2) + "</strong>" +
+            "</li>");
+
+        cuponesList.append(totalElement);
+
+        // Actualiza el contador de productos
+        itemsCarrito.text(contadorProductos);
+    }
+
+    // Llama a la función cuando el documento esté listo
+    $(document).ready(function () {
+        // Oculta la tabla al principio
+        $(".table").hide();
+
+        // Llama a la función para cargar los datos del carrito
+        cargarDatosCarrito();
+
+        // Muestra la lista después de cargar los elementos
+        $(".table").show();
+    });
     </script>
     
 </body>

@@ -5,87 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compras - Sakura's Bookstore</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
-    <script src="../script/paises.js"></script>
+    <script src="../script/listaCupones.js"></script>
+<script src="../script/obtener_carrito_compras.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 <body>
 
-    <div class="row g-3 rounded shadow-lg mt-3 d-flex justify-content-center">
+    <div class="row g-3 rounded shadow-lg mt-3 d-flex justify-content-center fuente3">
 
         <div class="col-md-5 col-lg-4 order-md-last">
 
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Tu carro</span>
-                <span class="badge bg-primary rounded-pill">3</span>
+                <span class="badge bg-primary rounded-pill" id="itemsCarrito">0</span>
             </h4>
 
-            <ul class="list-group mb-3">
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Nombre del producto</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Segundo producto</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Tercer elemento</h6>
-                        <small class="text-muted">Breve descripción</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Código promocional</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">−$5</span>
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-
-            </ul>
-  
-            <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Código Promo">
-                    <button type="submit" class="btn btn-secondary">Aplicar</button>
-                </div>
-            </form>
+            <ul id="cupones-list" class="list-group mb-3"></ul>
+            <style>
+                .table td.ocultarLuego {
+                    display: none;}
+            </style>
+            <div class="card p-2 fuente3" >
+                <h2>Mis cupones</h2>
+                <table class="table border fuente3 ">
+                    <thead>
+                      <tr class="table-primary">
+                        <th scope="col" class="col-4 d-none">Función</th>
+                        <th scope="col" class="col-2">Valor</th>
+                        <th scope="col" class="col-3 d-none">Creado</th>
+                        <th scope="col" class="col-3 d-none">Expira</th>
+                        <th scope="col" class="col-3">Acciones</th>
+                      </tr>
+                    </thead>
+        
+                    <tbody id="bodyCupones2"class="table-group-divider">
+                      <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
+                    </tbody>
+                    
+                </table>
+                <table class="table fuente3 border">
+                    <thead>
+                      <tr class="table-primary">
+                        <th scope="col" class="col-4 d-none">Función</th>
+                        <th scope="col" class="col-2">Porcentaje</th>
+                        <th scope="col" class="col-3 d-none">Creado</th>
+                        <th scope="col" class="col-3 d-none">Acciones</th>
+                        <th scope="col" class="col-3">Acciones</th>
+                      </tr>
+                    </thead>
+        
+                    <tbody id="bodyCupones" class="table-group-divider">
+                      <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+            </div>
 
         </div>
-
         <div class="col-md-7 col-lg-5 fuente3">
 
             <h4 class="mb-3">Compra de productos</h4>
 
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" method="post">
 
                 <div class="row g-3">
                     <div class="col-12">
-                        <label for="firstName" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <label for="firstName" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="name" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+" placeholder="Ej: Juan Hernandez" required>
                         <div class="invalid-feedback">
                             Se requiere un nombre válido.
                         </div>
                     </div>
-                
+
                     <div class="col-12">
-                        <label for="email" class="form-label">Email <span class="text-muted"></span></label>
+                        <label for="email" class="form-label">Email <span class="text-muted">(Opcional)</span></label>
                         <input type="email" class="form-control" id="email" placeholder="tu@example.com">
                         <div class="invalid-feedback">
                             Ingresa una dirección de correo electrónico válida para actualizaciones de envío.
@@ -115,58 +108,299 @@
 
                     <h4 class="mb-3">Pago</h4>
 
-                    <div class="my-3">
+                    <div class="my-3" onchange="cargarFormulario()">
                         <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                            <input value="credit" name="paymentMethod" type="radio" class="form-check-input" checked>
                             <label class="form-check-label" for="credit">Tarjeta de crédito</label>
                         </div>
                         <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                            <input value="debit" name="paymentMethod" type="radio" class="form-check-input">
                             <label class="form-check-label" for="debit">Tarjeta de débito</label>
                         </div>
                         <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                            <input value="paypal" name="paymentMethod" type="radio" class="form-check-input">
                             <label class="form-check-label" for="paypal">PayPal</label>
                         </div>
                     </div>
+                    
 
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                            <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
-                        <div class="invalid-feedback">Se requiere el nombre en la tarjeta</div>
+  
+                    <!-- Contenedor del formulario -->
+                    <div id="formularioContainer">
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
+                                <div class="invalid-feedback">Se requiere el nombre en la tarjeta</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                <div class="invalid-feedback">Se requiere número de tarjeta de crédito</div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cc-expiration" class="form-label">Vencimiento</label>
+                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                                <div class="invalid-feedback">Fecha de vencimiento requerida</div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cc-cvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                <div class="invalid-feedback">Código de seguridad requerido</div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                        <div class="invalid-feedback">Se requiere número de tarjeta de crédito</div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cc-expiration" class="form-label">Vencimiento</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                        <div class="invalid-feedback">Fecha de vencimiento requerida</div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cc-cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                        <div class="invalid-feedback">Código de seguridad requerido</div>
-                    </div>
-
                 </div>
-
                 <hr class="my-4">
 
                 <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar con el pago</button>
-
             </form>
 
         </div>
 
     </div>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+    <script src="../script/paises.js"></script>
+    <script>
+    function cargarFormulario() {
+        // Obtén el valor del método de pago seleccionado
+        var metodoDePagoInput = document.querySelector('input[name="paymentMethod"]:checked');
+        if (!metodoDePagoInput) {
+            console.log("Ningún método de pago seleccionado");
+            document.getElementById("credit").checked = true;
+            metodoDePagoInput = document.getElementById("credit");
+        }
 
+        // Obtén el valor del atributo 'value' en lugar de solo el elemento
+        var metodoDePago = metodoDePagoInput.value;
+
+        console.log("Método de pago al cargar:", metodoDePago);
+
+        // Llama a la función actualizarFormulario con el método de pago seleccionado
+        actualizarFormulario(metodoDePago);
+    }
+
+
+    function actualizarFormulario(event) {
+        // Obtiene el valor del método de pago seleccionado
+        var metodoDePagoInput = document.querySelector('input[name="paymentMethod"]:checked');
+        if (!metodoDePagoInput) {
+            console.log("Ningún método de pago seleccionado");
+            document.getElementById("credit").checked = true; // Selecciona "Tarjeta de crédito" por defecto
+            metodoDePagoInput = document.getElementById("credit"); // Obtiene el elemento predeterminado
+        }
+
+        var metodoDePago = metodoDePagoInput.value;
+
+        // Define el formulario correspondiente al método de pago seleccionado
+        var formularioHTML = "";
+        switch (metodoDePago) {
+            case "credit":
+                formularioHTML = `
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="cc-name" class="form-label">Nombre en la tarjeta de credito</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                            <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
+                            <div class="invalid-feedback">Se requiere el nombre en la tarjeta</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                            <div class="invalid-feedback">Se requiere número de tarjeta de crédito</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cc-expiration" class="form-label">Vencimiento</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                            <div class="invalid-feedback">Fecha de vencimiento requerida</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cc-cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                            <div class="invalid-feedback">Código de seguridad requerido</div>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "debit":
+                formularioHTML = `
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="debit-name" class="form-label">Nombre en la tarjeta de débito</label>
+                            <input type="text" class="form-control" id="debit-name" placeholder="" required="">
+                            <small class="text-muted">Nombre completo como se muestra en la tarjeta de débito</small>
+                            <div class="invalid-feedback">Se requiere el nombre en la tarjeta de débito</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="debit-number" class="form-label">Número de tarjeta de débito</label>
+                            <input type="text" class="form-control" id="debit-number" placeholder="" required="">
+                            <div class="invalid-feedback">Se requiere número de tarjeta de débito</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="debit-expiration" class="form-label">Fecha de vencimiento</label>
+                            <input type="text" class="form-control" id="debit-expiration" placeholder="" required="">
+                            <div class="invalid-feedback">Fecha de vencimiento requerida</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="debit-cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="debit-cvv" placeholder="" required="">
+                            <div class="invalid-feedback">Código de seguridad requerido</div>
+                        </div>
+                    </div>
+                `;
+                break;
+            case "paypal":
+                formularioHTML = `
+                    <div class="row gy-3">
+                        <div class="col-md-12">
+                            <label for="paypal-email" class="form-label">Correo electrónico asociado a PayPal</label>
+                            <input type="email" class="form-control" id="paypal-email" placeholder="" required="">
+                            <div class="invalid-feedback">Se requiere el correo electrónico asociado a la cuenta de PayPal</div>
+                        </div>
+                    </div>
+                `;
+                break;
+            default:
+            console.log("Método de pago no reconocido " + metodoDePago);
+                // En caso de algún valor no esperado
+        }
+    
+        // Lógica para insertar el formulario en el contenedor correspondiente
+        var formularioContainer = document.getElementById("formularioContainer");
+        formularioContainer.innerHTML = formularioHTML;
+        // Lógica para insertar el formulario en el contenedor correspondiente
+        var formularioContainer = document.getElementById("formularioContainer");
+        formularioContainer.innerHTML = formularioHTML;
+    }
+
+    document.addEventListener('click', function (event) {
+    const target = event.target;
+
+    // Verifica si el clic fue en un botón con la clase "agregarCuponBtn"
+    if (target.classList.contains('agregarCuponBtn')) {
+        // Obtén los datos específicos del elemento <li>
+        const funcion = target.parentElement.parentElement.children[0].textContent.trim();
+        const valor = target.parentElement.parentElement.children[1].textContent.trim();
+
+        // Busca y guarda el elemento totalNumero antes de eliminarlo
+        const totalNumeroElement = document.getElementById('totalNumero');
+        const totalNumeroAnterior = parseFloat(totalNumeroElement.textContent);
+
+        // Verifica si valor contiene el símbolo de porcentaje
+        const esPorcentaje = valor.includes('%');
+
+        // Elimina el símbolo de porcentaje y convierte a número
+        const valorNumerico = parseFloat(valor.replace('%', ''));
+
+        // Calcula el descuento si es un porcentaje, de lo contrario, utiliza el valor directo
+        const descuento = esPorcentaje ? totalNumeroAnterior * (valorNumerico / 100) : valorNumerico;
+
+        // Calcula el nuevoTotalNumero restando el descuento
+        const nuevoTotalNumero = totalNumeroAnterior - descuento;
+
+        // Crea un nuevo elemento li con la clase "cupon" y un identificador único
+        const nuevoCuponId = 'cupon_' + Date.now(); // Genera un identificador único
+        const nuevoCupon = document.createElement('li');
+        nuevoCupon.id = nuevoCuponId;
+        nuevoCupon.className = 'list-group-item d-flex justify-content-between bg-light cupon';
+
+        // Agrega el contenido del nuevo cupón
+        nuevoCupon.innerHTML = `
+        <div class="text-success">
+            <small>${funcion}</small>
+        </div>
+        <span class="text-success">${valor}</span>
+        `;
+
+        // Agrega el nuevo cupón al final de la lista
+        const cuponesList = document.getElementById('cupones-list');
+        cuponesList.appendChild(nuevoCupon);
+        console.log(nuevoCupon);
+
+        // Actualiza el totalNumero con el nuevoTotalNumero
+        totalNumeroElement.textContent = nuevoTotalNumero.toFixed(2);
+
+        // Deshabilita el botón después de agregar el cupón
+        target.disabled = true;
+        nuevoCupon.style.cursor = "pointer";
+
+        // Agrega un manejador de clic al nuevo cupón para eliminarlo y actualizar el precio
+        nuevoCupon.addEventListener('click', function () {
+            // Elimina el elemento específico al que se hizo clic
+            console.log(nuevoCupon);
+            cuponesList.removeChild(nuevoCupon);
+
+            // Actualiza el totalNumero sumando el valor del cupón
+            totalNumeroElement.textContent = (nuevoTotalNumero + descuento).toFixed(2);
+
+            // Habilita nuevamente el botón al eliminar el cupón
+            target.disabled = false;
+        });
+    }
+});
+
+
+
+function cargarDatosCarrito() {
+        // Obtén la referencia a la lista
+        var cuponesList = $("#cupones-list");
+        var itemsCarrito = $("#itemsCarrito");
+
+        // Obtén los datos del Local Storage
+        var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        var total = 0;
+        var contadorProductos = 0;
+
+        // Recorre cada elemento en el carrito
+        carrito.forEach(function (item) {
+            var titulo = item.title;
+            var precio = parseFloat(item.price); // Convierte el precio a número
+            var imageUrl = item.imageUrl;
+
+            total += precio; // Suma el precio al total
+            contadorProductos++;
+
+            // Puedes ajustar esto para mostrar algo en lugar de la descripción
+            var descripcion = "Breve descripción";
+
+            // Crea un nuevo elemento de la lista utilizando la plantilla
+            var listItem = $("<li class='list-group-item d-flex justify-content-between lh-sm'>" +
+                "<div>" +
+                "<img src='" + imageUrl + "' alt='Imagen del producto' style='max-width: 50px; max-height: 50px;'>" +
+                "<small class='fw-bold ms-1'>" + titulo + "</small>" +
+                "</div>" +
+                "<span class='fw-bold'>" + precio.toFixed(2) + "</span>" +
+                "</li>");
+
+            // Agrega el elemento a la lista
+            cuponesList.append(listItem);
+        });
+
+        // Agrega el elemento del total al final de la lista
+        var totalElement = $("<li id='totalCampo' class='list-group-item d-flex justify-content-between'>" +
+            "<span class='fw-bold'>Total (USD)</span>" +
+            "<strong id='totalNumero'>" + total.toFixed(2) + "</strong>" +
+            "</li>");
+
+        cuponesList.append(totalElement);
+
+        // Actualiza el contador de productos
+        itemsCarrito.text(contadorProductos);
+    }
+
+    // Llama a la función cuando el documento esté listo
+    $(document).ready(function () {
+        // Oculta la tabla al principio
+        $(".table").hide();
+
+        // Llama a la función para cargar los datos del carrito
+        cargarDatosCarrito();
+
+        // Muestra la lista después de cargar los elementos
+        $(".table").show();
+    });
+    </script>
+    
 </body>
 </html>
