@@ -153,7 +153,7 @@
                 </div>
                 <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Continuar con el pago</button>
+                <button class="w-100 btn btn-primary btn-lg" id="btnPagar">Continuar con el pago</button>
             </form>
 
         </div>
@@ -161,6 +161,7 @@
     </div>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
     <script src="../script/paises.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
     function cargarFormulario() {
         // Obtén el valor del método de pago seleccionado
@@ -438,6 +439,97 @@ function verLista(id_product,cantidad,total){
       });
 
     }
+    async function insertarVenta(id_product, unidades, precioUnitario, sub_total){
+    const jss = {
+        id_product: id_product,
+        id_user: JSON.parse(localStorage.getItem('userInfo')),
+        units: unidades,
+        units_price: precioUnitario,
+        sub_total: sub_total
+    };
+    const response = await fetch('http://127.0.0.1:8000/api/Ventas/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      body: JSON.stringify(jss),
+    }) .then(response => {
+        if (!response.ok) {
+          throw new Error('Hubo un problema al enviar los datos.');
+        }
+        return response.json();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Manejo de errores
+      });
+
+    // Si la solicitud fue exitosa, mostrar un modal de éxito
+
+}
+async function verLista2(id_product,cantidad,total){
+    var cuponesList = $("#cupones-list");
+    await fetch('http://127.0.0.1:8000/api/Productos')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].id == id_product){
+                    insertarVenta(data[i].id,cantidad,data[i].sell_price, total);
+                }
+            }
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    }
+async function eliminarCarrito(){
+    await fetch('http://127.0.0.1:8000/api/Shopping/Delete/'+ JSON.parse(localStorage.getItem('userInfo')), {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    });
+}
+    
+    document.getElementById('btnPagar').addEventListener('click', async function (e) {
+        
+        e.preventDefault();
+        await fetch('http://127.0.0.1:8000/api/Show/' + JSON.parse(localStorage.getItem('userInfo')), {
+        headers:{
+          'Authorization' : 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Hubo un problema al enviar los datos.');
+        }
+        return response.json();
+      })
+      .then(data =>{
+        data.forEach(function(bookss) {
+            verLista2(bookss.id_product,bookss.Cantidad, bookss.Total);
+        });
+        eliminarCarrito();
+        Swal.fire({
+                icon: 'success',
+                title: '¡Pago realizado con exito!',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `
+                <a class="nav-link" aria-current="page" href="../html/historialCompras.html">OK</a>
+                `,
+              });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+
 
     // Llama a la función cuando el documento esté listo
     $(document).ready(function () {
