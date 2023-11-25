@@ -220,11 +220,12 @@ function mostrarInformacionLibro(event, data) {
               <p class="fs-6">${libro.descripcion}</p>
               <p class="mb-1 fs-6">Precio:</p>
               <p class="mb-1 fs-1">$${libro.precioOriginal}</p>
-              <form>
-                <input type="submit" id="cantidadPrueba" class="form-control w-25 mb-1" placeholder="Cantidad" pattern="[1-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="1" required>
-                <svg style="cursor: pointer;" class="bi me-2 text-danger btn-add-to-wishlist favorito" ${deseos} width="30" height="24" fill="CurrentColor"><use href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
-                <svg style="cursor: pointer;" width="30" height="24" ${carrito}><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
-              </>
+              <div>
+                  <input type="number" id="cantidadPrueba" class="form-control w-25 mb-1" value="1" pattern="[1-9]+" oninput="this.value = this.value.replace(/[^1-9.]/g, '').replace(/(\..*)\./g, '$1');" min="1">
+                  <svg style="cursor: pointer;" class="bi me-2 text-danger btn-add-to-wishlist favorito" ${deseos} width="30" height="24" fill="CurrentColor"><use href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
+                  <svg style="cursor: pointer;" class="bi me-2 carrito" width="30" height="24" ${carrito} onclick="capturarCantidad()"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+                  <button id="confirmarCantidad" onclick="capturarCantidad()">Confirmar</button>
+              </div>
               <p class="mb-1 fs-6">ISBN: ${libro.code}</p>
               <p class="mb-1 fs-6">Autor: ${libro.autor}</p>
               <p class="mb-1 fs-6">Editorial: ${libro.editorial}</p>
