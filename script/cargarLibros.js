@@ -30,6 +30,9 @@ async function listarLibros(index = 0) {
                 };
                 nuevoLibro.querySelector('.precio').textContent = "$" + data[index].sell_price;
                 nuevoLibro.querySelector('.nombre').textContent = data[index].name;
+                nuevoLibro.querySelector('.nombre').onclick = function(event) {
+                    mostrarInformacionLibro(event, data[index]);
+                };
                 nuevoLibro.querySelector('.favorito').onclick = async function(event) {
                     let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
                     if(idUser == ""){
