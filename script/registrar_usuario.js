@@ -77,7 +77,7 @@ submitButton.addEventListener('click', async function(e){
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Redirige a la página deseada
-          /*                   window.location.href = 'http://127.0.0.1:5501/html/indexSession.html'; */
+                        window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
                         }
                     });
                 }

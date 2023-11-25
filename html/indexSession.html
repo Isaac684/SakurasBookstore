@@ -46,6 +46,7 @@
                         </a>
 
                         <button class="btn btn-info" filtrar>Filtrar</button>
+                        <button class="btn btn-info" Limpiar>Limpiar</button>
                         
                         <ul class="list-unstyled ps-0">
     
@@ -348,6 +349,9 @@ document.getElementById('cerrarSesionButton').addEventListener('click', function
     console.log('Datos eliminados del localStorage');
 
     window.location.href = '../html/index.html';
+});
+document.querySelector('[Limpiar]').addEventListener('click', function(){
+    window.location.reload();
 });
 
     </script>
