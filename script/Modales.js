@@ -126,7 +126,7 @@ function mostrarInformacionLibro(event, data) {
 
   const libro = {
       titulo: data.name,
-      precioOriginal: data.price,
+      precioOriginal: data.sell_price,
       descripcion: data.description,
       imagen: data.image,
       code: data.code,
