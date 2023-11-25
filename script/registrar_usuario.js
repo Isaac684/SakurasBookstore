@@ -1,4 +1,10 @@
 
+const codigo = document.querySelector('[codigo]');
+
+const urlParams = new URLSearchParams(window.location.search);
+
+codigo.value = urlParams.get('codigo');
+
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener el elemento select
     var selectPaises = document.getElementById("paises");
@@ -32,6 +38,7 @@ submitButton.addEventListener('click', async function(e){
     const paises = document.querySelector('[pais]');
     const direccionPrincipal = document.querySelector('[d-principal]');
     const direccionesEnvio = document.querySelector('[d-envios]');
+    const codigo = document.querySelector('[codigo]');
 
 
     if (foto.files.length > 0) {
@@ -54,7 +61,9 @@ submitButton.addEventListener('click', async function(e){
                 formData.append('country', paises.value);
                 formData.append('address', direccionPrincipal.value);
                 formData.append('send_address', direccionesEnvio.value);
-                formData.append('refer_code', '64ZTR2FNPQ'); 
+                if(codigo.value != ""){
+                    formData.append('refer_code', codigo.value); 
+                }
 
                 passwordError.textContent = "";
     
