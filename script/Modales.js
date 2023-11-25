@@ -107,8 +107,22 @@ function mostrarAlertaInicioSesion(event) {
 
 }
 
+
+
 function mostrarInformacionLibro(event, data) {
   event.preventDefault();
+
+  let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+  if(idUser == ""){
+    console.log('2');
+    deseos = `onclick="addToWishlist('${data.name}', '${data.sell_price}', '${data.image}', '${data.stock}')"`;
+    carrito = `onclick="agregarCarrito('${data.name}', '${data.sell_price}', '${data.image}', '${data.stock}')"`;
+  }else{
+    console.log('1');
+    deseos = `onclick="addToWishlistUser('${data.id}')"`;
+    carrito = `onclick="addShoppingCarUser('${data.id}', '${data.sell_price}')"`;
+  }
+
 
   const libro = {
       titulo: data.name,
@@ -121,7 +135,6 @@ function mostrarInformacionLibro(event, data) {
       genero: data.category,
       autor: data.author
   };
-
   
 
   swal.fire({
@@ -147,6 +160,11 @@ function mostrarInformacionLibro(event, data) {
               <p class="fs-6">${libro.descripcion}</p>
               <p class="mb-1 fs-6">Precio:</p>
               <p class="mb-1 fs-1">$${libro.precioOriginal}</p>
+              <div>
+                <input type="number" id="cantidadPrueba" class="form-control w-25 mb-1" placeholder="Cantidad" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="0">
+                <svg class="bi me-2 text-danger btn-add-to-wishlist favorito" ${deseos} width="30" height="24" fill="CurrentColor"><use href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#heart"/></svg>
+                <svg class="bi me-2 carrito" width="30" height="24" ${carrito}><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg>
+              </div>
               <p class="mb-1 fs-6">ISBN: ${libro.code}</p>
               <p class="mb-1 fs-6">Autor: ${libro.autor}</p>
               <p class="mb-1 fs-6">Editorial: ${libro.editorial}</p>
@@ -159,4 +177,6 @@ function mostrarInformacionLibro(event, data) {
   </div>
       `,
   });
+
+
 }

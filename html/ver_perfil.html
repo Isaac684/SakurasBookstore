@@ -9,76 +9,96 @@
     <script src="../script/profile.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
-<body class="bg-warning">
+<body class="bg-light">
 
-    <form id="perfilForm" class="p-4 bg-white rounded shadow-lg col-md-6 mx-auto mt-5" method="post"  style="background-image: url('../img/fondo.png'); background-size: cover; background-position: center;">
+    <section class="">
+        <div class="container py-5 mt-5">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-11 ">
+                
+              <div class="card mb-3 border-1">
+                <div class="row">
 
-        <h1 class="fuente3 text-center text-success">Perfil del Usuario</h1>
-        
-        <div class="row justify-content-center">
+                  <div class="col-md-3 text-center text-white bg-primary" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                    <img src="" class="fuente3 my-3 rounded-5" alt="Foto de perfil" id="photo" style="width: 100px; height: 100px;">
+                    <h5>Usuario Sakura's Bookstore</h5>
+                    <button class="btn text-white" type="button" id="btn_modificar" onclick="mostrarAlerta()"><svg class="bi me-2" width="22" height="20" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#pencil-square"/></svg>Editar</button><br>
+                    <button class="btn text-white" type="button" onclick="index()"><svg class="bi me-2" width="22" height="20" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#door-open"/></svg>Regresar</button>
+                  </div>
+                  
+                  <div class="col-md-9 bg-dark text-white" style="border-top-right-radius: .5rem; border-bottom-right-radius: .5rem;">
 
-            <div class="mb-3 text-center">
-                <label for="foto" class="form-label fuente3 text-danger">Fotografía:</label>
-                <img src="" class="img-fluid fuente3" alt="Foto de perfil" id="photo">
-            </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="nombre" class="form-label fuente3 text-danger">Nombre completo:</label>
-                <input type="text" class="form-control fuente3" id="nombre" value="">
-            </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="edad" class="form-label fuente3 text-danger">Edad:</label>
-                <input type="text" class="form-control fuente3" id="edad" value="">
-            </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="genero" class="form-label fuente3 text-danger">Género:</label>
-                <input type="text" class="form-control fuente3" id="genero" value="">
-            </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="correo" class="form-label fuente3 text-danger">Correo electronico:</label>
-                <div class="input-group">
-                    <span class="input-group-text" id="email2">@</span>
-                    <input type="email" class="form-control fuente3" id="email" aria-describedby="inputGroupPrepend2">
+                    <div class="card-body p-4">
+                        <h4 class="fuente3">Información</h4>
+                        <hr class="mt-0 mb-4">
+
+                        <div class="row pt-1">
+
+                            <form id="perfilForm" class="" method="post">
+                                <div class="row justify-content-center">
+                                    <div class="mb-3 col-md-6">
+                                        <label for="nombre" class="form-label fuente3">Usarname:</label>
+                                        <input type="text" class="form-control fuente3" id="nombrecompleto" value="">
+                                    </div>
+                        
+                                    <div class="mb-3 col-md-6">
+                                        <label for="nombre" class="form-label fuente3">Nombre:</label>
+                                        <input type="text" class="form-control fuente3" id="nombre" value="">
+                                    </div>
+                            
+                                    <div class="mb-3 col-md-6">
+                                        <label for="edad" class="form-label fuente3">Edad:</label>
+                                        <input type="text" class="form-control fuente3" id="edad" value="">
+                                    </div>
+                            
+                                    <div class="mb-3 col-md-6">
+                                        <label for="genero" class="form-label fuente3">Género:</label>
+                                        <input type="text" class="form-control fuente3" id="genero" value="">
+                                    </div>
+                            
+                                    <div class="mb-3 col-md-6">
+                                        <label for="correo" class="form-label fuente3">Correo electronico:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="email2">@</span>
+                                            <input type="email" class="form-control fuente3" id="email" aria-describedby="inputGroupPrepend2">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="mb-3 col-md-6">
+                                        <label for="pais" class="form-label fuente3">País:</label>
+                                        <input type="text" class="form-control fuente3" id="pais" value="">
+                                    </div>
+                        
+                                    <div class="mb-3 col-md-6">
+                                        <label for="edad" class="form-label fuente3">Direccion:</label>
+                                        <input type="text" class="form-control fuente3" id="direccion" value="">
+                                    </div>
+                        
+                                    <div class="mb-3 col-md-6">
+                                        <label for="edad" class="form-label fuente3">Direccion de envio:</label>
+                                        <input type="text" class="form-control fuente3" id="direccion_envio" value="">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <h6 class="fuente3">Siguenos en</h6>
+                        <hr class="mt-0 mb-3">
+                        <div class="d-flex justify-content-start">
+                            <a href="#!"><svg class="bi me-3" width="22" height="26" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#facebook"/></svg></i></a>
+                            <a href="#!"><svg class="bi me-3" width="22" height="26" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#twitter"/></svg></a>
+                            <a href="#!"><svg class="bi me-3" width="22" height="26" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#instagram"/></svg></a>
+                        </div>
+                    </div>
+                  </div>
+
                 </div>
+              </div>
             </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="contrasenia" class="form-label fuente3 text-danger">Contraseña:</label>
-                <div class="input-group">
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
-                    <input data-toggle="password" id="password" class="form-control" type="password">
-                </div>
-            </div>
-    
-            <div class="mb-3 col-md-6">
-                <label for="pais" class="form-label fuente3 text-danger">País:</label>
-                <input type="text" class="form-control fuente3" id="pais" value="">
-            </div>
-
-            <div class="mb-3 col-md-6">
-                <label for="edad" class="form-label fuente3 text-danger">Direccion:</label>
-                <input type="text" class="form-control fuente3" id="direccion" value="">
-            </div>
-
-            <div class="mb-3 col-md-6">
-                <label for="edad" class="form-label fuente3 text-danger">Direccion de envio:</label>
-                <input type="text" class="form-control fuente3" id="direccion_envio" value="">
-            </div>
-    
-            <div class="text-center mb-1">
-                <button type="button" id="btn_modificar" class="btn btn-outline-dark fuente3" onclick="mostrarAlerta()">Modificar</button>
-                <button type="button" class="btn btn-outline-dark fuente3" onclick="index()">Volver</button>
-            </div>
-
+          </div>
         </div>
-
-    </form>
-
+      </section>
     
 </body>
 </html>
