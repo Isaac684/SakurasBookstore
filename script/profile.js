@@ -26,7 +26,7 @@ async function mostrarAlerta() {
 
   try {
     // Hacer una solicitud de actualización a la API
-    const response = await fetch('http://127.0.0.1:8000/api/ActualizarAdmin/' + JSON.parse(localStorage.getItem('userInfo')), {
+    const response = await fetch('http://127.0.0.1:8000/api/user/' + JSON.parse(localStorage.getItem('userInfo')), {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
