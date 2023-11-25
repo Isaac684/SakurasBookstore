@@ -56,7 +56,7 @@
     </header>
 
     <!-- ACORDIÓN -->
-    <div class="m-4">
+    <div class="m-4 fuente3">
 
         <div class="accordion" id="accordionExample">
 
@@ -371,7 +371,10 @@ submitButton.addEventListener('click', async function(e){
                         title: 'Registrado',
                         text: 'Has sido registrado con exito.',
                         icon: 'success',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        customClass: {
+                            content: 'text-center'
+                        }
                     }).then((result) => {
                         if (result.isConfirmed) {
                             // Redirige a la página deseada
