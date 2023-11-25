@@ -37,15 +37,21 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const cellValor = row.insertCell(1);
                 const cellCreado = row.insertCell(2);
                 const cellExpira = row.insertCell(3);
+                const acciones = row.insertCell(4);
 
                 // Rellenar las celdas con datos del usuario
                 cellTipo.textContent = prueba;
-                cellValor.textContent =  "$ " + cupon.value;
+                cellTipo.classList.add('ocultarLuego');
+                cellValor.textContent = cupon.value;
                 cellCreado.textContent = obtenerFechaFormateada(cupon.create);
                 cellExpira.textContent = obtenerFechaFormateada(cupon.expire);
                 cellCreado.classList.add('ocultarLuego');
                 cellExpira.classList.add('ocultarLuego');
-
+                acciones.innerHTML = `<td>
+                                        <button class="btn btn-secondary agregarCuponBtn">Aplicar</button>
+                                        <a href="../html/listaCupones.html"><button class="btn btn-secondary">Ver</button></a>
+                                    </td>`
+                acciones.classList.add('ocultar');
             }
 
             if(cupon.percent != 0)
@@ -57,14 +63,20 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const cellPorcentaje = row.insertCell(1);
                 const cellCreado = row.insertCell(2);
                 const cellExpira = row.insertCell(3);
-
+                const acciones = row.insertCell(4);
                 // Rellenar las celdas con datos del usuario
                 cellTipo.textContent = prueba;
-                cellPorcentaje.textContent = cupon.percent + " %";
+                cellTipo.classList.add('ocultarLuego');
+                cellPorcentaje.textContent = cupon.percent + "%";
                 cellCreado.textContent = obtenerFechaFormateada(cupon.create);
                 cellExpira.textContent = obtenerFechaFormateada(cupon.expire);
                 cellCreado.classList.add('ocultarLuego');
                 cellExpira.classList.add('ocultarLuego');
+                acciones.innerHTML = `<td>
+                                <button class="btn btn-secondary agregarCuponBtn">Aplicar</button>
+                                <a href="../html/listaCupones.html"><button class="btn btn-secondary">Ver</button></a>
+                            </td>`
+                acciones.classList.add('ocultar');
             }
 
 
