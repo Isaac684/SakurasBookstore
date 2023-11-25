@@ -1,4 +1,4 @@
-function agregarCarrito(title, price, imageUrl, stock) {
+function agregarCarrito(title, price, imageUrl, stock, cantidad) {
     // Recuperar lista de deseos actual de localStorage
     let wishlist = JSON.parse(localStorage.getItem('carrito')) || [];
 
