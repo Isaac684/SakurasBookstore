@@ -14,7 +14,7 @@ function agregarCarrito(title, price, imageUrl, stock) {
         });   
     } else {
         // Añadir el nuevo libro a la lista de deseos
-        wishlist.push({ title, price, stock, imageUrl });
+        wishlist.push({ title, price, stock, imageUrl, cantidad });
 
         // Guardar la lista de deseos actualizada en localStorage
         localStorage.setItem('carrito', JSON.stringify(wishlist));

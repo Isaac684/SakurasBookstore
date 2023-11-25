@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <td><img src="${book.imageUrl}" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
             <td><span class="titulo">${book.title}</span></td>
             <td><span class="precio">$ ${book.price}</span></td>
+            <td><span class="cantidad">${book.cantidad} 5</span></td>
             <td><button class="round-black-btn btn-dark" onclick="eliminarCarrito('${book.title}')">Eliminar</button></td>
         `;
     });
