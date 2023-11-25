@@ -288,7 +288,7 @@
                                         <li><a href="../html/listaCupones.html" class="link-underline-opacity-0 nav-link rounded">Cupones</a></li>
                                         <li><a href="../html/historialCompras.html" class="link-underline-opacity-0 nav-link rounded">Historial de compras</a></li>
                                         <li><a href="../html/listaDeseoSesion.html" class="link-underline-opacity-0 nav-link rounded">Lista de deseos</a></li>
-                                        <li><a href="../html/index.html" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
+                                        <li><a  id="cerrarSesionButton" class="link-underline-opacity-0 nav-link rounded">Cerrar Sesión</a></li>
                                     </ul>
                                 </div>
 
@@ -336,5 +336,24 @@
 
     <!-- Footer -->
     <div id="footer-container"></div>
+
+    <script>
+
+document.getElementById('cerrarSesionButton').addEventListener('click', function(event) {
+    console.log('Evento de clic registrado');  // Agrega esta línea
+
+    event.preventDefault();
+
+    console.log('Clic en Cerrar Sesión');
+
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('photoUser');
+    localStorage.removeItem('token');
+    console.log('Datos eliminados del localStorage');
+
+    window.location.href = '../html/index.html';
+});
+
+    </script>
 </body>
 </html>
