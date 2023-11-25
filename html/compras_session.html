@@ -18,12 +18,14 @@
     <!-- Header -->
     <div id="header-container"></div>
 
-    <div class="row rounded d-flex justify-content-center fuente3">
+    <div class="row mx-5 justify-content-center fuente3 mb-5">
 
-        <div class="col-md-5 col-lg-4 order-md-last">
+        <div class="col-md-5 col-lg-5 order-md-last rounded-3">
 
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Tu carro</span>
+            <h4 class="d-flex justify-content-between align-items-center">
+                <span class="text-primary fs-3 fuente1 mb-3 mt-4">Tu carro
+                    <svg class="bi" width="35" height="35" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart4"/></svg> 
+                </span>
                 <span class="badge bg-primary rounded-pill" id="itemsCarrito">0</span>
             </h4>
 
@@ -33,14 +35,11 @@
                     display: none;}
             </style>
             <div class="card p-2 fuente3" >
-                <h2>Mis cupones</h2>
-                <table class="table border fuente3 ">
+                <h3 class="fuente1 p-1">Mis cupones </h3>
+                <table class="table border fuente3 text-center">
                     <thead>
                       <tr class="table-primary">
-                        <th scope="col" class="col-4 d-none">Función</th>
-                        <th scope="col" class="col-2">Valor</th>
-                        <th scope="col" class="col-3 d-none">Creado</th>
-                        <th scope="col" class="col-3 d-none">Expira</th>
+                        <th scope="col" class="col-3">Valor</th>
                         <th scope="col" class="col-3">Acciones</th>
                       </tr>
                     </thead>
@@ -50,13 +49,10 @@
                     </tbody>
                     
                 </table>
-                <table class="table fuente3 border">
+                <table class="table fuente3 text-center">
                     <thead>
                       <tr class="table-primary">
-                        <th scope="col" class="col-4 d-none">Función</th>
-                        <th scope="col" class="col-2">Porcentaje</th>
-                        <th scope="col" class="col-3 d-none">Creado</th>
-                        <th scope="col" class="col-3 d-none">Acciones</th>
+                        <th scope="col" class="col-3">Porcentaje</th>
                         <th scope="col" class="col-3">Acciones</th>
                       </tr>
                     </thead>
@@ -69,9 +65,9 @@
 
         </div>
         
-        <div class="col-md-7 col-lg-5 fuente3">
+        <div class="col-md-7 col-lg-6 fuente3 rounded-3">
 
-            <h4 class="mb-3">Compra de productos</h4>
+            <h3 class="mb-3 mt-4 fuente1">Compra de productos</h3>
 
             <form class="needs-validation" method="post">
 
@@ -97,13 +93,12 @@
                         <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
                         <div class="invalid-feedback">
                             Por favor introduce tu direccion de envio.
-                            Please enter your shipping address.
                         </div>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-12">
                         <label for="country" class="form-label">País</label>
-                        <select class="form-select" id="paises" required>
+                        <select class="form-select w-50" id="paises" required>
                             <option selected disabled value="">Elija su pais</option>
                         </select>
                         <div class="invalid-feedback">
@@ -111,9 +106,9 @@
                         </div>
                     </div>
 
-                    <hr class="my-4">
+                    <hr class="my-3">
 
-                    <h4 class="mb-3">Pago</h4>
+                    <h3 class="mb-2 fuente1">Pago </h3>
 
                     <div class="my-3" onchange="cargarFormulario()">
                         <div class="form-check">
@@ -159,9 +154,8 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" id="btnPagar">Continuar con el pago</button>
+                <button class="btn btn-primary text-white mb-4 mt-4" id="btnPagar"><svg class="bi" width="22" height="22" fill="currentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#cart-check-fill"/></svg> Continuar con el pago</button>
             </form>
 
         </div>
@@ -214,20 +208,20 @@
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">Nombre en la tarjeta de credito</label>
                             <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                            <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
+                            <small class="text-muted">Nombre completo</small>
                             <div class="invalid-feedback">Se requiere el nombre en la tarjeta</div>
                         </div>
                         <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Número de tarjeta de crédito</label>
+                            <label for="cc-number" class="form-label">Tarjeta de crédito</label>
                             <input type="text" class="form-control" id="cc-number" placeholder="" required="">
                             <div class="invalid-feedback">Se requiere número de tarjeta de crédito</div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label for="cc-expiration" class="form-label">Vencimiento</label>
                             <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
                             <div class="invalid-feedback">Fecha de vencimiento requerida</div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label for="cc-cvv" class="form-label">CVV</label>
                             <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
                             <div class="invalid-feedback">Código de seguridad requerido</div>
@@ -241,20 +235,20 @@
                         <div class="col-md-6">
                             <label for="debit-name" class="form-label">Nombre en la tarjeta de débito</label>
                             <input type="text" class="form-control" id="debit-name" placeholder="" required="">
-                            <small class="text-muted">Nombre completo como se muestra en la tarjeta de débito</small>
+                            <small class="text-muted">Nombre completo. </small>
                             <div class="invalid-feedback">Se requiere el nombre en la tarjeta de débito</div>
                         </div>
                         <div class="col-md-6">
-                            <label for="debit-number" class="form-label">Número de tarjeta de débito</label>
+                            <label for="debit-number" class="form-label">Tarjeta de débito</label>
                             <input type="text" class="form-control" id="debit-number" placeholder="" required="">
                             <div class="invalid-feedback">Se requiere número de tarjeta de débito</div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label for="debit-expiration" class="form-label">Fecha de vencimiento</label>
                             <input type="text" class="form-control" id="debit-expiration" placeholder="" required="">
                             <div class="invalid-feedback">Fecha de vencimiento requerida</div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label for="debit-cvv" class="form-label">CVV</label>
                             <input type="text" class="form-control" id="debit-cvv" placeholder="" required="">
                             <div class="invalid-feedback">Código de seguridad requerido</div>
@@ -351,7 +345,6 @@
         });
     }
 });
-
 
 
 async function cargarDatosCarrito() {
