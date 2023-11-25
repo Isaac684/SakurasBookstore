@@ -142,7 +142,7 @@ function obtenerNombreMes(numeroMes) {
 function minLimit(fecha){
   let fechaObjeto = new Date(fecha);
   let fechaActual = new Date();
-  if((Math.floor(((fechaActual.getTime() - fechaObjeto.getTime())/1000)/60)) <= 5){
+  if((Math.floor(((fechaActual.getTime() - fechaObjeto.getTime())/1000)/60)) <= 4){
     alert;
     return true;
   }

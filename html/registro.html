@@ -11,19 +11,19 @@
     <script src="../script/registrar_usuario.js" defer></script>
 </head>
 <body class="bg-secondary">
-    <section class="vh-100">
+    <section class="">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-12 py-5">
-                    <div class="card pt-5 pb-5" style="border-radius: 1rem;">
+                    <div class="card pt-4 pb-4" style="border-radius: 1rem;">
                         <div class="container-fluid h-custom fuente3">
                             <div class="row d-flex justify-content-center align-items-center h-100">
-                                <div class="col-7 col-lg-6 col-xl-5">
+                                <div class="col-7 col-lg-6 col-xl-7">
                                     <img src="../img/sigunp.png" class="img-fluid" alt="Sample image">
                                 </div>
-                                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                                <div class="col-md-8 col-lg-6 col-xl-5">
                                     <form class="row" enctype="form-data">
-                                        <h2 class="fuente1 text-center text-lg-start fw-bold mb-3">Registro</h2>
+                                        <h2 class="fuente1 text-center fw-bold mb-3">Registro</h2>
 
                                         <div class="col-12">
                                             <label for="validationDefault01" class="form-label">Nombre completo</label>
@@ -32,7 +32,7 @@
                                 
                                         <div class="col-4">
                                             <label for="validationDefault02" class="form-label">Edad</label>
-                                            <input type="number" class="form-control" id="validationDefault02" placeholder="Ej: 18" min="1" pattern="^[0-9]+" edad="" required>
+                                            <input type="number" class="form-control" id="validationDefault02" placeholder="Ej: 18" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" min="1" edad="" required>
                                         </div>
                                 
                                         <div class="col-8">
@@ -64,6 +64,7 @@
                                                 <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
                                                 <input data-toggle="password" class="form-control" type="password" contraseña="" required>
                                             </div>
+                                            <small id="passwordError" class="text-danger"></small>
                                         </div>
                                 
                                         <div class="col-6">
@@ -102,11 +103,11 @@
                                             </div>
                                         </div> -->
 
-                                        <div class="text-center text-lg-start mt-4 pt-2">
+                                        <div class="text-center text-lg-start pt-2">
                                             <a type="" class="btn btn-primary btn-md" style="padding-left: 2.5rem; padding-right: 2.5rem;" registro="">Registrarse</a>
-                                            <p class="small fw-bold mt-2 pt-1 mb-0">¿Ya tienes una cuenta? <a href="../html/login.html" class="link-danger">Iniciar sesión</a></p>
+                                            <p class="small fw-bold mt-2 pt-1 mb-0 text-center">¿Tienes una cuenta? <a href="../html/login.html" class="link-danger">Iniciar sesión</a></p>
                                             <p class="small fw-bold mt-2 pt-1 mb-0 text-center">O</p>
-                                            <p class="small fw-bold mt-2 pt-1 mb-0">Continuar sin una cuenta <a href="../html/index.html" class="link-danger">Inicio</a></p>
+                                            <p class="small fw-bold mt-2 pt-1 mb-0  text-center">Continuar sin una cuenta <a href="../html/index.html" class="link-danger">Ir a inicio</a></p>
                                         </div>
                                     </form>
                                 </div>
