@@ -52,9 +52,21 @@ btn.addEventListener('click', async function (e) {
 
                 if (user.value === 'admin') {
                     // Redirecciona a la página de admin solo si las credenciales son para el usuario 'admin'
+                    Swal.fire
+                    ({
+                        icon: 'success',
+                        title: 'Inicio de sesión exitoso',
+                        text: 'Bienvenido!',
+                    });
                     window.location.href = "../html/indexAdmin.html";
                 } else {
                     // Redirecciona a la página de sesión normal si no es un usuario 'admin'
+                    Swal.fire
+                    ({
+                        icon: 'success',
+                        title: 'Inicio de sesión exitoso',
+                        text: 'Bienvenido!',
+                    });
                     window.location.href = "../html/indexSession.html";
                 }
                  Swal.fire({
