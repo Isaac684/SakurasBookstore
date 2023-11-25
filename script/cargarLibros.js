@@ -48,8 +48,7 @@ async function listarLibros(index = 0) {
                     }
                 
                 };
-                // Agregar el nuevo libro al contenedor de libros
-                nuevoLibro.setAttribute('name','books');
+                // Agregar el nuevo libro al contenedor de librosç
                 contenedorLibros.appendChild(nuevoLibro);
 
                 // Llamar recursivamente para el siguiente libro

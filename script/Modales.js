@@ -129,6 +129,8 @@ const fechaFormateada = `${dia}/${mes}/${año}`;
   }
 });
 
+}
+
 function mostrarAlertaInicioSesion(event) {
   event.preventDefault();
 
@@ -144,7 +146,6 @@ function mostrarAlertaInicioSesion(event) {
     });
 
 }
-
 
 
 function mostrarInformacionLibro(event, data) {
@@ -216,5 +217,4 @@ function mostrarInformacionLibro(event, data) {
       `,
   });
 
-}
 }
