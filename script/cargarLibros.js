@@ -19,6 +19,8 @@ async function listarLibros(index = 0) {
                     nuevoLibro = libroSinDescuento.cloneNode(true);
                 } else {
                     nuevoLibro = libroConDescuento.cloneNode(true);
+                    const descuento = (element_.sell_price * 1) + (element_.sell_price * 0.30);
+                    nuevoLibro.querySelector('.descuento').textContent = "$" + descuento.toFixed(2);
                 }
                 nuevoLibro.style.display = ''; // Mostrar el nuevo libro
 
@@ -29,6 +31,10 @@ async function listarLibros(index = 0) {
                 };
                 nuevoLibro.querySelector('.precio').textContent = "$" + element_.sell_price;
                 nuevoLibro.querySelector('.nombre').textContent = element_.name;
+                
+                nuevoLibro.querySelector('.nombre').onclick = function(event) {
+                    mostrarInformacionLibro(event, element_);
+                };
                 nuevoLibro.querySelector('.favorito').onclick = async function(event) {
                     let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
                     if(idUser == ""){
