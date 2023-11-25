@@ -64,7 +64,6 @@ async function dataShow() {
   const generoInput = document.getElementById('genero');
   const paisInput = document.getElementById('pais');
   const emailInput = document.getElementById('email');
-  const contraseniaInput = document.getElementById('password');
   const direccionInput = document.getElementById('direccion');
   const direcionEnvioInput = document.getElementById('direccion_envio');
 
@@ -86,7 +85,6 @@ async function dataShow() {
         generoInput.value = data.gender;
         paisInput.value= data.country;
         emailInput.value = data.email;
-        contraseniaInput.value = data.password;
         direccionInput.value = data.address;
         direcionEnvioInput.value = data.send_address;
       })
