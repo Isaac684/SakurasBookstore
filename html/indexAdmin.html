@@ -56,7 +56,7 @@
     </header>
 
     <!-- ACORDIÓN -->
-    <div class="m-4">
+    <div class="m-4 fuente3">
 
         <div class="accordion" id="accordionExample">
 
@@ -155,7 +155,7 @@
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <h1 class="p-2 m-2 text-center fuente1">Crear cuentas de usuarios</h1>
-                        <form class="row" method="post">
+                        <form class="row" enctype="form-data">
 
                             <div class="col-6">
                                 <div class="mb-3">
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="foto" class="form-label">Foto de perfil:</label>
-                                    <input  accept="image/png,image/jpeg" type="file" class="form-control" aria-label="file example" foto="" required>
+                                    <input  accept="image/png,image/jpeg" id="foto" type="file" class="form-control" aria-label="file example" foto="" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="validationDefaultUsername" class="form-label">Contraseña</label>
@@ -294,5 +294,112 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
+    <script>
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el elemento select
+    var selectPaises = document.getElementById("paises");
+
+    // Obtener la lista de países desde el enlace
+    fetch('http://127.0.0.1:8000/api/paises')
+      .then(response => response.json())
+      .then(data => {
+        // Iterar sobre el arreglo de países y agregar opciones al select
+        data.forEach(function(pais) {
+          var opcion = document.createElement("option");
+          opcion.value = pais.nombre;
+          opcion.text = pais.nombre;
+          selectPaises.add(opcion);
+        });
+      })
+      .catch(error => console.error('Error al obtener la lista de países:', error));
+  });
+
+const submitButton = document.querySelector('[registro]');
+submitButton.addEventListener('click', async function(e){
+   e.preventDefault();
+
+    const nombre = document.querySelector('[nombre]');
+    const edad = document.querySelector('[edad]');
+    const genero = document.querySelector('[genero]');
+    const foto = document.querySelector('[foto]');
+    const correo = document.querySelector('[correo]');
+    const contrasena = document.querySelector('[contraseña]');
+    const usuario = document.querySelector('[usuario]');
+    const paises = document.querySelector('[pais]');
+    const direccionPrincipal = document.querySelector('[d-principal]');
+    const direccionesEnvio = document.querySelector('[d-envios]');
+
+    console.log(genero);
+
+
+    if (foto.files.length > 0) {
+        const file = foto.files[0];
+        const reader = new FileReader();reader.onload = function (e) {
+       
+        const formData = new FormData();
+        formData.append('username', usuario.value);
+        formData.append('email', correo.value);
+        formData.append('password', contrasena.value);
+        formData.append('name', nombre.value);
+        formData.append('age', edad.value);
+        formData.append('gender', genero.value);
+        console.log(genero.value);
+        formData.append('file', file);
+        formData.append('country', paises.value);
+        formData.append('address', direccionPrincipal.value);
+        formData.append('send_address', direccionesEnvio.value);
+        formData.append('refer_code', '64ZTR2FNPQ'); 
+
+            fetch('http://127.0.0.1:8000/api/Usuario', {
+                method: 'POST',
+                headers: {
+                    
+                },
+                body: formData,
+            }).then(async function(response) {
+                if (!response.ok) {
+                    return false;
+                }
+                
+                return response.json();
+            }).then(function(data) {
+                console.log("en teoria se mandaron los datos");
+                if(data.res == true){
+                    Swal.fire({
+                        title: 'Registrado',
+                        text: 'Has sido registrado con exito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar',
+                        customClass: {
+                            content: 'text-center'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirige a la página deseada
+          /*                   window.location.href = 'http://127.0.0.1:5501/html/indexSession.html'; */
+                        }
+                    });
+                }
+
+            }).catch(function(err) {
+                console.error(err);
+            });
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+
+
+});
+
+
+  
+
+
+    </script>
+    
   </body>
 </html>
