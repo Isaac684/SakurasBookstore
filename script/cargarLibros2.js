@@ -54,8 +54,29 @@ async function listarLibros2(index = 0) {
                 nuevoLibro.querySelector('#imagen').onclick = function(event) {
                     mostrarInformacionLibro(event, data[index]);
                 };
-                nuevoLibro.querySelector('.precio').textContent = "$" + data[index].sell_price;
                 nuevoLibro.querySelector('.nombre').textContent = data[index].name;
+                nuevoLibro.querySelector('.nombre').onclick = function(event) {
+                    mostrarInformacionLibro(event, data[index]);
+                };
+                nuevoLibro.querySelector('.favorito').onclick = async function(event) {
+                    let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+                    if(idUser == ""){
+                        addToWishlist(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
+                    }else{
+                        addToWishlistUser(data[index].id);
+                    }
+                    
+                };
+                nuevoLibro.querySelector('.carrito').onclick = function(event) {
+                    let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+                    if(idUser == ""){
+                        agregarCarrito(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
+                    }else{
+                        addShoppingCarUser(data[index].id, data[index].sell_price);
+                    }
+                
+                };
+
 
                 if(data[index].rating >= 4)
                 {

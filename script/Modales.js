@@ -92,6 +92,9 @@ document.getElementById('btnRecibir').addEventListener('click', async function (
   const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // El mes comienza en 0
   const año = fecha.getFullYear();
 
+
+
+
 const fechaFormateada = `${dia}/${mes}/${año}`;
   const datosActualizados = {
     percent: 50,
@@ -130,6 +133,7 @@ const fechaFormateada = `${dia}/${mes}/${año}`;
 });
 
 }
+
 
 function mostrarAlertaInicioSesion(event) {
   event.preventDefault();
