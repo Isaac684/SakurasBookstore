@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 html: 
                 `
                 <div class="fuente3 rounded-3 p-4 bg-light">
-                    <h2 class="text-center mb-4">Editar el Usuario</h2>
+                    <h2 class="text-center mb-4">Editar Usuario</h2>
 
                     <div class="mb-3 row">
                         <div class="col-md-4">
@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
                 customClass: {
+                    content: 'text-center',
                     confirmButton: 'fuente3',  // Aplicar fuente3 al botón Confirmar
                     cancelButton: 'fuente3'   // Aplicar fuente3 al botón Cancelar
                 },
@@ -211,8 +212,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                     .then(data => {
                       
                         console.log('Producto actualizado con éxito:', data);
-                        swal.fire('¡Éxito!', 'Producto actualizado correctamente', 'success');
-                    })
+                        Swal.fire({
+                            title: 'Actualizado',
+                            text: 'El usuario ha sido actualizado',
+                            icon: 'success',
+                            customClass: {
+                                content: 'text-center'
+                            }
+                        });                    })
                     .catch(error => {
                        
                         console.error('Error al actualizar el producto:', error);

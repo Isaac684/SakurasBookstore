@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 html: 
                 `
                 <div class="fuente3 rounded-3 p-4 bg-light">
-                    <h2 class="text-center mb-4">Editar el Producto</h2>
+                    <h2 class="text-center mb-4">Editar Producto</h2>
 
                     <div class="mb-3 row">
                         <div class="col-md-4">

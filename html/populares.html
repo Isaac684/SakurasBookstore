@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura's Bookstore</title>
+    <link rel="icon" href="../img/Logo1.svg">
+    <!-- Enlaces diseño-->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../script/Modales.js" ></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body data-bs-theme="light">
+
+    <!-- Header -->
+    <header class="border-bottom">
+        <!-- Imagen TOP -->
+        <ul class="mx-auto text-center p-0 m-0 border-bottom border-warning bg-warning" id="Inicio">
+            <li class="nav-item d-none d-lg-block pt-1">
+                <a class="" href="#"><img src="../img/LogoCafe.svg" style="height: 200px;" /></a>
+            </li>
+        </ul>
+    </header>
+
+
+    <!-- Promocionales -->
+    <div class="row mb-4" >
+
+        <div class="col-6 bg-primary text-center text-white">
+          <div class="my-3 py-3">
+            <h2 class="display-5">Proximas colecciones famosas</h2>
+            <p class="lead">¡Nos interesa tener lo mejor para ti!</p>
+          </div>
+          <div class="bg-light shadow-sm mx-auto imagenNuevo" style="width: 50%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        </div>
+
+        <div class="col-6 bg-secondary text-center">
+          <div class="my-3 p-3">
+            <h2 class="display-5">¡Merry Christmas!</h2>
+            <p class="lead">Se vienen muchos descuentos en estas fechas.</p>
+          </div>
+          <div class="bg-dark shadow-sm mx-auto imagenNavidad" style="width: 50%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        </div>
+        
+    </div>
+
+    <!-- Contenido -->
+    <div class="pb-3 ms-5 me-5">
+        <div class="d-grid gap-3" style="grid-template-columns: 2fr;">
+
+            <!-- SIDEBAR 2-->
+            <div class="rounded-3" id="Compras">
+
+                <div class="row border-bottom mb-2 ms-3 fuente3 me-2">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="mr-md-auto d-none d-sm-block totalLibros2">0 Libros</h5>
+                        <div class="d-flex">
+                            <h2 class="fuente1">NUESTROS LIBROS MÁS POPULARES</h2>
+                        </div>
+
+                    </div>                    
+                </div>
+                
+                <div id="MostrarLibros2">
+                    <script src="../script/cargarLibros2.js" defer ></script>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-warning" id="footerColor">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <p class="col-md-4 mb-0 text-muted">&copy; 2023 Sakura's Bookstore</p>
+    
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="../img/Logo2.png" alt="">
+                </a>
+    
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="../html/Nosotros.html" class="nav-link px-2 text-muted">Nosotros</a></li>
+                    <li class="nav-item"><a href="https://getbootstrap.com/" class="nav-link px-2 text-muted">Boostrap</a>
+                    </li>
+                    <li class="nav-item"><a href="../html/FAQs.html" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="https://github.com/Isaac684/SakurasBookstore.git" class="nav-link px-2 text-muted">Repositorio</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
