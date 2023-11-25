@@ -1,4 +1,5 @@
 async function listarLibros(index = 0) {
+
     fetch('http://127.0.0.1:8000/api/Productos')
         .then(function (response) {
             return response.json();
@@ -40,7 +41,13 @@ async function listarLibros(index = 0) {
                     
                 };
                 nuevoLibro.querySelector('.carrito').onclick = function(event) {
-                    agregarCarrito(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
+                    let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+                    if(idUser == ""){
+                        agregarCarrito(data[index].name, data[index].sell_price, data[index].image, data[index].stock);
+                    }else{
+                        addShoppingCarUser(data[index].id, data[index].sell_price);
+                    }
+                   
                 };
                 // Agregar el nuevo libro al contenedor de libros
                 contenedorLibros.appendChild(nuevoLibro);
@@ -57,3 +64,5 @@ async function listarLibros(index = 0) {
 
 // Llamar a la función para comenzar el proceso
 listarLibros();
+
+

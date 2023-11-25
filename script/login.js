@@ -50,14 +50,19 @@ btn.addEventListener('click', async function (e) {
                 localStorage.setItem('userInfo', JSON.stringify(usuarioEncontrado.id));
                 localStorage.setItem('photoUser', JSON.stringify(usuarioEncontrado.photo));
 
-                //window.location.href = "../html/indexSession.html";
-                 // Alerta Sweet para inicio de sesión exitoso
+                if (user.value === 'admin') {
+                    // Redirecciona a la página de admin solo si las credenciales son para el usuario 'admin'
+                    window.location.href = "../html/indexAdmin.html";
+                } else {
+                    // Redirecciona a la página de sesión normal si no es un usuario 'admin'
+                    window.location.href = "../html/indexSession.html";
+                }
                  Swal.fire({
                     icon: 'success',
                     title: 'Inicio de sesión exitoso',
                     text: 'Bienvenido!',
                 }).then(() => {
-                    window.location.href = "../html/indexSession.html";
+                    
                 });
             } else {
                 //console.error('Usuario no encontrado.');

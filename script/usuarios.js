@@ -132,33 +132,35 @@ document.addEventListener('DOMContentLoaded', async function () {
                 position:'center',
                 html: 
                 `
-                <div class="fuente3 rounded-3 d-flex flex-column">
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="n" class="swal2-label">Username</label>
-                            <input id="user" class="swal2-input" value="${usuario.username}" required>
+                <div class="fuente3 rounded-3 p-4 bg-light">
+                    <h2 class="text-center mb-4">Editar Usuario</h2>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="user" class="form-label fs-6">Username:</label>
+                            <input id="user" class="form-control rounded-3" value="${usuario.username}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="editorial" class="swal2-label">Email</label>
-                            <input id="mail" class="swal2-input" value="${usuario.email}" required>
+                        <div class="col-md-4">
+                            <label for="mail" class="form-label fs-6">Email:</label>
+                            <input id="mail" class="form-control rounded-3" value="${usuario.email}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Name</label>
-                            <input id="nm" class="swal2-input" value="${usuario.name}" required>
+                        <div class="col-md-4">
+                            <label for="nm" class="form-label fs-6">Name:</label>
+                            <input id="nm" class="form-control rounded-3" value="${usuario.name}" required>
                         </div>
                     </div>
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Pais</label>
-                            <input id="cy" class="swal2-input" value="${usuario.country}" required>
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="cy" class="form-label fs-6">Pais:</label>
+                            <input id="cy" class="form-control rounded-3" value="${usuario.country}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Direccion</label>
-                            <input id="adr" class="swal2-input" value="${usuario.address}" required>
+                        <div class="col-md-4">
+                            <label for="adr" class="form-label fs-6">Direccion:</label>
+                            <input id="adr" class="form-control rounded-3" value="${usuario.address}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Direccion de envio</label>
-                            <input id="adrr" class="swal2-input" value="${usuario.send_address}" required>
+                        <div class="col-md-4">
+                            <label for="adrr" class="form-label fs-6">Direccion de envio:</label>
+                            <input id="adrr" class="form-control rounded-3" value="${usuario.send_address}" required>
                         </div>
                     </div>
                 </div>
@@ -169,7 +171,11 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
-
+                customClass: {
+                    content: 'text-center',
+                    confirmButton: 'fuente3',  // Aplicar fuente3 al botón Confirmar
+                    cancelButton: 'fuente3'   // Aplicar fuente3 al botón Cancelar
+                },
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Obtener referencias a los elementos HTML dentro del modal
@@ -206,8 +212,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                     .then(data => {
                       
                         console.log('Producto actualizado con éxito:', data);
-                        swal.fire('¡Éxito!', 'Producto actualizado correctamente', 'success');
-                    })
+                        Swal.fire({
+                            title: 'Actualizado',
+                            text: 'El usuario ha sido actualizado',
+                            icon: 'success',
+                            customClass: {
+                                content: 'text-center'
+                            }
+                        });                    })
                     .catch(error => {
                        
                         console.error('Error al actualizar el producto:', error);

@@ -135,51 +135,55 @@ document.addEventListener('DOMContentLoaded', async function () {
                 position:'center',
                 html: 
                 `
-                <div class="fuente3 rounded-3 d-flex flex-column">
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="nombre" class="swal2-label">Nombre</label>
-                            <input id="nombre" class="swal2-input" value="${producto.name}" required>
+                <div class="fuente3 rounded-3 p-4 bg-light">
+                    <h2 class="text-center mb-4">Editar Producto</h2>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="nombre" class="form-label fs-6">Nombre:</label>
+                            <input id="nombre" class="form-control rounded-3" value="${producto.name}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="editorial" class="swal2-label">Descripcion</label>
-                            <input id="descripcion" class="swal2-input" value="${producto.description}" required>
+                        <div class="col-md-4">
+                            <label for="descripcion" class="form-label fs-6">Descripción:</label>
+                            <input id="descripcion" class="form-control rounded-3" value="${producto.description}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Editorial</label>
-                            <input id="edito" class="swal2-input" value="${producto.editorial}" required>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Anio</label>
-                            <input id="anio" class="swal2-input" value="${producto.year}" required>
-                        </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Autor</label>
-                            <input id="aut" class="swal2-input" value="${producto.author}" required>
-                        </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Precio</label>
-                            <input id="pric" class="swal2-input" value="${producto.price}" required>
+                        <div class="col-md-4">
+                            <label for="editorial" class="form-label fs-6">Editorial:</label>
+                            <input id="edito" class="form-control rounded-3" value="${producto.editorial}" required>
                         </div>
                     </div>
-                    <div class="d-flex flex-row">
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Stock</label>
-                            <input id="produc" class="swal2-input" value="${producto.stock}" required>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="anio" class="form-label fs-6">Año:</label>
+                            <input id="anio" class="form-control rounded-3" value="${producto.year}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Precio de venta</label>
-                            <input id="sell" class="swal2-input" value="${producto.sell_price}" required>
+                        <div class="col-md-4">
+                            <label for="aut" class="form-label fs-6">Autor:</label>
+                            <input id="aut" class="form-control rounded-3" value="${producto.author}" required>
                         </div>
-                        <div class="col-4">
-                            <label for="autor" class="swal2-label">Genero</label>
-                            <input id="cate" class="swal2-input" value="${producto.category}" required>
+                        <div class="col-md-4">
+                            <label for="pric" class="form-label fs-6">Precio:</label>
+                            <input id="pric" class="form-control rounded-3" value="${producto.price}" required>
                         </div>
                     </div>
-                    
+
+                    <div class="mb-3 row">
+                        <div class="col-md-4">
+                            <label for="produc" class="form-label fs-6">Stock:</label>
+                            <input id="produc" class="form-control rounded-3" value="${producto.stock}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sell" class="form-label fs-6">Precio de Venta:</label>
+                            <input id="sell" class="form-control rounded-3" value="${producto.sell_price}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cate" class="form-label fs-6">Género:</label>
+                            <input id="cate" class="form-control rounded-3" value="${producto.category}" required>
+                        </div>
+                    </div>
                 </div>
+
                 `,
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -187,7 +191,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Modificar',
                 showLoaderOnConfirm: true,
-  
+                customClass: {
+                    confirmButton: 'fuente3',  // Aplicar fuente3 al botón Confirmar
+                    cancelButton: 'fuente3'   // Aplicar fuente3 al botón Cancelar
+                },
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Obtener referencias a los elementos HTML dentro del modal
@@ -235,7 +242,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                     .then(data => {
                       
                         console.log('Producto actualizado con éxito:', data);
-                        swal.fire('¡Éxito!', 'Producto actualizado correctamente', 'success');
+                        swal.fire({
+                            title: '¡Éxito!',
+                            text: 'Producto actualizado correctamente',
+                            icon: 'success',
+                            customClass: {
+                                content: 'text-center',  // Centro del texto del mensaje
+                            },
+                        });                    
                     })
                     .catch(error => {
                        
