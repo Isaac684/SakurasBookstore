@@ -37,7 +37,7 @@ async function verLista(id_product,wishlist){
                     <td><img src="${data[i].image}" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
                     <td><span class="titulo">${data[i].name}</span></td>
                     <td><span class="precio">$ ${data[i].sell_price}</span></td>
-                    <td><button class="round-black-btn btn-dark" onclick="agregarCarrito('${data[i].title}', '${data[i].price_sell}','${data[i].imageUrl}','${data[i].stock}')">Añadir al carrito</button></td>
+                    <td><button class="round-black-btn btn-dark" onclick="addShoppingCarUser(${data[i].id},${data[i].sell_price})">Añadir al carrito</button></td>
                     <td><button class="round-black-btn btn-dark" onclick="removeFromWishlist(${data[i].id})">Eliminar</button></td>
                     `;
                 }

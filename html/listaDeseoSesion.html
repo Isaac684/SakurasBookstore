@@ -12,6 +12,7 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../script/ModoOscuro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../script/carrito_user.js"></script>
     <script src="../script/obbener_lista_deseos_user.js"></script>
 </head>
 <body data-bs-theme="light">
@@ -94,7 +95,7 @@
                 <div  class="text-center pt-5 border-top"><svg class="bi" width="42" height="42" fill="CurrentColor"><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#suit-heart"/></svg></div>
                 <div class="fuente3 mt-3 text-center fs-1 fw-bolder text-uppercase">My wishlist</div>
                 
-                <table class="table table-responsive align-middle">
+                <table class="table table-responsive align-middle fuente3">
                     <thead>
                         <tr>
                             <th class="col"></th>
@@ -105,7 +106,7 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody id="wishlist-table-body">
+                    <tbody id="wishlist-table-body" class="fuente3">
                         <!-- Aquí se insertarán las filas de la lista de deseos -->
                     </tbody>
                 </table>

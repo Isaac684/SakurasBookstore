@@ -31,7 +31,7 @@ function agregarCarrito(title, price, imageUrl, stock) {
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: `
-            <a class="nav-link" aria-current="page" href="../html/carrito.html">Ir al carrito</a>
+            <a class="nav-link" aria-current="page" href="../html/carrito_user.html">Ir al carrito</a>
             `,
             cancelButtonText: `
               Seguir comprando
