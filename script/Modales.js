@@ -87,49 +87,66 @@ function mostrarCuponNavidad(event) {
 });
 
 document.getElementById('btnRecibir').addEventListener('click', async function () {
-  const fecha = new Date();
-  const dia = String(fecha.getDate()).padStart(2, '0');
-  const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // El mes comienza en 0
-  const año = fecha.getFullYear();
 
+  var boton = document.getElementById("botoncanjear");
 
-
-
-const fechaFormateada = `${dia}/${mes}/${año}`;
-  const datosActualizados = {
-    percent: 50,
-    value: 0,
-    create: fechaFormateada,
-    expire: '30/11/2023',
-    id_user: JSON.parse(localStorage.getItem('userInfo'))
-  };
-  try {
-    // Hacer una solicitud de actualización a la API
-    const response = await fetch('http://127.0.0.1:8000/api/Cupones', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      },
-      body: JSON.stringify(datosActualizados),
-    });
-
-    if (!response.ok) {
-      throw new Error('Hubo un problema al enviar los datos.');
+  if (boton.dataset.pressed == "false") {
+    boton.dataset.pressed = "true";
+    const fecha = new Date();
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // El mes comienza en 0
+    const año = fecha.getFullYear();
+  
+  const fechaFormateada = `${dia}/${mes}/${año}`;
+    const datosActualizados = {
+      percent: 50,
+      value: 0,
+      create: fechaFormateada,
+      expire: '30/11/2023',
+      id_user: JSON.parse(localStorage.getItem('userInfo'))
+    };
+    try {
+      // Hacer una solicitud de actualización a la API
+      const response = await fetch('http://127.0.0.1:8000/api/Cupones', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+        },
+        body: JSON.stringify(datosActualizados),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Hubo un problema al enviar los datos.');
+      }
+  
+      // Si la solicitud fue exitosa, mostrar un modal de éxito
+      Swal.fire({
+        title: 'Cupon Obtenido!',
+        text: 'Se ha agregado un cupon nuevo!',
+        icon: 'success',
+        customClass: {
+          content: 'text-center'
+        }
+      });
+  
+    } catch (error) {
     }
 
-    // Si la solicitud fue exitosa, mostrar un modal de éxito
+
+  }
+  else
+  {
     Swal.fire({
-      title: 'Cupon Obtenido!',
-      text: 'Se te a agregado un cupon nuevo!',
-      icon: 'success',
+      title: 'Cupon ya obtenido!',
+      text: 'Ya canjeaste este cupón',
+      icon: 'info',
       customClass: {
         content: 'text-center'
       }
     });
-
-  } catch (error) {
   }
+
 });
 
 }
