@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             verLista(bookss.id_product,wishlistTable,bookss.Cantidad, bookss.Total);
             pago += parseFloat(bookss.Total);
         });
-        totalAPagar.textContent = 'TOTAL A PAGAR: $'+pago;
+        totalAPagar.textContent = 'TOTAL A PAGAR: $'+pago.toFixed(2);
     })
       .catch(error => {
         console.error('Error:', error);
