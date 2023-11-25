@@ -57,6 +57,7 @@ function mostrarAlerta() {
                         `;
                         const td = document.createElement('td');
                         const btn = document.createElement('button');
+                        btn.classList.add('btn','btn-danger');
                         btn.textContent = "Cancelar";
                         btn.addEventListener('click', async function(){
                             await fetch('http://127.0.0.1:8000/api/Ventas/' + element.id, {
