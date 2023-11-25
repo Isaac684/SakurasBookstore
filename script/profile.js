@@ -66,6 +66,8 @@ async function dataShow() {
   const emailInput = document.getElementById('email');
   const direccionInput = document.getElementById('direccion');
   const direcionEnvioInput = document.getElementById('direccion_envio');
+  const codigo = document.querySelector('[refer_code]');
+  const clipboard_ = document.querySelector('[refer]');
 
   await fetch('http://127.0.0.1:8000/api/user/' + JSON.parse(localStorage.getItem('userInfo')), {
         headers:{
@@ -87,6 +89,23 @@ async function dataShow() {
         emailInput.value = data.email;
         direccionInput.value = data.address;
         direcionEnvioInput.value = data.send_address;
+        codigo.textContent = data.refer_code; 
+        clipboard_.addEventListener('click',function(){
+          try {
+          navigator.clipboard.writeText('http://127.0.0.1:5501/html/registro.html?codigo=' + data.refer_code)
+          console.log('Texto copiado al portapapeles')
+          } catch (err) {
+            console.error(err)
+          }
+          Swal.fire({
+            title: 'Codigo copiado',
+            text: 'Ahora puedes compartir tu enlace',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+              
+          });
+        });
       })
       .catch(error => {
         console.error('Error:', error);
