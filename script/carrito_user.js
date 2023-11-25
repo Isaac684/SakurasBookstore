@@ -61,9 +61,17 @@ async function addToShoppingCar(id_product,precio){
         if(data.res){
             Swal.fire({
                 icon: 'success',
-                title: '¡Añadido a tu carrito de compra!',
-                html: `<div style="text-align: center;">"El libro ha sido agregado a tu carrito de compras.</div>`,
-            });
+                title: '¡Añadido al carrito de compras!',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `
+                <a class="nav-link" aria-current="page" href="../html/carrito_user.html">Ir al carrito</a>
+                `,
+                cancelButtonText: `
+                  Seguir comprando
+                `,
+              });
         }
       })
       .catch(error => {
@@ -99,9 +107,17 @@ async function updateShoppingCar(id,cantidad,total,precio){
         if(data.res){
             Swal.fire({
                 icon: 'success',
-                title: '¡Añadido a tu carrito de compra!',
-                html: `<div style="text-align: center;">"Se ha agregado un libro mas a tu carrito.</div>`,
-            });
+                title: '¡Has añadido un libro más al carrito!',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `
+                <a class="nav-link" aria-current="page" href="../html/carrito_user.html">Ir al carrito</a>
+                `,
+                cancelButtonText: `
+                  Seguir comprando
+                `,
+              });
         }
       })
       .catch(error => {
