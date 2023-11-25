@@ -45,7 +45,7 @@
                         <a class="nav-link fuente3" href="#"><svg onclick="cambiarTema()" class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#moon-stars-fill" id="dl-icon"/></svg></a>
                     </li>
                     <li class="navbar-nav">
-                        <a class="nav-link fuente3" href="index.html"><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#box-arrow-right" id="dl-icon"/></svg></a>
+                        <a class="nav-link fuente3"  id="cerrarSesionButton"  ><svg class="bi mx-1" width="18" height="18" fill="currentColor" ><use xlink:href="../style/bootstrap-icons-1.11.1/bootstrap-icons.svg#box-arrow-right" id="dl-icon"/></svg></a>
                     </li>
                     
                 </div>
@@ -396,7 +396,20 @@ submitButton.addEventListener('click', async function(e){
 });
 
 
-  
+document.getElementById('cerrarSesionButton').addEventListener('click', function(event) {
+    console.log('Evento de clic registrado');  // Agrega esta línea
+
+    event.preventDefault();
+
+    console.log('Clic en Cerrar Sesión');
+
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('photoUser');
+    localStorage.removeItem('token');
+    console.log('Datos eliminados del localStorage');
+
+    window.location.href = '../html/index.html';
+});
 
 
     </script>
