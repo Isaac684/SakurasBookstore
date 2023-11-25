@@ -295,8 +295,30 @@ a.list-group-item, .list-group-item-action {
   padding-right: 0;
 }
 
+.card-content{
+  display: flex;
+}
+.nmbr-box{
+  margin: 2px;
+}
+.nmbr-box:not(.sel):before {
+  content: "☆"
+}
+.nmbr-box.sel:after {
+  content: "★"
+}
 
+.imagenNuevo{
+  background-image: url("../img/Nuevos.jpeg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
 
+.imagenNavidad{
+  background-image: url("../img/Cover2.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
 
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
