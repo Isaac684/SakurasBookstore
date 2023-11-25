@@ -48,7 +48,8 @@ async function listarLibros(index = 0) {
                 nuevoLibro.querySelector('.carrito').onclick = function(event) {
                     let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
                     if(idUser == ""){
-                        agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock);
+                        const cantidad = nuevoLibro.querySelector('#cantidadPrueba')?.value ?? 1;
+                        agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock, cantidad);
                     }else{
                         addShoppingCarUser(element_.id, element_.sell_price);
                     }
