@@ -109,8 +109,8 @@ async function dataShow() {
           console.log(imageURL);
           const imgUser = document.getElementById('photo');
           imgUser.src = imageURL;
-          imgUser.style.width = '150px';
-          imgUser.style.height = '150px';
+          imgUser.style.width = '280px';
+          imgUser.style.height = '290px';
         })
         .catch(error => {
           console.error('Error:', error);
