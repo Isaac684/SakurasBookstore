@@ -29,11 +29,6 @@ function agregarCarrito(title, price, imageUrl, stock, cantidad) {
         Swal.fire({
             icon: 'success',
             title: '¡Añadido al carrito de compras!',
-            html: `<div style="text-align: center;">"${title}" ha sido agregado en tu carrito.</div>`,
-        });
-        Swal.fire({
-            icon: 'success',
-            title: '¡Añadido al carrito de compras!',
             showCloseButton: true,
             showCancelButton: true,
             focusConfirm: false,

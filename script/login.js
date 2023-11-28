@@ -60,9 +60,6 @@ btn.addEventListener('click', async function (e) {
                         if (result.isConfirmed) {
                             window.location.href = '../html/indexAdmin.html';
                         }
-                        setTimeout(function() {
-                            window.location.href = '../html/indexAdmin.html';
-                        }, 2000);
                     });
                 } else {
                     Swal.fire({
@@ -73,12 +70,7 @@ btn.addEventListener('click', async function (e) {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = '../html/indexSession.html';
-                        }
-                        // Agregar un retraso de 1 segundo (1000 milisegundos) antes de redirigir
-                        setTimeout(function() {
-                            window.location.href = '../html/indexSession.html';
-                        }, 2000);
-                        
+                        }                        
                     });
                 }
                 //  Swal.fire({

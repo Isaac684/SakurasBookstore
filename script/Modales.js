@@ -180,7 +180,7 @@ function mostrarInformacionLibro(event, data) {
   }else{
     console.log('1');
     deseos = `onclick="addToWishlistUser('${data.id}')"`;
-    carrito = `onclick="addShoppingCarUser('${data.id}', '${data.sell_price}')"`;
+    carrito = `onclick="addShoppingCarUser('${data.id}', '${data.sell_price}',${cantidad})"`;
   }
 
 
