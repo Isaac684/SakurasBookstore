@@ -51,7 +51,7 @@ async function listarLibros(index = 0) {
                     if(idUser == ""){
                         agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock, cantidad);
                     }else{
-                        addShoppingCarUser(element_.id, element_.sell_price,element_.stock,cantidad);
+                        addShoppingCarUser(element_.id, element_.sell_price,cantidad,element_.stock);
                     }
                 
                 };
@@ -263,6 +263,7 @@ async function listarSeleccion(index = 0) {
                             if(idUser == ""){
                                 agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock);
                             }else{
+                                
                                 addShoppingCarUser(element_.id, element_.sell_price, cantidad);
                             }
                         

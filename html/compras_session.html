@@ -450,6 +450,7 @@ function verLista(id_product,cantidad,total){
 
     }
     async function insertarVenta(id_product, unidades, precioUnitario, sub_total){
+        
     const jss = {
         id_product: id_product,
         id_user: JSON.parse(localStorage.getItem('userInfo')),
