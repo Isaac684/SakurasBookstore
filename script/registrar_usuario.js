@@ -87,7 +87,7 @@ submitButton.addEventListener('click', async function(e){
                             confirmButtonText: 'Aceptar'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = 'http://127.0.0.1:5501/html/indexSession.html';
+                                window.location.href = 'http://127.0.0.1:5501/html/login.html';
                             }
                         });
                     }
