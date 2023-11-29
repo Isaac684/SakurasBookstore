@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 async function verLista(id_product,wishlist){
 
+    let cantidad = 1;
     fetch('http://127.0.0.1:8000/api/Productos')
         .then(function (response) {
             return response.json();
@@ -33,11 +34,12 @@ async function verLista(id_product,wishlist){
             for (let i = 0; i < data.length; i++) {
                 if(data[i].id == id_product){
                     let row = wishlist.insertRow();
+                    console.log(`${data[i].id},${data[i].sell_price}, ${cantidad}`);
                     row.innerHTML = `
                     <td><img src="${data[i].image}" alt="" class="rounded-top-md align-self-center" width="60" height="95"></td>
                     <td><span class="titulo">${data[i].name}</span></td>
                     <td><span class="precio">$ ${data[i].sell_price}</span></td>
-                    <td><button class="round-black-btn btn-dark" onclick="addShoppingCarUser(${data[i].id},${data[i].sell_price})">Añadir al carrito</button></td>
+                    <td><button class="round-black-btn btn-dark" onclick="addShoppingCarUser(${data[i].id},${data[i].sell_price}, ${cantidad})">Añadir al carrito</button></td>
                     <td><button class="round-black-btn btn-dark" onclick="removeFromWishlist(${data[i].id})">Eliminar</button></td>
                     `;
                 }

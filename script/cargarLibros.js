@@ -202,56 +202,79 @@ async function listarSeleccion(index = 0) {
             return response.json();
         })
         .then(function (data) {
-                console.log(data);
-            data.forEach(element_ => {
-                const contenedorLibros = document.getElementById('contenedor-libros');
-                const libroSinDescuento = document.querySelector('.libroPNormal');
-                const libroConDescuento = document.querySelector('.libroPDescuento');
-                const total = document.querySelector('.totalLibros');
-                // Verificar si hay más elementos en el JSON
-                    // Clonar el elemento de plantilla para el nuevo libro
-                    //let nuevoLibro = libroSinDescuento.cloneNode(true);
-                    let nuevoLibro;
-
-                    if (element_.sell_price <= 25.0) {
-                        nuevoLibro = libroSinDescuento.cloneNode(true);
-                    } else {
-                        nuevoLibro = libroConDescuento.cloneNode(true);
-                    }
-                    nuevoLibro.style.display = ''; // Mostrar el nuevo libro
-
-                    // Actualizar contenido con la información del libro actual
-                    nuevoLibro.querySelector('#imagen').setAttribute('src', element_.image);
-                    nuevoLibro.querySelector('#imagen').onclick = function(event) {
-                        mostrarInformacionLibro(event, element_);
-                    };
-                    nuevoLibro.querySelector('.precio').textContent = "$" + element_.sell_price;
-                    nuevoLibro.querySelector('.nombre').textContent = element_.name;
-                    nuevoLibro.querySelector('.favorito').onclick = async function(event) {
-                        let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
-                        if(idUser == ""){
-                            addToWishlist(element_.name, element_.sell_price, element_.image, element_.stock);
-                        }else{
-                            console.log('1');
-                            addToWishlistUser(element_.id);
+                console.log(data, 'aqui', data.length);
+            if (data.length == 0) 
+            {
+                Swal.fire({
+                    icon: "error",
+                    iconColor: "#ED5584",
+                    title: "Oops...",
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    html: 
+                    `
+                    <p class="text-center pe-3 ps-3">Al parecer no hay resultados de la busqueda, preciona 'limpiar' para cargar todo o trata otra categoria de filtro.</p>
+                    `
+                  }).then(
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2500)
+                  );
+                  
+            }
+            else
+            {
+                data.forEach(element_ => {
+                    const contenedorLibros = document.getElementById('contenedor-libros');
+                    const libroSinDescuento = document.querySelector('.libroPNormal');
+                    const libroConDescuento = document.querySelector('.libroPDescuento');
+                    const total = document.querySelector('.totalLibros');
+                    // Verificar si hay más elementos en el JSON
+                        // Clonar el elemento de plantilla para el nuevo libro
+                        //let nuevoLibro = libroSinDescuento.cloneNode(true);
+                        let nuevoLibro;
+    
+                        if (element_.sell_price <= 25.0) {
+                            nuevoLibro = libroSinDescuento.cloneNode(true);
+                        } else {
+                            nuevoLibro = libroConDescuento.cloneNode(true);
                         }
+                        nuevoLibro.style.display = ''; // Mostrar el nuevo libro
+    
+                        // Actualizar contenido con la información del libro actual
+                        nuevoLibro.querySelector('#imagen').setAttribute('src', element_.image);
+                        nuevoLibro.querySelector('#imagen').onclick = function(event) {
+                            mostrarInformacionLibro(event, element_);
+                        };
+                        nuevoLibro.querySelector('.precio').textContent = "$" + element_.sell_price;
+                        nuevoLibro.querySelector('.nombre').textContent = element_.name;
+                        nuevoLibro.querySelector('.favorito').onclick = async function(event) {
+                            let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+                            if(idUser == ""){
+                                addToWishlist(element_.name, element_.sell_price, element_.image, element_.stock);
+                            }else{
+                                console.log('1');
+                                addToWishlistUser(element_.id);
+                            }
+                            
+                        };
+                        nuevoLibro.querySelector('.carrito').onclick = function(event) {
+                            let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
+                            if(idUser == ""){
+                                agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock);
+                            }else{
+                                addShoppingCarUser(element_.id, element_.sell_price, cantidad);
+                            }
                         
-                    };
-                    nuevoLibro.querySelector('.carrito').onclick = function(event) {
-                        let idUser = JSON.parse(localStorage.getItem('userInfo')) || "";
-                        if(idUser == ""){
-                            agregarCarrito(element_.name, element_.sell_price, element_.image, element_.stock);
-                        }else{
-                            addShoppingCarUser(element_.id, element_.sell_price, cantidad);
-                        }
-                    
-                    };
-                    // Agregar el nuevo libro al contenedor de libros
-                    contenedorLibros.appendChild(nuevoLibro);
-
-                    // Llamar recursivamente para el siguiente libro
-                    total.textContent = data.length + " Libros";
-            });
+                        };
+                        // Agregar el nuevo libro al contenedor de libros
+                        contenedorLibros.appendChild(nuevoLibro);
+    
+                        // Llamar recursivamente para el siguiente libro
+                        total.textContent = data.length + " Libros";
+                });
+            }
+            
         })
         .catch(function (err) {
             console.log(err);

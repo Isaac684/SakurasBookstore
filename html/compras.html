@@ -147,6 +147,7 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> 
     <script src="../script/paises.js"></script>
     <script>
@@ -184,7 +185,7 @@
         var formularioHTML = "";
         switch (metodoDePago) {
             case "credit":
-                formularioHTML = `
+            formularioHTML = `
                 <div class="row gy-3">
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">Nombre en la tarjeta de credito</label>
@@ -318,12 +319,12 @@ function cargarDatosCarrito() {
         localStorage.removeItem('carrito');
         Swal.fire({
                 icon: 'success',
-                title: '¡Pago realizado con exito!',
+                title: '¡Pago realizado con exito! Gracias por tu compra, recibiras un email pronto con la informacion de tu transaccion.',
                 showCloseButton: true,
-                showCancelButton: true,
+                showCancelButton: false,
                 focusConfirm: false,
                 confirmButtonText: `
-                <a class="nav-link" aria-current="page" href="../html/historialCompras.html">OK</a>
+                <a class="nav-link" aria-current="page" href="../html/index.html">OK</a>
                 `,
               });
     });
